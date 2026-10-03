@@ -1,0 +1,17 @@
+- toolbar "Text formatting":
+  - button "Bold"
+  - button "Italic"
+  - button "Underline"
+  - button "Strikethrough"
+  - button "Link"
+  - button "Numbered List"
+  - button "Bulleted List"
+  - button "Blockquote"
+  - button "Code"
+  - button "Code Block"
+- button "ATTACHMENTS"
+- textbox "Type a message"
+- button "EMOJI"
+- button "Sticker"
+- button "VOICE_RECORDING"
+- button "SEND" [disabled]

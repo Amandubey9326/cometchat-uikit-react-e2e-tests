@@ -1,0 +1,12 @@
+- region "Users":
+  - text: Users
+  - search:
+    - searchbox "Search"
+- img
+- text: Chats
+- img
+- text: Calls
+- img
+- text: Users
+- img
+- text: Groups Select a user to start chatting Choose from your existing conversations or start a new one.

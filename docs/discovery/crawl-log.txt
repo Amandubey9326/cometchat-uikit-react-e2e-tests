@@ -1,0 +1,24 @@
+[ws open] ws://localhost:3105/
+[ws open] ws://localhost:3105/
+[console.warning] 2026-09-27T12:13:32.298Z [JitsiMeetJS.ts] <Object.init>:  Analytics disabled, disposing.
+[ws open] wss://<APP_ID>.websocket-us.cc-cluster-2.io/
+[step ok] tab Calls
+[step ok] tab Users
+[step ok] tab Groups
+[step ok] tab Chats
+[step ok] conversations header menu
+[step ok] global search
+[step ok] open first conversation
+[step ok] composer attachment menu
+[step ok] header + composer trees
+[step ok] composer emoji keyboard
+[step ok] composer stickers keyboard
+[step ok] composer mention suggestions (typed, not sent)
+[step ok] message hover + options menu
+[step ok] message reaction picker
+[step ok] message header search
+[step ok] user details panel
+[step ok] users tab → open user
+[step ok] groups tab → open group + details
+[step ok] create group dialog
+[step ok] call logs → details

@@ -1,0 +1,133 @@
+- region "Groups":
+  - text: Groups
+  - button "Create group"
+  - search:
+    - searchbox "Search"
+  - listbox "Groups list":
+    - option "Hiking Group Private group Hiking Group 5 Members" [selected]:
+      - img "Hiking Group":
+        - img "Hiking Group"
+      - img "Private group"
+      - text: Hiking Group 5 Members
+    - option "new group new group 5 Members":
+      - img "new group": NG
+      - text: new group 5 Members
+    - option "oko oko 3 Members":
+      - img "oko": OK
+      - text: oko 3 Members
+    - option "hello india hello india 5 Members":
+      - img "hello india": HI
+      - text: hello india 5 Members
+    - option "new group new group 2 Members":
+      - img "new group": NG
+      - text: new group 2 Members
+    - option "hdsfl hdsfl 3 Members":
+      - img "hdsfl": HD
+      - text: hdsfl 3 Members
+    - option "new group new group 2 Members":
+      - img "new group": NG
+      - text: new group 2 Members
+    - option "new group new group 5 Members":
+      - img "new group": NG
+      - text: new group 5 Members
+    - option "new grou new grou 3 Members":
+      - img "new grou": NG
+      - text: new grou 3 Members
+    - option "new testing new testing 2 Members":
+      - img "new testing": NT
+      - text: new testing 2 Members
+    - option "ENG-39501 QA 1790080087 ENG-39501 QA 1790080087 2 Members":
+      - img "ENG-39501 QA 1790080087": EQ
+      - text: ENG-39501 QA 1790080087 2 Members
+    - option "ENG-39501 QA 1790080959 ENG-39501 QA 1790080959 2 Members":
+      - img "ENG-39501 QA 1790080959": EQ
+      - text: ENG-39501 QA 1790080959 2 Members
+    - option "lgkfd lgkfd 1 Member":
+      - img "lgkfd": LG
+      - text: lgkfd 1 Member
+    - option "oxxxk okokokookkokoko oxxxk okokokookkokoko 4 Members":
+      - img "oxxxk okokokookkokoko": OO
+      - text: oxxxk okokokookkokoko 4 Members
+    - option "ENG-39504 QA 593647 ENG-39504 QA 593647 2 Members":
+      - img "ENG-39504 QA 593647": EQ
+      - text: ENG-39504 QA 593647 2 Members
+    - option "QA39504 109859 QA39504 109859 1 Member":
+      - img "QA39504 109859": Q1
+      - text: QA39504 109859 1 Member
+    - option "QA39504B 52649 QA39504B 52649 1 Member":
+      - img "QA39504B 52649": Q5
+      - text: QA39504B 52649 1 Member
+    - option "QA39504C 99858 QA39504C 99858 1 Member":
+      - img "QA39504C 99858": Q9
+      - text: QA39504C 99858 1 Member
+    - option "QA39504D 60631 QA39504D 60631 2 Members":
+      - img "QA39504D 60631": Q6
+      - text: QA39504D 60631 2 Members
+    - option "ENG39596 QA Owner ENG39596 QA Owner 3 Members":
+      - img "ENG39596 QA Owner": EQ
+      - text: ENG39596 QA Owner 3 Members
+    - option "QA39535 Group 01 QA39535 Group 01 1 Member":
+      - img "QA39535 Group 01": QG
+      - text: QA39535 Group 01 1 Member
+    - option "QA39535 Group 02 QA39535 Group 02 1 Member":
+      - img "QA39535 Group 02": QG
+      - text: QA39535 Group 02 1 Member
+    - option "QA39535 Group 03 QA39535 Group 03 1 Member":
+      - img "QA39535 Group 03": QG
+      - text: QA39535 Group 03 1 Member
+    - option "QA39535 Group 04 QA39535 Group 04 1 Member":
+      - img "QA39535 Group 04": QG
+      - text: QA39535 Group 04 1 Member
+    - option "QA39535 Group 05 QA39535 Group 05 1 Member":
+      - img "QA39535 Group 05": QG
+      - text: QA39535 Group 05 1 Member
+    - option "QA39535 Group 06 QA39535 Group 06 1 Member":
+      - img "QA39535 Group 06": QG
+      - text: QA39535 Group 06 1 Member
+    - option "QA39535 Group 07 QA39535 Group 07 1 Member":
+      - img "QA39535 Group 07": QG
+      - text: QA39535 Group 07 1 Member
+    - option "QA39535 Group 08 QA39535 Group 08 1 Member":
+      - img "QA39535 Group 08": QG
+      - text: QA39535 Group 08 1 Member
+    - option "QA39535 Group 09 QA39535 Group 09 1 Member":
+      - img "QA39535 Group 09": QG
+      - text: QA39535 Group 09 1 Member
+    - option "QA39535 Group 10 QA39535 Group 10 1 Member":
+      - img "QA39535 Group 10": QG
+      - text: QA39535 Group 10 1 Member
+- img
+- text: Chats
+- img
+- text: Calls
+- img
+- text: Users
+- img
+- text: Groups
+- banner "Hiking Group, 5 Members":
+  - button "Hiking Group. Click for details":
+    - img "Hiking Group":
+      - img "Hiking Group"
+    - text: Hiking Group 5 Members
+  - button "Voice call"
+  - button "Video call"
+  - button "Search"
+- region "Message list":
+  - log "Message list"
+- toolbar "Text formatting":
+  - button "Bold"
+  - button "Italic"
+  - button "Underline"
+  - button "Strikethrough"
+  - button "Link"
+  - button "Numbered List"
+  - button "Bulleted List"
+  - button "Blockquote"
+  - button "Code"
+  - button "Code Block"
+- button "ATTACHMENTS"
+- textbox "Type a message"
+- button "EMOJI"
+- button "Sticker"
+- button "VOICE_RECORDING"
+- button "SEND" [disabled]

@@ -1,0 +1,8 @@
+- article "George Alan, text message":
+  - toolbar:
+    - button "React"
+    - button "Reply"
+    - button "More options"
+  - text: h
+  - status:
+    - time: 06:59 pm

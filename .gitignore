@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+blob-report/
+.auth/
+.DS_Store
+.app-build/
+reports/

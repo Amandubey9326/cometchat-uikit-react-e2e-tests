@@ -1,0 +1,418 @@
+- region "Chats":
+  - text: Chats
+  - button "More options"
+  - search:
+    - searchbox "Search"
+  - listbox "Conversations list":
+    - option "George Alan George Alan h September 25, 2026 at 6:59 PM" [selected]:
+      - img "George Alan":
+        - img "George Alan"
+      - text: George Alan h
+      - time: Friday
+    - option "Nancy Grace Nancy Grace Message delivered hello September 25, 2026 at 6:38 PM":
+      - img "Nancy Grace":
+        - img "Nancy Grace"
+      - text: Nancy Grace hello
+      - time: Friday
+    - 'option "ENG39596 QA Owner ENG39596 QA Owner George Alan: Sticker September 25, 2026 at 6:26 PM"':
+      - img "ENG39596 QA Owner": EQ
+      - text: "ENG39596 QA Owner George Alan: Sticker"
+      - time: Friday
+    - 'option "Hiking Group Private group Hiking Group Nancy Grace: Nancy realtime check 2 September 25, 2026 at 2:13 PM"':
+      - img "Hiking Group":
+        - img "Hiking Group"
+      - text: "Hiking Group Nancy Grace: Nancy realtime check 2"
+      - time: Friday
+    - option "QA39535 User 05 QA39535 User 05 Message sent pagination seed qa39535-u05 September 24, 2026 at 12:16 PM":
+      - img "QA39535 User 05": QU
+      - text: QA39535 User 05 pagination seed qa39535-u05
+      - time: Thursday
+    - option "QA39535 User 04 QA39535 User 04 Message sent pagination seed qa39535-u04 September 24, 2026 at 12:16 PM":
+      - img "QA39535 User 04": QU
+      - text: QA39535 User 04 pagination seed qa39535-u04
+      - time: Thursday
+    - option "QA39535 User 03 QA39535 User 03 Message sent pagination seed qa39535-u03 September 24, 2026 at 12:16 PM":
+      - img "QA39535 User 03": QU
+      - text: QA39535 User 03 pagination seed qa39535-u03
+      - time: Thursday
+    - option "QA39535 User 02 QA39535 User 02 Message sent pagination seed qa39535-u02 September 24, 2026 at 12:16 PM":
+      - img "QA39535 User 02": QU
+      - text: QA39535 User 02 pagination seed qa39535-u02
+      - time: Thursday
+    - 'option "QA39535 Group 15 QA39535 Group 15 Message sent You: pagination seed qa39535-g15 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 15": QG
+      - text: "QA39535 Group 15 You: pagination seed qa39535-g15"
+      - time: Thursday
+    - option "QA39535 User 01 QA39535 User 01 Message sent pagination seed qa39535-u01 September 24, 2026 at 12:15 PM":
+      - img "QA39535 User 01": QU
+      - text: QA39535 User 01 pagination seed qa39535-u01
+      - time: Thursday
+    - 'option "QA39535 Group 14 QA39535 Group 14 Message sent You: pagination seed qa39535-g14 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 14": QG
+      - text: "QA39535 Group 14 You: pagination seed qa39535-g14"
+      - time: Thursday
+    - 'option "QA39535 Group 13 QA39535 Group 13 Message sent You: pagination seed qa39535-g13 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 13": QG
+      - text: "QA39535 Group 13 You: pagination seed qa39535-g13"
+      - time: Thursday
+    - 'option "QA39535 Group 12 QA39535 Group 12 Message sent You: pagination seed qa39535-g12 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 12": QG
+      - text: "QA39535 Group 12 You: pagination seed qa39535-g12"
+      - time: Thursday
+    - 'option "QA39535 Group 11 QA39535 Group 11 Message sent You: pagination seed qa39535-g11 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 11": QG
+      - text: "QA39535 Group 11 You: pagination seed qa39535-g11"
+      - time: Thursday
+    - 'option "QA39535 Group 10 QA39535 Group 10 Message sent You: pagination seed qa39535-g10 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 10": QG
+      - text: "QA39535 Group 10 You: pagination seed qa39535-g10"
+      - time: Thursday
+    - 'option "QA39535 Group 09 QA39535 Group 09 Message sent You: pagination seed qa39535-g09 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 09": QG
+      - text: "QA39535 Group 09 You: pagination seed qa39535-g09"
+      - time: Thursday
+    - 'option "QA39535 Group 08 QA39535 Group 08 Message sent You: pagination seed qa39535-g08 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 08": QG
+      - text: "QA39535 Group 08 You: pagination seed qa39535-g08"
+      - time: Thursday
+    - 'option "QA39535 Group 07 QA39535 Group 07 Message sent You: pagination seed qa39535-g07 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 07": QG
+      - text: "QA39535 Group 07 You: pagination seed qa39535-g07"
+      - time: Thursday
+    - 'option "QA39535 Group 06 QA39535 Group 06 Message sent You: pagination seed qa39535-g06 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 06": QG
+      - text: "QA39535 Group 06 You: pagination seed qa39535-g06"
+      - time: Thursday
+    - 'option "QA39535 Group 05 QA39535 Group 05 Message sent You: pagination seed qa39535-g05 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 05": QG
+      - text: "QA39535 Group 05 You: pagination seed qa39535-g05"
+      - time: Thursday
+    - 'option "QA39535 Group 04 QA39535 Group 04 Message sent You: pagination seed qa39535-g04 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 04": QG
+      - text: "QA39535 Group 04 You: pagination seed qa39535-g04"
+      - time: Thursday
+    - 'option "QA39535 Group 03 QA39535 Group 03 Message sent You: pagination seed qa39535-g03 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 03": QG
+      - text: "QA39535 Group 03 You: pagination seed qa39535-g03"
+      - time: Thursday
+    - 'option "QA39535 Group 02 QA39535 Group 02 Message sent You: pagination seed qa39535-g02 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 02": QG
+      - text: "QA39535 Group 02 You: pagination seed qa39535-g02"
+      - time: Thursday
+    - 'option "QA39535 Group 01 QA39535 Group 01 Message sent You: pagination seed qa39535-g01 September 24, 2026 at 12:15 PM"':
+      - img "QA39535 Group 01": QG
+      - text: "QA39535 Group 01 You: pagination seed qa39535-g01"
+      - time: Thursday
+    - option "QA39504D 60631 QA39504D 60631 Andrew Joseph added John Paul September 23, 2026 at 2:22 PM":
+      - img "QA39504D 60631": Q6
+      - text: QA39504D 60631 Andrew Joseph added John Paul
+      - time: Wednesday
+    - option "QA39504C 99858 QA39504C 99858 Click to start conversation":
+      - img "QA39504C 99858": Q9
+      - text: QA39504C 99858 Click to start conversation
+    - option "new testing new testing Nancy Grace joined September 23, 2026 at 2:21 PM 1 unread messages":
+      - img "new testing": NT
+      - text: new testing Nancy Grace joined
+      - time: Wednesday
+      - text: "1"
+    - option "QA39504B 52649 QA39504B 52649 Click to start conversation":
+      - img "QA39504B 52649": Q5
+      - text: QA39504B 52649 Click to start conversation
+    - option "QA39504 109859 QA39504 109859 Andrew Joseph banned John Paul September 23, 2026 at 2:16 PM":
+      - img "QA39504 109859": Q1
+      - text: QA39504 109859 Andrew Joseph banned John Paul
+      - time: Wednesday
+    - option "ENG-39504 QA 593647 ENG-39504 QA 593647 Andrew Joseph added Nancy Grace September 23, 2026 at 2:07 PM":
+      - img "ENG-39504 QA 593647": EQ
+      - text: ENG-39504 QA 593647 Andrew Joseph added Nancy Grace
+      - time: Wednesday
+- img
+- text: Chats
+- img
+- text: Calls
+- img
+- text: Users
+- img
+- text: Groups
+- banner "George Alan, Offline":
+  - button "George Alan. Click for details":
+    - img "George Alan":
+      - img "George Alan"
+    - text: George Alan Last seen 25 Sep at 7:27 PM
+  - button "Voice call"
+  - button "Video call"
+  - button "Search"
+- region "Message list":
+  - log "Message list":
+    - separator "Date separator":
+      - time: Friday
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ghgh
+      - status:
+        - time: 06:44 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: jc
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: cjfjfjfjf
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fjf
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: j
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fjfj
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fjf
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "1"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "2"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "3"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "4"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "6"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "8"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "9"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "10"
+      - status:
+        - time: 06:45 pm
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: hello
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ssff
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ffffjfffjfjf
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fffjffjf
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ffffjfffjffffj
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: dhufh
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fdfdhffh
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fdhfdf
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: mn
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: helo
+      - status:
+        - time: 06:49 pm
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: hdif
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: kjfg
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fkj
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: hello
+      - status:
+        - time: 06:50 pm
+        - img "Read"
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: h
+      - status:
+        - time: 06:59 pm
+- toolbar "Text formatting":
+  - button "Bold"
+  - button "Italic"
+  - button "Underline"
+  - button "Strikethrough"
+  - button "Link"
+  - button "Numbered List"
+  - button "Bulleted List"
+  - button "Blockquote"
+  - button "Code"
+  - button "Code Block"
+- button "ATTACHMENTS"
+- textbox "Type a message"
+- button "EMOJI"
+- button "Sticker"
+- button "VOICE_RECORDING"
+- button "SEND" [disabled]

@@ -1,0 +1,120 @@
+name: E2E — CometChat UIKit v7
+
+# Suites
+#   smoke          every push / PR — @smoke on Chromium, Firefox, WebKit
+#   regression     nightly + manual — every project on the default grep (Chromium full, calls, tablet, mobile,
+#                  @smoke|@critical on Firefox + WebKit), then the coverage matrix
+#   visual-update  manual — regenerate Linux visual baselines and upload them to commit
+#
+# Required secrets: COMETCHAT_APP_ID, COMETCHAT_REGION, COMETCHAT_AUTH_KEY, COMETCHAT_API_KEY
+#                   (the shared prod app) and UIKIT_REPO_TOKEN (read access to cometchat-team/uikit-react).
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+    inputs:
+      suite:
+        description: smoke | regression | visual-update
+        default: regression
+        required: true
+
+# One run at a time: every run shares one CometChat app with a 100-user plan (ENV-002).
+concurrency:
+  group: cometchat-prod-e2e
+  cancel-in-progress: false
+
+env:
+  COMETCHAT_ENV: prod
+  COMETCHAT_APP_ID: ${{ secrets.COMETCHAT_APP_ID }}
+  COMETCHAT_REGION: ${{ secrets.COMETCHAT_REGION }}
+  COMETCHAT_AUTH_KEY: ${{ secrets.COMETCHAT_AUTH_KEY }}
+  COMETCHAT_API_KEY: ${{ secrets.COMETCHAT_API_KEY }}
+  APP_DIR: ${{ github.workspace }}/uikit-react/sample-app
+  UIKIT_DIR: ${{ github.workspace }}/uikit-react
+  PW_WORKERS: '2'
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Check out the framework
+        uses: actions/checkout@v4
+        with:
+          path: framework
+
+      - name: Check out the app under test (UIKit repo, sample app)
+        uses: actions/checkout@v4
+        with:
+          repository: cometchat-team/uikit-react
+          ref: master-v7
+          token: ${{ secrets.UIKIT_REPO_TOKEN }}
+          path: uikit-react
+
+      - name: Apply the sample-app E2E hooks (env-driven credentials, locale)
+        run: git -C uikit-react apply "$GITHUB_WORKSPACE/framework/app-patches/sample-app-e2e-hooks.patch"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            framework/package-lock.json
+            uikit-react/sample-app/package-lock.json
+
+      - name: Install
+        run: |
+          npm ci --prefix framework
+          npm ci --prefix uikit-react/sample-app
+          cd framework && npx playwright install --with-deps chromium firefox webkit
+
+      - name: Lint and typecheck
+        working-directory: framework
+        run: npm run lint && npm run typecheck
+
+      - name: Smoke (all browsers)
+        if: github.event_name == 'push' || github.event_name == 'pull_request' || inputs.suite == 'smoke'
+        working-directory: framework
+        run: npx playwright test --grep @smoke --project=chromium --project=firefox --project=webkit
+
+      - name: Regression (all projects)
+        if: github.event_name == 'schedule' || inputs.suite == 'regression'
+        working-directory: framework
+        # Visual baselines are platform-specific; they run once Linux baselines are committed.
+        run: npx playwright test --grep-invert @visual
+
+      - name: Update Linux visual baselines
+        if: inputs.suite == 'visual-update'
+        working-directory: framework
+        run: npm run test:visual:update
+
+      - name: Coverage matrix
+        if: always() && (github.event_name == 'schedule' || inputs.suite == 'regression')
+        working-directory: framework
+        run: npm run coverage:matrix
+
+      - name: Upload report, results, traces and videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-${{ github.run_id }}
+          retention-days: 14
+          path: |
+            framework/playwright-report
+            framework/reports
+            framework/test-results
+            framework/docs/coverage-matrix.md
+
+      - name: Upload new visual baselines
+        if: inputs.suite == 'visual-update'
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-baselines-linux
+          path: framework/tests/visual/*-snapshots
+
+      # No blanket cleanup here: `npm run cleanup` deletes every pw-* record, including another run's.
+      # Each run's global teardown deletes its own data; the 24 h sweeper catches crashed runs.

@@ -1,0 +1,59 @@
+import { expect, test } from '@fixtures/test.fixture';
+import { CredentialsPage } from '@pages/auth/CredentialsPage';
+import { CreateGroupDialog } from '@pages/groups/GroupDialogs';
+
+/**
+ * Visual regression of screens that hold no per-run data (test users get random names, so chat
+ * screens are compared element by element, never with names in view).
+ * Baselines are per platform: create them with `npx playwright test --grep @visual --update-snapshots`
+ * (and once more inside the CI image for Linux).
+ */
+const opts = { maxDiffPixelRatio: 0.01 };
+
+test.describe('Visual', { tag: ['@visual', '@regression'] }, () => {
+  test('VIS-01 credentials screen', async ({ page }) => {
+    await page.goto('/');
+    await new CredentialsPage(page).expectVisible();
+
+    await expect(page).toHaveScreenshot('credentials.png', opts);
+  });
+
+  test('VIS-02 empty Chats for a new user', async ({ data, loginAs }) => {
+    const { app, page } = await loginAs(await data.user('fresh'));
+    await expect(app.conversations.emptyState).toBeVisible();
+
+    await expect(page).toHaveScreenshot('home-empty-light.png', opts);
+  });
+
+  test('VIS-03 New Group dialog', async ({ alice }) => {
+    await alice.app.home.openTab('groups');
+    await alice.app.groups.createGroupButton.click();
+    const dialog = new CreateGroupDialog(alice.page).dialog;
+    await expect(dialog).toBeVisible();
+
+    await expect(dialog).toHaveScreenshot('new-group-dialog.png', opts);
+  });
+
+  test('VIS-04/05/06 composer, emoji keyboard and attachment sheet', async ({ alice, data }) => {
+    await alice.app.openChatWith(await data.user('peer'));
+    const composer = alice.page.locator('.cometchat-composer-wrapper');
+
+    await expect(composer).toHaveScreenshot('composer.png', opts);
+    await alice.app.composer.emojiButton.click();
+    await expect(alice.app.emojiKeyboard.dialog).toHaveScreenshot('emoji-keyboard.png', opts);
+    await alice.app.composer.emojiButton.click();
+    await alice.app.composer.attachmentsButton.click();
+    await expect(alice.app.composer.attachmentSheet).toHaveScreenshot('attachment-sheet.png', opts);
+  });
+
+  test.describe('dark', () => {
+    test.use({ colorScheme: 'dark' });
+
+    test('VIS-07 empty Chats, dark theme', async ({ data, loginAs }) => {
+      const { app, page } = await loginAs(await data.user('fresh'));
+      await expect(app.conversations.emptyState).toBeVisible();
+
+      await expect(page).toHaveScreenshot('home-empty-dark.png', opts);
+    });
+  });
+});

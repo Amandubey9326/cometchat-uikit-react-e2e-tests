@@ -1,0 +1,13 @@
+- region "Groups":
+  - text: Groups
+  - button "Create group"
+  - search:
+    - searchbox "Search"
+- img
+- text: Chats
+- img
+- text: Calls
+- img
+- text: Users
+- img
+- text: Groups Select a group to start chatting Choose from your existing conversations or start a new one.

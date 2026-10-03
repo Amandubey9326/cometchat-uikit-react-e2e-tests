@@ -1,0 +1,16 @@
+- img "CometChat"
+- text: Sign in to CometChat Using our sample users
+- img "Andrew Joseph's avatar"
+- text: Andrew Joseph cometchat-uid-1
+- img "George Alan's avatar"
+- text: George Alan cometchat-uid-2
+- img "Nancy Grace's avatar"
+- text: Nancy Grace cometchat-uid-3
+- img "Susan Marie's avatar"
+- text: Susan Marie cometchat-uid-4
+- img "John Paul's avatar"
+- text: John Paul cometchat-uid-5 Or Your UID
+- textbox "Your UID":
+  - /placeholder: Enter your UID
+- button "Login"
+- text: Change App Credentials

@@ -1,0 +1,14 @@
+- region "Chats":
+  - text: Chats
+  - button "More options"
+  - search:
+    - searchbox "Search"
+  - status "Loading conversations"
+- img
+- text: Chats
+- img
+- text: Calls
+- img
+- text: Users
+- img
+- text: Groups No conversation selected Choose from your existing conversations or start a new one.

@@ -1,0 +1,27 @@
+- region "Chats":
+  - text: Chats
+  - button "More options"
+  - search:
+    - searchbox "Search"
+  - status "Loading conversations"
+- search "Search":
+  - button "Back"
+  - search:
+    - searchbox "Search"
+  - toolbar "Search":
+    - button "Audio"
+    - button "Documents"
+    - button "Groups"
+    - button "Photos"
+    - button "Videos"
+    - button "Links"
+    - button "Unread"
+  - text: Start Your Search Search for conversations or messages by typing a keyword above.
+- img
+- text: Chats
+- img
+- text: Calls
+- img
+- text: Users
+- img
+- text: Groups No conversation selected Choose from your existing conversations or start a new one.

@@ -1,0 +1,133 @@
+- region "Users":
+  - text: Users
+  - search:
+    - searchbox "Search"
+  - listbox "Users list":
+    - option "George Alan George Alan" [selected]:
+      - img "George Alan":
+        - img "George Alan"
+      - text: George Alan
+    - option "John Paul John Paul":
+      - img "John Paul":
+        - img "John Paul"
+      - text: John Paul
+    - option "Nancy Grace Nancy Grace":
+      - img "Nancy Grace":
+        - img "Nancy Grace"
+      - text: Nancy Grace
+    - option "qa-user-1 qa-user-1":
+      - img "qa-user-1": QA
+      - text: qa-user-1
+    - option "qa-user-2 qa-user-2":
+      - img "qa-user-2": QA
+      - text: qa-user-2
+    - option "QA39535 User 01 QA39535 User 01":
+      - img "QA39535 User 01": QU
+      - text: QA39535 User 01
+    - option "QA39535 User 02 QA39535 User 02":
+      - img "QA39535 User 02": QU
+      - text: QA39535 User 02
+    - option "QA39535 User 03 QA39535 User 03":
+      - img "QA39535 User 03": QU
+      - text: QA39535 User 03
+    - option "QA39535 User 04 QA39535 User 04":
+      - img "QA39535 User 04": QU
+      - text: QA39535 User 04
+    - option "QA39535 User 05 QA39535 User 05":
+      - img "QA39535 User 05": QU
+      - text: QA39535 User 05
+    - option "QA39535 User 06 QA39535 User 06":
+      - img "QA39535 User 06": QU
+      - text: QA39535 User 06
+    - option "QA39535 User 07 QA39535 User 07":
+      - img "QA39535 User 07": QU
+      - text: QA39535 User 07
+    - option "QA39535 User 08 QA39535 User 08":
+      - img "QA39535 User 08": QU
+      - text: QA39535 User 08
+    - option "QA39535 User 09 QA39535 User 09":
+      - img "QA39535 User 09": QU
+      - text: QA39535 User 09
+    - option "QA39535 User 10 QA39535 User 10":
+      - img "QA39535 User 10": QU
+      - text: QA39535 User 10
+    - option "QA39535 User 11 QA39535 User 11":
+      - img "QA39535 User 11": QU
+      - text: QA39535 User 11
+    - option "QA39535 User 12 QA39535 User 12":
+      - img "QA39535 User 12": QU
+      - text: QA39535 User 12
+    - option "QA39535 User 13 QA39535 User 13":
+      - img "QA39535 User 13": QU
+      - text: QA39535 User 13
+    - option "QA39535 User 14 QA39535 User 14":
+      - img "QA39535 User 14": QU
+      - text: QA39535 User 14
+    - option "QA39535 User 15 QA39535 User 15":
+      - img "QA39535 User 15": QU
+      - text: QA39535 User 15
+    - option "QA39535 User 16 QA39535 User 16":
+      - img "QA39535 User 16": QU
+      - text: QA39535 User 16
+    - option "QA39535 User 17 QA39535 User 17":
+      - img "QA39535 User 17": QU
+      - text: QA39535 User 17
+    - option "QA39535 User 18 QA39535 User 18":
+      - img "QA39535 User 18": QU
+      - text: QA39535 User 18
+    - option "QA39535 User 19 QA39535 User 19":
+      - img "QA39535 User 19": QU
+      - text: QA39535 User 19
+    - option "QA39535 User 20 QA39535 User 20":
+      - img "QA39535 User 20": QU
+      - text: QA39535 User 20
+    - option "QA39535 User 21 QA39535 User 21":
+      - img "QA39535 User 21": QU
+      - text: QA39535 User 21
+    - option "QA39535 User 22 QA39535 User 22":
+      - img "QA39535 User 22": QU
+      - text: QA39535 User 22
+    - option "QA39535 User 23 QA39535 User 23":
+      - img "QA39535 User 23": QU
+      - text: QA39535 User 23
+    - option "QA39535 User 24 QA39535 User 24":
+      - img "QA39535 User 24": QU
+      - text: QA39535 User 24
+    - option "QA39535 User 25 QA39535 User 25":
+      - img "QA39535 User 25": QU
+      - text: QA39535 User 25
+- img
+- text: Chats
+- img
+- text: Calls
+- img
+- text: Users
+- img
+- text: Groups
+- banner "George Alan, Offline":
+  - button "George Alan. Click for details":
+    - img "George Alan":
+      - img "George Alan"
+    - text: George Alan Last seen 25 Sep at 7:27 PM
+  - button "Voice call"
+  - button "Video call"
+  - button "Search"
+- region "Message list":
+  - log "Message list"
+- toolbar "Text formatting":
+  - button "Bold"
+  - button "Italic"
+  - button "Underline"
+  - button "Strikethrough"
+  - button "Link"
+  - button "Numbered List"
+  - button "Bulleted List"
+  - button "Blockquote"
+  - button "Code"
+  - button "Code Block"
+- button "ATTACHMENTS"
+- textbox "Type a message"
+- button "EMOJI"
+- button "Sticker"
+- button "VOICE_RECORDING"
+- button "SEND" [disabled]

@@ -1,0 +1,257 @@
+- region "Message list":
+  - log "Message list":
+    - separator "Date separator":
+      - time: Friday
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ghgh
+      - status:
+        - time: 06:44 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: jc
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: cjfjfjfjf
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fjf
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: j
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fjfj
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fjf
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "1"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "2"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "3"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "4"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "6"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "8"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "9"
+      - status:
+        - time: 06:45 pm
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: "10"
+      - status:
+        - time: 06:45 pm
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: hello
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ssff
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ffffjfffjfjf
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fffjffjf
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: ffffjfffjffffj
+      - status:
+        - time: 06:48 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: dhufh
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fdfdhffh
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fdhfdf
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: mn
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: helo
+      - status:
+        - time: 06:49 pm
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: hdif
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: kjfg
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: fkj
+      - status:
+        - time: 06:49 pm
+        - img "Read"
+    - article "Andrew Joseph, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: hello
+      - status:
+        - time: 06:50 pm
+        - img "Read"
+    - article "George Alan, text message":
+      - toolbar:
+        - button "React"
+        - button "Reply"
+        - button "More options"
+      - text: h
+      - status:
+        - time: 06:59 pm

@@ -1,0 +1,38 @@
+{
+  "name": "cometchat-uikit-v7-e2e",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Playwright + TypeScript POM E2E framework for CometChat React UIKit v7 (sample app)",
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:critical": "playwright test --grep @critical",
+    "test:regression": "playwright test --grep @regression",
+    "test:chromium": "playwright test --project=chromium",
+    "test:calls": "playwright test --project=calls",
+    "test:responsive": "playwright test --project=tablet --project=mobile",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "cleanup": "PW_CLEANUP=1 playwright test --project=cleanup",
+    "discover": "playwright test --config discovery/playwright.discovery.config.ts",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "coverage:matrix": "python3 scripts/coverage_matrix.py docs/coverage-matrix.md reports/results.json",
+    "test:cross-browser": "playwright test --project=chromium --project=firefox --project=webkit --grep \"@smoke|@critical\"",
+    "test:localization": "playwright test --grep @localization --project=chromium",
+    "test:visual": "playwright test --grep @visual --project=chromium",
+    "test:visual:update": "playwright test --grep @visual --project=chromium --update-snapshots",
+    "app:patch": "git -C \"${UIKIT_DIR:-$HOME/uikit-react}\" apply \"$PWD/app-patches/sample-app-e2e-hooks.patch\""
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^9.39.5",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.4",
+    "dotenv": "^16.6.1",
+    "eslint": "^9.39.5",
+    "eslint-plugin-playwright": "^2.12.0",
+    "typescript": "~5.7.0",
+    "typescript-eslint": "^8.70.1"
+  }
+}

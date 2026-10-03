@@ -1,0 +1,75 @@
+diff --git a/sample-app/src/App.tsx b/sample-app/src/App.tsx
+index b4a5e2083..4cf0b111c 100644
+--- a/sample-app/src/App.tsx
++++ b/sample-app/src/App.tsx
+@@ -48,13 +48,16 @@ function App(props: IAppProps) {
+     const { appId, region, authKey } = getCredentials();
+     if (!appId || !region || !authKey) return;
+ 
+-    const settings = new UIKitSettingsBuilder()
++    const builder = new UIKitSettingsBuilder()
+       .setAppId(appId)
+       .setRegion(region)
+       .setAuthKey(authKey)
+       .subscribePresenceForAllUsers()
+-      .setCallingEnabled(true)
+-      .build();
++      .setCallingEnabled(true);
++    // Custom (staging) hosts; empty means the SDK's default production hosts.
++    if (COMETCHAT_CONSTANTS.CLIENT_HOST) builder.setClientHost(COMETCHAT_CONSTANTS.CLIENT_HOST);
++    if (COMETCHAT_CONSTANTS.ADMIN_HOST) builder.setAdminHost(COMETCHAT_CONSTANTS.ADMIN_HOST);
++    const settings = builder.build();
+ 
+     CometChatUIKit.init(settings)
+       .then(user => {
+diff --git a/sample-app/src/AppConstants.ts b/sample-app/src/AppConstants.ts
+index 1835db7f4..ceca11224 100644
+--- a/sample-app/src/AppConstants.ts
++++ b/sample-app/src/AppConstants.ts
+@@ -2,9 +2,21 @@
+  * CometChat SDK configuration constants.
+  * Update these values from your CometChat dashboard.
+  */
+-export const COMETCHAT_CONSTANTS = {
+-  APP_ID: '',
+-  REGION: '',
+-  AUTH_KEY: '',
+-};
++// export const COMETCHAT_CONSTANTS = {
++// };
++
++// stagging environment
+ 
++// Every value can be overridden with a VITE_COMETCHAT_* env var (used by the E2E
++// framework). An empty-string override clears it: an empty APP_ID shows the
++// credentials screen, and empty hosts fall back to the SDK's production hosts.
++const env = import.meta.env;
++const APP_ID: string = env.VITE_COMETCHAT_APP_ID ?? '';
++
++export const COMETCHAT_CONSTANTS = {
++  APP_ID,
++  REGION: (env.VITE_COMETCHAT_REGION ?? 'us') as string,
++  AUTH_KEY: (env.VITE_COMETCHAT_AUTH_KEY ?? '') as string,
++  CLIENT_HOST: (env.VITE_COMETCHAT_CLIENT_HOST ?? `${APP_ID}.apiclient-us.cometchat-staging.com/v3`) as string,
++  ADMIN_HOST: (env.VITE_COMETCHAT_ADMIN_HOST ?? `${APP_ID}.api-us.cc-cluster-2.io/v3`) as string,
++};
+\ No newline at end of file
+diff --git a/sample-app/src/index.tsx b/sample-app/src/index.tsx
+index 7d4f5e84c..f4059c819 100644
+--- a/sample-app/src/index.tsx
++++ b/sample-app/src/index.tsx
+@@ -16,4 +16,7 @@ try {
+ }
+ 
+ const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+-root.render(<App theme={getBrowserTheme()} />);
++// E2E hook: VITE_COMETCHAT_LOCALE (e.g. "fr") starts the app in that UI language; empty = en-us.
++const locale = import.meta.env.VITE_COMETCHAT_LOCALE || undefined;
++
++root.render(<App theme={getBrowserTheme()} locale={locale} />);
+diff --git a/sample-app/src/vite-env.d.ts b/sample-app/src/vite-env.d.ts
+new file mode 100644
+--- /dev/null
++++ b/sample-app/src/vite-env.d.ts
+@@ -0,0 +1 @@
++/// <reference types="vite/client" />

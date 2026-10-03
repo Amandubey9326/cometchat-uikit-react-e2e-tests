@@ -1,0 +1,8 @@
+- banner "George Alan, Offline":
+  - button "George Alan. Click for details":
+    - img "George Alan":
+      - img "George Alan"
+    - text: George Alan Last seen 25 Sep at 7:27 PM
+  - button "Voice call"
+  - button "Video call"
+  - button "Search"
