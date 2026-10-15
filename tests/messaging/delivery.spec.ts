@@ -199,6 +199,7 @@ test.describe('Message delivery', { tag: ['@messaging', '@regression'] }, () => 
   // OBS-019: AI moderation on this app holds new messages ("pending") and releases them late; they
   // then count as new and one scroll-to-bottom click can stop mid-list. Re-enable on an app without
   // async moderation, or once OBS-019 is understood.
+  // eslint-disable-next-line playwright/expect-expect -- placeholder until OBS-019 is resolved
   test.fixme('MSG-20 a new message while scrolled up is announced, and the button jumps to it', async () => {});
 
   test('MSG-22 a loading indicator is shown while a conversation loads', async ({ alice, data, api }) => {

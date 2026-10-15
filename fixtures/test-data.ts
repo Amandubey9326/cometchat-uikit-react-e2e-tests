@@ -32,9 +32,10 @@ export class TestData {
 
   constructor(private readonly api: CometChatApi) {}
 
-  async user(label = 'user'): Promise<TestUser> {
+  /** `name` overrides the generated display name (e.g. to test special characters). */
+  async user(label = 'user', { name }: { name?: string } = {}): Promise<TestUser> {
     const uid = ownedId('u', label);
-    const user = { uid, name: displayName(label, uid) };
+    const user = { uid, name: name ?? displayName(label, uid) };
     await this.api.users.create(user);
     this.users.push(uid);
     return user;

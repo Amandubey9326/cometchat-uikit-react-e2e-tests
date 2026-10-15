@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UIKit v7 · E2E Live</title>
+<!--STATIC_STATE-->
+<style>
+  :root {
+    --bg: #f6f7fb; --panel: #ffffff; --panel-2: #f0f2f7; --text: #141824; --muted: #5d6475; --line: #e3e6ee;
+    --pass: #13a26b; --fail: #e0384e; --bug: #d98a0b; --skip: #8b93a5; --run: #3b6cf6; --flaky: #9b5de5;
+    --accent: #6852d6; --shadow: 0 1px 2px rgba(16,24,40,.06), 0 4px 16px rgba(16,24,40,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1017; --panel: #151a24; --panel-2: #1c2230; --text: #e8ebf2; --muted: #98a0b3; --line: #262d3c;
+      --pass: #2fcf8c; --fail: #ff5c72; --bug: #f2a93b; --skip: #7c8496; --run: #6b93ff; --flaky: #b98cff;
+      --accent: #8f7cff; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0d1017; --panel: #151a24; --panel-2: #1c2230; --text: #e8ebf2; --muted: #98a0b3; --line: #262d3c;
+    --pass: #2fcf8c; --fail: #ff5c72; --bug: #f2a93b; --skip: #7c8496; --run: #6b93ff; --flaky: #b98cff;
+    --accent: #8f7cff; --shadow: 0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 24px 16px 64px; }
+  header { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; }
+  h1 { margin: 0; font-size: 22px; letter-spacing: -.01em; }
+  h1 small { color: var(--muted); font-weight: 500; font-size: 14px; margin-left: 6px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chip { background: var(--panel-2); color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+  .right { display: flex; gap: 10px; align-items: center; }
+  .pill { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; letter-spacing: .02em; color: #fff; }
+  .pill.running { background: var(--run); } .pill.passed { background: var(--pass); } .pill.failed, .pill.interrupted, .pill.timedout { background: var(--fail); }
+  .pulse { width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: pulse 1.2s infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.7); } }
+  .timer { font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 600; }
+  button.icon { border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; box-shadow: var(--shadow); }
+  .progress-card { margin-top: 20px; padding: 18px 20px; }
+  .progress-top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; }
+  .progress-top b { font-size: 28px; font-variant-numeric: tabular-nums; }
+  .bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: var(--panel-2); }
+  .bar > span { transition: width .4s ease; }
+  .seg-passed { background: var(--pass); } .seg-failed { background: var(--fail); } .seg-known-bug { background: var(--bug); }
+  .seg-skipped { background: var(--skip); } .seg-flaky { background: var(--flaky); } .seg-fixed\? { background: var(--accent); }
+  .seg-running { background: repeating-linear-gradient(45deg, var(--run), var(--run) 6px, transparent 6px, transparent 12px); opacity: .8; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-top: 16px; }
+  .kpi { padding: 14px 16px; cursor: pointer; transition: transform .15s; }
+  .kpi:hover { transform: translateY(-2px); }
+  .kpi .n { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .kpi .l { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; font-weight: 600; }
+  .kpi .d { color: var(--muted); font-size: 12px; margin-top: 2px; }
+  .kpi.active { outline: 2px solid var(--accent); }
+  .c-passed { color: var(--pass); } .c-failed { color: var(--fail); } .c-known-bug { color: var(--bug); } .c-skipped { color: var(--skip); }
+  .c-running { color: var(--run); } .c-flaky { color: var(--flaky); } .c-fixed\? { color: var(--accent); }
+  .verdict { margin-top: 16px; padding: 16px 20px; display: none; align-items: center; gap: 14px; font-size: 16px; font-weight: 700; }
+  .verdict.show { display: flex; }
+  .verdict.good { border-left: 6px solid var(--pass); } .verdict.bad { border-left: 6px solid var(--fail); }
+  .verdict .big { font-size: 26px; }
+  .verdict .sub { color: var(--muted); font-weight: 500; font-size: 13px; }
+  h2 { font-size: 15px; margin: 28px 0 12px; display: flex; align-items: center; gap: 8px; }
+  h2 .count { color: var(--muted); font-weight: 500; }
+  .areas { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 12px; }
+  .area { padding: 12px 14px; cursor: pointer; }
+  .area.active { outline: 2px solid var(--accent); }
+  .area .name { font-weight: 700; display: flex; justify-content: space-between; }
+  .area .name span { color: var(--muted); font-weight: 500; font-size: 12px; }
+  .area .bar { height: 6px; margin: 8px 0 6px; }
+  .area .nums { display: flex; gap: 10px; font-size: 12px; color: var(--muted); }
+  .running-list { display: flex; flex-wrap: wrap; gap: 8px; }
+  .run-chip { display: inline-flex; align-items: center; gap: 8px; background: var(--panel); border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px 4px 8px; font-size: 12px; }
+  .run-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--run); animation: pulse 1.2s infinite; }
+  .muted { color: var(--muted); }
+  .failures { display: grid; gap: 10px; }
+  .failure { padding: 14px 16px; border-left: 4px solid var(--fail); cursor: pointer; }
+  .failure .t { font-weight: 700; } .failure pre { margin: 8px 0 0; max-height: 84px; overflow: hidden; }
+  pre { background: var(--panel-2); border-radius: 8px; padding: 10px 12px; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; white-space: pre-wrap; word-break: break-word; color: var(--text); }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 10px; }
+  .toolbar input, .toolbar select { border: 1px solid var(--line); background: var(--panel); color: var(--text); border-radius: 8px; padding: 7px 10px; font: inherit; }
+  .toolbar input { flex: 1; min-width: 200px; }
+  .table-card { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--panel); }
+  td { padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr.row { cursor: pointer; } tr.row:hover td { background: var(--panel-2); }
+  .badge { display: inline-flex; align-items: center; gap: 6px; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .b-passed { background: color-mix(in srgb, var(--pass) 16%, transparent); color: var(--pass); }
+  .b-failed { background: color-mix(in srgb, var(--fail) 16%, transparent); color: var(--fail); }
+  .b-known-bug { background: color-mix(in srgb, var(--bug) 18%, transparent); color: var(--bug); }
+  .b-skipped { background: color-mix(in srgb, var(--skip) 18%, transparent); color: var(--skip); }
+  .b-running { background: color-mix(in srgb, var(--run) 16%, transparent); color: var(--run); }
+  .b-flaky { background: color-mix(in srgb, var(--flaky) 16%, transparent); color: var(--flaky); }
+  .b-fixed\? { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--accent); }
+  .b-running::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: pulse 1.2s infinite; }
+  .id { font: 600 12px ui-monospace, Menlo, monospace; white-space: nowrap; }
+  .bugref { font: 600 11px ui-monospace, Menlo, monospace; color: var(--bug); }
+  .dur { font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--muted); }
+  .empty { padding: 28px; text-align: center; color: var(--muted); }
+  dialog { border: none; border-radius: 16px; padding: 0; width: min(860px, 94vw); background: var(--panel); color: var(--text); box-shadow: 0 20px 60px rgba(0,0,0,.35); }
+  dialog::backdrop { background: rgba(10,12,20,.55); }
+  .dlg-head { padding: 18px 20px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 12px; }
+  .dlg-body { padding: 16px 20px 22px; max-height: 70vh; overflow: auto; }
+  .kv { display: grid; grid-template-columns: 110px 1fr; gap: 6px 12px; font-size: 13px; margin-bottom: 12px; }
+  .kv div:nth-child(odd) { color: var(--muted); }
+  .shots img { max-width: 100%; border-radius: 10px; border: 1px solid var(--line); margin-top: 8px; }
+  .copy { margin-top: 6px; }
+  @media (max-width: 640px) { .hide-sm { display: none; } h1 { font-size: 18px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>CometChat UIKit v7 <small>End-to-end test run</small></h1>
+      <div class="chips" id="meta"></div>
+    </div>
+    <div class="right">
+      <span class="timer" id="timer">00:00</span>
+      <span class="pill running" id="status"><span class="pulse"></span>LIVE</span>
+      <button class="icon" id="theme" title="Toggle theme" aria-label="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <section class="card progress-card" aria-label="Progress">
+    <div class="progress-top">
+      <div><b id="done">0</b> <span class="muted">/ <span id="total">0</span> tests finished</span></div>
+      <div class="muted" id="rate"></div>
+    </div>
+    <div class="bar" id="bar"></div>
+  </section>
+
+  <section class="kpis" id="kpis" aria-label="Totals"></section>
+  <section class="card verdict" id="verdict" role="status"></section>
+
+  <h2>Running now <span class="count" id="running-count"></span></h2>
+  <div class="running-list" id="running"></div>
+
+  <h2>Failures needing attention <span class="count" id="failures-count"></span></h2>
+  <div class="failures" id="failures"></div>
+
+  <h2>Feature areas <span class="count">click to filter</span></h2>
+  <section class="areas" id="areas"></section>
+
+  <h2>All tests <span class="count" id="list-count"></span></h2>
+  <div class="toolbar">
+    <input id="q" type="search" placeholder="Search by ID, title, bug…" aria-label="Search tests" />
+    <select id="f-outcome" aria-label="Status"><option value="">All statuses</option></select>
+    <select id="f-area" aria-label="Area"><option value="">All areas</option></select>
+    <select id="f-project" aria-label="Browser"><option value="">All browsers</option></select>
+  </div>
+  <div class="card table-card">
+    <table>
+      <thead><tr><th>Status</th><th>ID</th><th>Test</th><th class="hide-sm">Area</th><th class="hide-sm">Browser</th><th>Time</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <div class="dlg-head">
+    <div><div id="dlg-badge"></div><h3 id="dlg-title" style="margin:6px 0 0"></h3></div>
+    <button class="icon" id="dlg-close" aria-label="Close">✕</button>
+  </div>
+  <div class="dlg-body" id="dlg-body"></div>
+</dialog>
+
+<script>
+(() => {
+  const LABEL = { passed: 'Passed', failed: 'Failed', 'known-bug': 'Known bug', 'fixed?': 'Bug fixed?', skipped: 'Skipped', flaky: 'Flaky', running: 'Running', pending: 'Queued' };
+  const ORDER = ['failed', 'fixed?', 'running', 'flaky', 'known-bug', 'passed', 'skipped'];
+  const DESC = {
+    passed: 'Working as expected', failed: 'Unexpected failures', 'known-bug': 'Documented bugs, failing as expected',
+    'fixed?': 'Known bug now passing — re-check', skipped: 'Not run on this browser', flaky: 'Passed on retry', running: 'In progress right now',
+  };
+  const STATIC = !!window.__LIVE_STATE__;
+  let state = window.__LIVE_STATE__ || null;
+  const ui = { outcome: '', area: '', project: '', q: '' };
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const fmt = ms => { if (ms == null) return ''; const s = Math.round(ms / 1000); return s < 60 ? `${s}s` : `${Math.floor(s / 60)}m ${s % 60}s`; };
+  const clock = ms => { const s = Math.max(0, Math.floor(ms / 1000)); return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; };
+  const shot = p => (STATIC ? `../../${p}` : `/artifact?p=${encodeURIComponent(p)}`);
+  const outcomeOf = t => t.outcome;
+
+  // Theme toggle (remembered per viewer).
+  try { const th = localStorage.getItem('live-theme'); if (th) document.documentElement.dataset.theme = th; } catch {}
+  $('theme').onclick = () => {
+    const dark = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() === '#0d1017';
+    document.documentElement.dataset.theme = dark ? 'light' : 'dark';
+    try { localStorage.setItem('live-theme', document.documentElement.dataset.theme); } catch {}
+  };
+
+  function counts(list) {
+    const c = { passed: 0, failed: 0, 'known-bug': 0, 'fixed?': 0, skipped: 0, flaky: 0, running: 0, pending: 0 };
+    for (const t of list) c[outcomeOf(t)]++;
+    return c;
+  }
+
+  function render() {
+    if (!state) return;
+    const all = Object.values(state.tests);
+    const c = counts(all);
+    const finished = all.length - c.running - c.pending;
+
+    $('meta').innerHTML = Object.entries(state.meta).filter(([, v]) => v !== '' && v != null)
+      .map(([k, v]) => `<span class="chip">${esc(k)}: <b>${esc(v)}</b></span>`).join('');
+    $('done').textContent = finished; $('total').textContent = state.total;
+    const ran = c.passed + c.failed + c['known-bug'] + c.flaky + c['fixed?'];
+    $('rate').textContent = ran ? `${Math.round(((c.passed + c['known-bug'] + c.flaky) / ran) * 100)}% healthy` : '';
+    $('bar').innerHTML = ORDER.filter(o => c[o]).map(o => `<span class="seg-${o}" style="width:${(c[o] / state.total) * 100}%" title="${LABEL[o]}: ${c[o]}"></span>`).join('');
+
+    const pill = $('status');
+    pill.className = `pill ${state.status}`;
+    pill.innerHTML = state.status === 'running' ? '<span class="pulse"></span>LIVE' : esc(state.status.toUpperCase());
+
+    $('kpis').innerHTML = ['passed', 'failed', 'known-bug', 'running', 'skipped', 'flaky', 'fixed?']
+      .filter(o => o !== 'flaky' && o !== 'fixed?' || c[o])
+      .map(o => `<div class="card kpi ${ui.outcome === o ? 'active' : ''}" data-o="${o}" role="button" tabindex="0">
+        <div class="l">${LABEL[o]}</div><div class="n c-${o}">${c[o]}</div><div class="d">${DESC[o]}</div></div>`).join('');
+    document.querySelectorAll('.kpi').forEach(el => el.onclick = () => { ui.outcome = ui.outcome === el.dataset.o ? '' : el.dataset.o; $('f-outcome').value = ui.outcome; render(); });
+
+    const v = $('verdict');
+    if (state.status !== 'running') {
+      const bad = c.failed + c['fixed?'];
+      v.className = `card verdict show ${bad ? 'bad' : 'good'}`;
+      v.innerHTML = `<span class="big">${bad ? '❌' : '✅'}</span><div>${bad ? `${c.failed} unexpected failure${c.failed === 1 ? '' : 's'}${c['fixed?'] ? ` · ${c['fixed?']} known bug(s) now passing` : ''}` : 'All good — everything works as expected'}
+        <div class="sub">${finished} tests in ${fmt((state.endedAt || Date.now()) - state.startedAt)} · ${c.passed} passed · ${c['known-bug']} known bugs failing as expected · ${c.skipped} skipped</div></div>`;
+    } else v.className = 'card verdict';
+
+    const running = all.filter(t => outcomeOf(t) === 'running');
+    $('running-count').textContent = running.length ? `(${running.length})` : '';
+    $('running').innerHTML = running.length
+      ? running.map(t => `<span class="run-chip"><span class="dot"></span><b class="id">${esc(t.scenario)}</b> ${esc(t.title.slice(0, 60))} <span class="muted">${esc(t.project)} · ${fmt(Date.now() - t.startedAt)}</span></span>`).join('')
+      : `<span class="muted">${state.status === 'running' ? 'Starting…' : 'Nothing running.'}</span>`;
+
+    const fails = all.filter(t => ['failed', 'fixed?'].includes(t.outcome));
+    $('failures-count').textContent = fails.length ? `(${fails.length})` : '';
+    $('failures').innerHTML = fails.length
+      ? fails.map(t => `<div class="card failure" data-k="${esc(t.key)}"><div class="t"><span class="badge b-${t.outcome}">${LABEL[t.outcome]}</span> <span class="id">${esc(t.scenario)}</span> ${esc(t.title)} <span class="muted">· ${esc(t.area)} · ${esc(t.project)}</span></div>
+          <pre>${esc(t.outcome === 'fixed?' ? `${t.bug || 'Known bug'} — this test was expected to fail but passed. Check whether the bug is fixed.` : (t.error || '').split('\n').slice(0, 5).join('\n'))}</pre></div>`).join('')
+      : '<div class="card empty">No unexpected failures 🎉</div>';
+    document.querySelectorAll('.failure').forEach(el => el.onclick = () => open(el.dataset.k));
+
+    const areas = {};
+    for (const t of all) (areas[t.area] ||= []).push(t);
+    $('areas').innerHTML = Object.keys(areas).sort().map(a => {
+      const ac = counts(areas[a]); const n = areas[a].length;
+      return `<div class="card area ${ui.area === a ? 'active' : ''}" data-a="${esc(a)}" role="button" tabindex="0">
+        <div class="name">${esc(a)} <span>${n}</span></div>
+        <div class="bar">${ORDER.filter(o => ac[o]).map(o => `<span class="seg-${o}" style="width:${(ac[o] / n) * 100}%"></span>`).join('')}</div>
+        <div class="nums"><span class="c-passed">✓ ${ac.passed + ac.flaky}</span>${ac.failed ? `<span class="c-failed">✕ ${ac.failed}</span>` : ''}${ac['known-bug'] ? `<span class="c-known-bug">● ${ac['known-bug']}</span>` : ''}${ac.running ? `<span class="c-running">◌ ${ac.running}</span>` : ''}</div></div>`;
+    }).join('');
+    document.querySelectorAll('.area').forEach(el => el.onclick = () => { ui.area = ui.area === el.dataset.a ? '' : el.dataset.a; $('f-area').value = ui.area; render(); });
+
+    fillSelect('f-outcome', Object.keys(LABEL).filter(o => o !== 'pending'), o => LABEL[o], ui.outcome);
+    fillSelect('f-area', Object.keys(areas).sort(), a => a, ui.area);
+    fillSelect('f-project', [...new Set(all.map(t => t.project))].sort(), p => p, ui.project);
+
+    const q = ui.q.toLowerCase();
+    const rows = all
+      .filter(t => (!ui.outcome || outcomeOf(t) === ui.outcome) && (!ui.area || t.area === ui.area) && (!ui.project || t.project === ui.project))
+      .filter(t => !q || `${t.scenario} ${t.title} ${t.bug || ''} ${t.area}`.toLowerCase().includes(q))
+      .sort((a, b) => ORDER.indexOf(outcomeOf(a)) - ORDER.indexOf(outcomeOf(b)) || a.scenario.localeCompare(b.scenario, undefined, { numeric: true }));
+    $('list-count').textContent = `(${rows.length})`;
+    $('rows').innerHTML = rows.length ? rows.map(t => {
+      const o = outcomeOf(t);
+      return `<tr class="row" data-k="${esc(t.key)}"><td><span class="badge b-${o === 'pending' ? 'skipped' : o}">${LABEL[o]}</span></td>
+        <td class="id">${esc(t.scenario)}</td><td>${esc(t.title)}${t.bug ? `<div class="bugref">${esc(t.bug)}</div>` : ''}</td>
+        <td class="hide-sm">${esc(t.area)}</td><td class="hide-sm">${esc(t.project)}</td><td class="dur">${fmt(t.durationMs)}</td></tr>`;
+    }).join('') : '<tr><td colspan="6" class="empty">No tests match.</td></tr>';
+    document.querySelectorAll('tr.row').forEach(el => el.onclick = () => open(el.dataset.k));
+  }
+
+  function fillSelect(id, values, label, current) {
+    const el = $(id); const first = el.options[0].outerHTML;
+    const html = first + values.map(v => `<option value="${esc(v)}">${esc(label(v))}</option>`).join('');
+    if (el.dataset.html !== html) { el.innerHTML = html; el.dataset.html = html; }
+    el.value = current;
+  }
+
+  function open(key) {
+    const t = state.tests[key]; if (!t) return;
+    const o = outcomeOf(t);
+    $('dlg-badge').innerHTML = `<span class="badge b-${o === 'pending' ? 'skipped' : o}">${LABEL[o]}</span> <span class="id">${esc(t.scenario)}</span>`;
+    $('dlg-title').textContent = t.title;
+    const traceCmd = t.trace ? `npx playwright show-trace "${t.trace}"` : '';
+    $('dlg-body').innerHTML = `<div class="kv">
+        <div>Area</div><div>${esc(t.area)}</div><div>Browser</div><div>${esc(t.project)}</div>
+        <div>Duration</div><div>${fmt(t.durationMs) || '—'}</div><div>File</div><div class="id">${esc(t.file)}</div>
+        <div>Tags</div><div>${esc((t.tags || []).join(' '))}</div>${t.bug ? `<div>Known bug</div><div class="bugref">${esc(t.bug)}</div>` : ''}</div>
+      ${t.error ? `<b>Error</b><pre>${esc(t.error)}</pre>` : ''}
+      ${traceCmd ? `<b>Trace</b><pre>${esc(traceCmd)}</pre><button class="icon copy" id="copy-trace">Copy command</button>` : ''}
+      ${t.screenshots && t.screenshots.length ? `<div class="shots"><b>Screenshots</b>${t.screenshots.map(s => `<img loading="lazy" src="${esc(shot(s))}" alt="Screenshot of ${esc(t.scenario)} at failure">`).join('')}</div>` : ''}`;
+    const cp = $('copy-trace'); if (cp) cp.onclick = () => navigator.clipboard?.writeText(traceCmd).then(() => (cp.textContent = 'Copied ✓'));
+    $('dlg').showModal();
+  }
+  $('dlg-close').onclick = () => $('dlg').close();
+  $('dlg').addEventListener('click', e => { if (e.target === $('dlg')) $('dlg').close(); });
+
+  $('q').oninput = e => { ui.q = e.target.value; render(); };
+  $('f-outcome').onchange = e => { ui.outcome = e.target.value; render(); };
+  $('f-area').onchange = e => { ui.area = e.target.value; render(); };
+  $('f-project').onchange = e => { ui.project = e.target.value; render(); };
+
+  setInterval(() => {
+    if (!state) return;
+    $('timer').textContent = clock((state.endedAt || Date.now()) - state.startedAt);
+    if (state.status === 'running') render();
+  }, 1000);
+
+  if (STATIC) { render(); return; }
+  const es = new EventSource('/events');
+  es.addEventListener('state', e => { state = JSON.parse(e.data); render(); });
+  es.addEventListener('test', e => { const t = JSON.parse(e.data); state.tests[t.key] = t; render(); });
+  es.addEventListener('end', e => { Object.assign(state, JSON.parse(e.data)); render(); es.close(); });
+  es.onerror = () => { if (state && state.status !== 'running') es.close(); };
+})();
+</script>
+</body>
+</html>

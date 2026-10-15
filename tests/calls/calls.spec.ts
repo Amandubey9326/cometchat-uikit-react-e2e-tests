@@ -226,6 +226,45 @@ test.describe('Calls — 1:1', { tag: ['@calls', '@regression'] }, () => {
     await bobs.endOutgoing.click();
     await expect(alices.incoming).toBeHidden({ timeout: 30_000 });
   });
+
+  test(
+    'CALL-16 a call-log row holds no nested interactive control',
+    { tag: '@a11y', annotation: { type: 'bug', description: 'A11Y-004 — the row (role=button) contains a call button' } },
+    async ({ alice, bob }) => {
+      test.fail(true, 'A11Y-004');
+      const { mine, theirs } = await ring(alice, bob, 'voice');
+      await mine.endOutgoing.click();
+      await expect(theirs.incoming).toBeHidden({ timeout: 30_000 });
+      await alice.app.home.openTab('calls');
+      const row = alice.app.home.callsPane.getByRole('button', { name: new RegExp(bob.user.name) }).first();
+      await expect(row).toBeVisible({ timeout: 30_000 });
+
+      await expect(row.getByRole('button')).toHaveCount(0);
+    }
+  );
+
+  test('RESP-07 call screens fit a phone-sized window', async ({ alice, bob }) => {
+    const phone = { width: 412, height: 915 };
+    await alice.page.setViewportSize(phone);
+    await bob.page.setViewportSize(phone);
+    const inside = async (loc: import('@playwright/test').Locator) => {
+      const box = (await loc.boundingBox())!;
+      expect(box.x).toBeGreaterThanOrEqual(0);
+      expect(box.x + box.width).toBeLessThanOrEqual(phone.width);
+      expect(box.y + box.height).toBeLessThanOrEqual(phone.height);
+    };
+
+    const { mine, theirs } = await ring(alice, bob, 'voice');
+
+    await expect(mine.endOutgoing).toBeInViewport();
+    await inside(mine.endOutgoing);
+    await expect(theirs.accept).toBeInViewport();
+    await expect(theirs.decline).toBeInViewport();
+    await inside(theirs.accept);
+    await theirs.accept.click();
+    await connect(mine, theirs);
+    await expect(mine.ongoing.getByRole('button', { name: /^leave session$/i })).toBeInViewport();
+  });
 });
 
 test.describe('Calls — group', { tag: ['@calls', '@regression'] }, () => {

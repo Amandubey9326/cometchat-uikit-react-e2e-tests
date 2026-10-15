@@ -78,6 +78,8 @@ sec('Conversations', 'tests/conversations/*.spec.ts', '@conversations', 'C', [
  ('CONV-21','Create conversation → pick group → chat opens','+','NewChatView','',T,''),
  ('CONV-22','New-chat search filters users','+','NewChatView','',T,''),
  ('CONV-23','Deleted conversation reappears when a new message arrives','RT','ConversationList','',T,''),
+ ('CONV-24','App still loads when a user I messaged has been deleted','E','ConversationList','@critical',T,'`tests/conversations/deleted-peer.spec.ts` — BUG-008'),
+ ('CONV-26','A new chat that starts while another chat is open shows an unread badge','RT','ConversationItem','@critical',T,''),
 ])
 sec('Users', 'tests/users/users.spec.ts', '@users', 'C', [
  ('USR-01','Users list loads with A–Z section headers','+','UsersList','',T,''),
@@ -128,6 +130,7 @@ sec('Messaging — send, receive, list', 'tests/messaging/{send,receive,list}.sp
  ('MSG-22','Loading state shown while conversation messages load (no blank gap)','E','MessageList','',T,'OBS-002'),
  ('MSG-24','Draft behaviour when switching conversations (document)','E','MessageComposer','',T,''),
  ('MSG-25','Messages still present after logout / login','R','MessageList','',T,''),
+ ('MSG-27','Messages sent within the same second keep their send order','RT E','MessageList','@critical',T,'BUG-009'),
  ('MSG-26','History loads when the realtime connection completes while a conversation is opening','RT NET','MessageList','@critical @network','AUTOMATED','`tests/messaging/history-load.spec.ts` — expected-fail until BUG-002 is fixed'),
 ])
 sec('Message actions', 'tests/messaging/actions.spec.ts', '@messaging', 'C', [
@@ -283,7 +286,7 @@ sec('Calls', 'tests/calls/*.spec.ts', '@calls', 'C (calls project: fake camera +
  ('CALL-13','Call log details: Participants, Recording, History','+','CallLogDetails','',T,'Details back arrow and tabs are click-only divs'),
  ('CALL-14','Call back from a call log entry','+','CallLogDetails','',T,'From the details panel'),
  ('CALL-15','Call buttons offered in 1:1 and group chats (all browsers)','+','CallScreens','@critical',T,'Runs outside the calls project'),
- ('CALL-16','Call log row has no nested interactive controls','A11Y','CallLogs','@a11y',T,'A11Y-004 (source); axe in Phase 8'),
+ ('CALL-16','Call log row has no nested interactive controls','A11Y','CallLogs','@a11y',T,'A11Y-004 (fails as expected)'),
  ('CALL-17','Network interruption during a call','NET','CallScreens','@network','BLOCKED','Playwright `setOffline` does not cut an established WebRTC media path (the callee never drops); needs OS-level network shaping'),
 ])
 sec('Extensions', 'tests/extensions/*.spec.ts', '@extensions', 'C', [
@@ -293,13 +296,18 @@ sec('Extensions', 'tests/extensions/*.spec.ts', '@extensions', 'C', [
  ('EXT-04','A poll accepts at most 12 answers','E','CreatePollDialog','',T,''),
  ('EXT-05','Collaborative document / whiteboard shared with receiver; opens in a new window','+ RT','MessageList','',T,'Data-driven ×2; external board not driven'),
  ('EXT-06','Link preview card for sender and receiver','+ RT','MessageBubble','',T,''),
- ('EXT-07','Smart replies / conversation starter / summary','+','MessageComposer','@ai','BLOCKED','Not enabled on the app'),
+ ('EXT-08','Votes from three members tallied live, identical for everyone','RT','PollBubble ×3','',T,''),
+ ('EXT-09','Changing a vote moves it for everyone; survives reload','RT R','PollBubble','',T,''),
+ ('EXT-07','Smart replies / conversation starter / summary','+','MessageComposer','@ai','NOT APPLICABLE','Not in UIKit v7 — the AI plugin only renders agent messages (src/plugins/ai)'),
 ])
 sec('Moderation', 'tests/moderation/*.spec.ts', '@moderation', 'C', [
  ('MOD-01','Phone number / e-mail blocked in 1:1: sender sees notice, receiver never gets it','RT','MessageBubble','@critical',T,'Data-driven ×2 (regex rules)'),
  ('MOD-02','Blocked message in a group reaches no other member','RT','MessageList ×3','',T,''),
  ('MOD-03','Ordinary sentences with small numbers are not blocked','−','MessageList','',T,''),
  ('MOD-04','Blocked notice still shown to the sender after reload','R','MessageBubble','',T,''),
+ ('MOD-07','Editing a message to add an e-mail does not leak it to the receiver','RT','MessageComposer, MessageList','',T,''),
+ ('MOD-08','Blocked thread reply reaches neither the thread nor the main chat of the receiver','RT','ThreadPanel','',T,''),
+ ('MOD-09','Blocked message never shows in the receiver\'s Chats preview or unread count','RT','ConversationItem','',T,''),
  ('MOD-05','Rule disabled → the same content is allowed','RT','MessageList','','BLOCKED','Toggling rules changes the shared app config — not allowed'),
  ('MOD-06','AI rules (spam, toxicity, image / video)','RT','MessageList','','NOT APPLICABLE','Non-deterministic; not asserted'),
 ])
@@ -311,8 +319,10 @@ sec('API — server behaviour the UI depends on', 'tests/api/*.spec.ts', '@api',
  ('API-05','conversation/read sets readAt on the messages','+','ClientSession','',T,''),
 ])
 sec('AI', 'tests/ai/*.spec.ts', '@ai', 'C', [
- ('AI-01','AI Assistant chat: greeting, send, streamed reply, history, new chat','+','AIAssistantChat','','BLOCKED','Need @agentic user UID'),
- ('AI-02','Agentic groups: solo agent replies; squad agent replies only when mentioned','RT','MessageList','','BLOCKED','Need 2 agent UIDs'),
+ ('AI-01','AI Assistant chat: greeting, send, streamed reply, history, new chat','+','AIAssistantChat','',T,'Skips unless AI_AGENT_UID is set'),
+ ('AI-01b','AI Assistant: a suggested prompt fills the composer','+','AIAssistantChat','',T,'Skips when the agent has no suggestions'),
+ ('AI-02','Agentic group: a solo agent answers every message','RT','MessageList','',T,'Skips unless AI_AGENT_UID is set'),
+ ('AI-02b','Agentic group: with two agents, only the mentioned one answers','RT','MessageList','',T,'Skips unless AI_AGENT_UID and AI_AGENT_2_UID are set'),
 ])
 sec('Theme', 'tests/theme/theme.spec.ts', '@theme', 'C', [
  ('THM-01','Light theme by default (data-theme + background luminance); screenshot','+','—','',T,''),
@@ -338,7 +348,7 @@ sec('Responsive', 'tests/responsive/*.spec.ts', '@responsive', 'tablet (1080 px)
  ('RESP-04','Mobile: details open full-screen and close back to the chat','+','UserDetails','',T,''),
  ('RESP-05','Mobile: emoji keyboard and attachment sheet fit on screen','E','EmojiKeyboard, AttachmentSheet','',T,''),
  ('RESP-06','Mobile: every formatting button can be reached','E','FormattingToolbar','',T,''),
- ('RESP-07','Call screens at mobile width','+','CallScreens','@calls',T,'Not automated yet'),
+ ('RESP-07','Call screens at mobile width','+','CallScreens','@calls',T,'calls project, 412 px window'),
 ])
 sec('Accessibility', 'tests/a11y/*.spec.ts', '@a11y', 'C', [
  ('A11Y-01','axe scan per screen — no serious / critical violations beyond confirmed ones','A11Y','—','',T,'Login, chats, chat, menu, attachments, emoji, group info, new group, search'),
@@ -347,7 +357,7 @@ sec('Accessibility', 'tests/a11y/*.spec.ts', '@a11y', 'C', [
  ('A11Y-02','Keyboard-only journey: open chat → send','A11Y','—','@critical',T,'Open chat → send (A11Y-02); message menu open / walk / Escape (A11Y-02b)'),
  ('A11Y-02b','Message options menu: open, walk and close with the keyboard','A11Y','MessageBubble','',T,'Focus returns to "More options"'),
  ('A11Y-03','Focus moves into a dialog and stays there while tabbing','A11Y','CreateGroupDialog','',T,'New Group dialog'),
- ('A11Y-04','Escape closes every popover / dialog','A11Y','—','',T,'Per overlay: CMP-08, REA-08, ACT-16, SRCH-09, GRP-07, MEN-04b, NAV-04'),
+ ('A11Y-04','Escape closes every popover / dialog','A11Y','—','','AUTOMATED','Covered per overlay: CMP-08, REA-08, ACT-16, SRCH-09, GRP-07, MEN-04b, NAV-04'),
  ('A11Y-05','New messages announced (role=log live region)','A11Y','MessageList','',T,''),
 ])
 sec('Visual regression', 'tests/visual/*.spec.ts', '@visual', 'C (baselines per platform)', [
@@ -358,14 +368,16 @@ sec('Visual regression', 'tests/visual/*.spec.ts', '@visual', 'C (baselines per 
  ('VIS-05','Emoji keyboard','VIS','EmojiKeyboard','',T,''),
  ('VIS-06','Attachment sheet','VIS','AttachmentSheet','',T,''),
  ('VIS-07','Empty Chats (dark)','VIS','HomePage','',T,''),
- ('VIS-08','Message list with each bubble type; details panels','VIS','MessageList','',T,'Needs name masking; not automated yet'),
+ ('VIS-08','Message list with each bubble type; details panels','VIS','MessageList','',T,'Text, image and file bubbles (times masked); details panels not yet'),
+ ('VIS-09','Composer, emoji keyboard, attachment sheet (dark)','VIS','MessageComposer','',T,''),
+ ('VIS-10','Message list with text, image and file bubbles (dark)','VIS','MessageList','',T,''),
 ])
 sec('Network & resilience', 'tests/network/*.spec.ts', '@network', 'C', [
  ('NET-01','Offline → online: missed messages appear','NET','MessageList','@critical',T,''),
  ('NET-02','After a short network blip, sending and receiving work','NET','MessageList','',T,''),
  ('NET-03','History fails to load (500) → error with Retry; Retry recovers','NET','MessageList','',T,''),
  ('NET-04','Slow send shows "Sending", never duplicates','NET','MessageComposer','',T,''),
- ('NET-05','Console / HTTP error budget on every test','NET','fixtures/net-watch.ts','',T,'Enforced by NetWatch in every UI test'),
+ ('NET-05','Console / HTTP error budget on every test','NET','fixtures/net-watch.ts','',T,'Enforced by NetWatch in every UI test; self-test in `tests/network/net-watch.spec.ts`'),
  ('NET-06','HTTP 408 on POST /groups/{guid}/conversation/read','NET','—','','NEEDS INVESTIGATION','OBS-001 (not seen again)'),
  ('MSG-23','Message sent while offline is shown as failed','NET','MessageBubble','',T,''),
 ])
@@ -374,9 +386,12 @@ sec('Performance signals (report only)', 'tests/perf/*.spec.ts', '@perf', 'C', [
  ('PERF-02','Send → received (median of 5)','RT','—','',T,''),
  ('PERF-03','Open a chat → first message visible','+','—','',T,''),
  ('PERF-04','Image upload → sent','+','—','',T,''),
+ ('PERF-05','Open a chat with 40 messages → first page visible','+','—','',T,''),
+ ('PERF-06','Scroll up a 40-message history → oldest message visible','+','—','',T,''),
 ])
 sec('Smoke journey', 'tests/smoke/smoke.spec.ts', '@smoke @critical', 'C F W', [
  ('SMK-01','Login → chats → open chat with Bob → send → Bob receives → reload persists → logout','RT R','several','',T,'Runs on all 3 browsers'),
+ ('SMK-02','Create group (UI) → add member → message both ways live → reload persists','RT R','CreateGroupDialog, GroupDetails, MessageList','',T,'Runs on all 3 browsers'),
 ])
 
 

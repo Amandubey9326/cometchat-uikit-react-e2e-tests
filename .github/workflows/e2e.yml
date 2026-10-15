@@ -1,59 +1,164 @@
 name: E2E — CometChat UIKit v7
 
-# Suites
-#   smoke          every push / PR — @smoke on Chromium, Firefox, WebKit
-#   regression     nightly + manual — every project on the default grep (Chromium full, calls, tablet, mobile,
-#                  @smoke|@critical on Firefox + WebKit), then the coverage matrix
+# When it runs
+#   watch          every 30 min — if cometchat-team/uikit-react `master-v7` has a NEW commit, test that exact
+#                  commit with @smoke|@critical (~10 min). A commit is tested once (marker in the Actions cache).
+#   regression     nightly 01:00 UTC + manual — everything except visual, then the coverage matrix
+#   smoke          push / PR to this repo + manual — @smoke on Chromium, Firefox, WebKit
 #   visual-update  manual — regenerate Linux visual baselines and upload them to commit
 #
 # Required secrets: COMETCHAT_APP_ID, COMETCHAT_REGION, COMETCHAT_AUTH_KEY, COMETCHAT_API_KEY
 #                   (the shared prod app) and UIKIT_REPO_TOKEN (read access to cometchat-team/uikit-react).
+# Until they are all set, every run skips with a notice instead of failing (no daily failure e-mails).
+#
+# Result e-mail (optional secrets MAIL_USERNAME, MAIL_PASSWORD, MAIL_TO): sent after every run in which the
+# tests actually ran — ✅ passed, or ❌ failed with the failing tests and the open bug titles. Nothing is
+# sent when the run was skipped or broke before the tests (secrets, token, install).
 
 on:
   push:
     branches: [main]
   pull_request:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '*/30 * * * *' # watch master-v7 for new commits
+    - cron: '0 1 * * *' # nightly regression
   workflow_dispatch:
     inputs:
       suite:
-        description: smoke | regression | visual-update
+        description: smoke | critical | regression | visual-update
         default: regression
         required: true
-
-# One run at a time: every run shares one CometChat app with a 100-user plan (ENV-002).
-concurrency:
-  group: cometchat-prod-e2e
-  cancel-in-progress: false
+      uikit_ref:
+        description: uikit-react branch, tag or commit to test
+        default: master-v7
+        required: false
 
 env:
-  COMETCHAT_ENV: prod
-  COMETCHAT_APP_ID: ${{ secrets.COMETCHAT_APP_ID }}
-  COMETCHAT_REGION: ${{ secrets.COMETCHAT_REGION }}
-  COMETCHAT_AUTH_KEY: ${{ secrets.COMETCHAT_AUTH_KEY }}
-  COMETCHAT_API_KEY: ${{ secrets.COMETCHAT_API_KEY }}
-  APP_DIR: ${{ github.workspace }}/uikit-react/sample-app
-  UIKIT_DIR: ${{ github.workspace }}/uikit-react
-  PW_WORKERS: '2'
+  UIKIT_REPO: cometchat-team/uikit-react
+  UIKIT_BRANCH: master-v7
 
 jobs:
+  # Decides whether to run, which suite, and which uikit-react commit. Quick (~10 s).
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      run: ${{ steps.decide.outputs.run }}
+      suite: ${{ steps.decide.outputs.suite }}
+      ref: ${{ steps.decide.outputs.ref }}
+      watch: ${{ steps.decide.outputs.watch }}
+    steps:
+      - name: Check secrets
+        id: secrets
+        env:
+          A: ${{ secrets.COMETCHAT_APP_ID }}
+          B: ${{ secrets.COMETCHAT_REGION }}
+          C: ${{ secrets.COMETCHAT_AUTH_KEY }}
+          D: ${{ secrets.COMETCHAT_API_KEY }}
+          T: ${{ secrets.UIKIT_REPO_TOKEN }}
+        run: |
+          if [ -n "$A" ] && [ -n "$B" ] && [ -n "$C" ] && [ -n "$D" ] && [ -n "$T" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice title=E2E skipped::Add the 5 repository secrets (see the top of e2e.yml) to enable the E2E runs."
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Latest uikit-react commit
+        id: head
+        if: steps.secrets.outputs.ready == 'true' && github.event.schedule == '*/30 * * * *'
+        env:
+          T: ${{ secrets.UIKIT_REPO_TOKEN }}
+        run: |
+          sha=$(git ls-remote "https://x-access-token:${T}@github.com/${UIKIT_REPO}.git" "refs/heads/${UIKIT_BRANCH}" | cut -f1)
+          if [ -z "$sha" ]; then
+            echo "::warning title=E2E skipped::Could not read ${UIKIT_REPO}@${UIKIT_BRANCH} — check UIKIT_REPO_TOKEN."
+            exit 0
+          fi
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "Latest ${UIKIT_BRANCH}: $sha"
+
+      - name: Already tested?
+        id: seen
+        if: steps.head.outputs.sha != ''
+        uses: actions/cache/restore@v4
+        with:
+          path: .uikit-tested
+          key: uikit-tested-${{ steps.head.outputs.sha }}
+          lookup-only: true
+
+      - name: Decide
+        id: decide
+        env:
+          READY: ${{ steps.secrets.outputs.ready }}
+          EVENT: ${{ github.event_name }}
+          SCHEDULE: ${{ github.event.schedule }}
+          SHA: ${{ steps.head.outputs.sha }}
+          SEEN: ${{ steps.seen.outputs.cache-hit }}
+          INPUT_SUITE: ${{ inputs.suite }}
+          INPUT_REF: ${{ inputs.uikit_ref }}
+        run: |
+          run=true; watch=false; ref="$UIKIT_BRANCH"
+          case "$EVENT" in
+            schedule)
+              if [ "$SCHEDULE" = '*/30 * * * *' ]; then
+                suite=critical; watch=true; ref="$SHA"
+                if [ -z "$SHA" ] || [ "$SEEN" = 'true' ]; then run=false; echo "No new commit on ${UIKIT_BRANCH} — nothing to test."; fi
+              else
+                suite=regression
+              fi ;;
+            workflow_dispatch) suite="$INPUT_SUITE"; ref="${INPUT_REF:-$UIKIT_BRANCH}" ;;
+            *) suite=smoke ;;
+          esac
+          [ "$READY" = 'true' ] || run=false
+          { echo "run=$run"; echo "suite=$suite"; echo "ref=$ref"; echo "watch=$watch"; } >> "$GITHUB_OUTPUT"
+          echo "### E2E plan: run=$run · suite=$suite · uikit-react@$ref" >> "$GITHUB_STEP_SUMMARY"
+
   e2e:
+    needs: plan
+    if: needs.plan.outputs.run == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 120
+    # One run at a time: every run shares one CometChat app with a 100-user plan (ENV-002).
+    concurrency:
+      group: cometchat-prod-e2e
+      cancel-in-progress: false
+    env:
+      COMETCHAT_ENV: prod
+      COMETCHAT_APP_ID: ${{ secrets.COMETCHAT_APP_ID }}
+      COMETCHAT_REGION: ${{ secrets.COMETCHAT_REGION }}
+      COMETCHAT_AUTH_KEY: ${{ secrets.COMETCHAT_AUTH_KEY }}
+      COMETCHAT_API_KEY: ${{ secrets.COMETCHAT_API_KEY }}
+      APP_DIR: ${{ github.workspace }}/uikit-react/sample-app
+      UIKIT_DIR: ${{ github.workspace }}/uikit-react
+      PW_WORKERS: '2'
+      SUITE: ${{ needs.plan.outputs.suite }}
     steps:
       - name: Check out the framework
         uses: actions/checkout@v4
         with:
           path: framework
 
-      - name: Check out the app under test (UIKit repo, sample app)
+      - name: Check out the app under test (uikit-react @ ${{ needs.plan.outputs.ref }})
         uses: actions/checkout@v4
         with:
-          repository: cometchat-team/uikit-react
-          ref: master-v7
+          repository: ${{ env.UIKIT_REPO }}
+          ref: ${{ needs.plan.outputs.ref }}
           token: ${{ secrets.UIKIT_REPO_TOKEN }}
           path: uikit-react
+
+      - name: What is being tested
+        run: |
+          {
+            echo "UIKIT_SHA=$(git -C uikit-react rev-parse HEAD)"
+            echo "UIKIT_SUBJECT=$(git -C uikit-react log -1 --format=%s | head -c 150)"
+            echo "UIKIT_AUTHOR=$(git -C uikit-react log -1 --format=%an)"
+          } >> "$GITHUB_ENV"
+          {
+            echo "### Testing uikit-react \`$(git -C uikit-react rev-parse --short HEAD)\` — suite: $SUITE"
+            echo ""
+            git -C uikit-react log -1 --format='> %s — %an, %ad' --date=relative
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Apply the sample-app E2E hooks (env-driven credentials, locale)
         run: git -C uikit-react apply "$GITHUB_WORKSPACE/framework/app-patches/sample-app-e2e-hooks.patch"
@@ -77,31 +182,63 @@ jobs:
         run: npm run lint && npm run typecheck
 
       - name: Smoke (all browsers)
-        if: github.event_name == 'push' || github.event_name == 'pull_request' || inputs.suite == 'smoke'
+        if: env.SUITE == 'smoke'
         working-directory: framework
         run: npx playwright test --grep @smoke --project=chromium --project=firefox --project=webkit
 
+      - name: Critical flows (new uikit-react commit)
+        if: env.SUITE == 'critical'
+        working-directory: framework
+        run: npx playwright test --grep "@smoke|@critical" --grep-invert @visual
+
       - name: Regression (all projects)
-        if: github.event_name == 'schedule' || inputs.suite == 'regression'
+        if: env.SUITE == 'regression'
         working-directory: framework
         # Visual baselines are platform-specific; they run once Linux baselines are committed.
         run: npx playwright test --grep-invert @visual
 
       - name: Update Linux visual baselines
-        if: inputs.suite == 'visual-update'
+        if: env.SUITE == 'visual-update'
         working-directory: framework
         run: npm run test:visual:update
 
       - name: Coverage matrix
-        if: always() && (github.event_name == 'schedule' || inputs.suite == 'regression')
+        if: always() && env.SUITE == 'regression'
         working-directory: framework
         run: npm run coverage:matrix
+
+      - name: Result summary
+        id: summary
+        if: always()
+        working-directory: framework
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+        run: |
+          node scripts/ci-summary.mjs
+          if [ -n "$MAIL_TO" ] && [ -n "$MAIL_USERNAME" ] && [ -n "$MAIL_PASSWORD" ]; then echo "mail=true" >> "$GITHUB_OUTPUT"; fi
+
+      - name: E-mail the result
+        if: always() && steps.summary.outputs.has_results == 'true' && steps.summary.outputs.mail == 'true'
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          from: CometChat E2E <${{ secrets.MAIL_USERNAME }}>
+          to: ${{ secrets.MAIL_TO }}
+          subject: ${{ steps.summary.outputs.subject }}
+          html_body: file://framework/reports/email.html
 
       - name: Upload report, results, traces and videos
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: e2e-${{ github.run_id }}
+          name: e2e-${{ env.SUITE }}-${{ github.run_id }}
           retention-days: 14
           path: |
             framework/playwright-report
@@ -110,11 +247,23 @@ jobs:
             framework/docs/coverage-matrix.md
 
       - name: Upload new visual baselines
-        if: inputs.suite == 'visual-update'
+        if: env.SUITE == 'visual-update'
         uses: actions/upload-artifact@v4
         with:
           name: visual-baselines-linux
           path: framework/tests/visual/*-snapshots
+
+      # Remember this commit as tested (pass or fail) so the watcher does not test it again.
+      - name: Mark commit as tested
+        if: always() && needs.plan.outputs.watch == 'true'
+        run: echo "${{ needs.plan.outputs.ref }}" > .uikit-tested
+
+      - name: Save tested marker
+        if: always() && needs.plan.outputs.watch == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .uikit-tested
+          key: uikit-tested-${{ needs.plan.outputs.ref }}
 
       # No blanket cleanup here: `npm run cleanup` deletes every pw-* record, including another run's.
       # Each run's global teardown deletes its own data; the 24 h sweeper catches crashed runs.

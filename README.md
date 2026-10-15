@@ -8,6 +8,8 @@ UI  +  realtime (a second user)  +  network  +  persistence (reload)  +  permiss
 
 Docs: [summary](docs/automation-summary.md) · [findings / bugs](docs/findings.md) · [coverage matrix](docs/coverage-matrix.md) · [feature inventory](docs/feature-inventory.md) · [plan](docs/automation-plan.md) · [app map](docs/application-map.md) · [test data](docs/test-data-map.md)
 
+> **Just want to run the tests?** See [HOW-TO-RUN.md](HOW-TO-RUN.md) — copy-paste commands, reports and troubleshooting.
+
 ## Setup
 
 Requirements: Node 20+, Python 3 (coverage matrix only), and the UIKit repo checked out at `~/uikit-react`, with `npm install` already run in `sample-app/`. The sample app needs the small E2E hooks (env-driven credentials, locale) from `app-patches/sample-app-e2e-hooks.patch` — apply once with `npm run app:patch` (CI applies it automatically).

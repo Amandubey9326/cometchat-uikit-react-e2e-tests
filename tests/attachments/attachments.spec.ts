@@ -1,7 +1,9 @@
 import { t } from '@i18n/t';
+import { uniqueText } from '@data/unique';
 import { expect, test } from '@fixtures/test.fixture';
 import { MessageBubble } from '@pages/messages/MessageBubble';
 import { ASSETS } from '@pages/messages/MessageComposer';
+import { SearchPanel } from '@pages/search/SearchPanel';
 
 test.describe('Attachments', { tag: ['@attachments', '@regression'] }, () => {
   test('ATT-01 the attachment sheet offers image, video, audio, file and the extensions', async ({ alice, data }) => {
@@ -136,5 +138,65 @@ test.describe('Attachments', { tag: ['@attachments', '@regression'] }, () => {
     await expect(alice.app.messages.bubbleOfType('image').threadRepliesButton).toHaveAccessibleName(MessageBubble.threadRepliesLabel(1));
     await expect(alice.app.thread.messages.last().root).toHaveAccessibleName(/, image message$/);
     await expect(alice.app.thread.messages.last().receipt('sending')).toHaveCount(0);
+  });
+
+  test(
+    'ATT-07 several files can be picked and sent at once',
+    { annotation: { type: 'bug', description: 'BUG-020 — docs promise multi-select + staging tray; 7.0.3 picker takes one file' } },
+    async ({ alice, data }) => {
+      test.fail(true, 'BUG-020');
+      const peer = await data.user('peer');
+      await alice.app.openChatWith(peer);
+      await alice.app.composer.attachmentsButton.click();
+      const chooser = alice.page.waitForEvent('filechooser');
+      await alice.app.composer.attachmentSheet.getByRole('button', { name: t('message_composer_attach_image') }).click();
+
+      // CometChatMessageComposerAttachmentButton creates <input type="file"> without `multiple`.
+      expect((await chooser).isMultiple(), 'picker allows several files').toBe(true);
+    }
+  );
+
+  test('ATT-08 a non-image picked through "Image" is not shown as a broken image', async ({ alice, data }) => {
+    const peer = await data.user('peer');
+    await alice.app.openChatWith(peer);
+    alice.net.allow(/.*/); // the server may reject the upload — that is an acceptable outcome
+
+    await alice.app.composer.attach('image', ASSETS.pdf); // the accept="image/*" filter is only a hint
+
+    // Acceptable: sent as a file, or rejected with an error mark. Not acceptable: a broken image.
+    const { messages } = alice.app;
+    await expect(messages.ofType('file').or(messages.ofType('image').getByRole('img', { name: t('message_bubble_error'), exact: true }))).toBeVisible();
+  });
+
+  test('ATT-09 an upload the server refuses as too large is marked as failed', { tag: '@network' }, async ({ alice, data }) => {
+    const peer = await data.user('peer');
+    await alice.app.openChatWith(peer);
+    alice.net.allow(/.*/);
+    // UIKit 7.0.3 does not enforce `maxFileSize` itself; the server's answer to an oversized file is simulated.
+    await alice.page.route(/\/v3(\.0)?\/messages$/, route =>
+      route.request().method() === 'POST'
+        ? route.fulfill({ status: 413, contentType: 'application/json', body: '{"error":{"code":"ERR_FILE_SIZE_LIMIT","message":"File too large"}}' })
+        : route.continue()
+    );
+
+    await alice.app.composer.attach('file', ASSETS.pdf);
+
+    await expect(alice.app.messages.ofType('file').getByRole('img', { name: t('message_bubble_error'), exact: true })).toBeVisible();
+  });
+
+  test('ATT-13 a sent document is found under the Documents search filter', { tag: '@search' }, async ({ alice, data, api }) => {
+    const peer = await data.user('docs');
+    await alice.app.openChatWith(peer);
+    await alice.app.sendAndConfirm(uniqueText('before the file'));
+    await api.users.waitForConversation(alice.user.uid, peer.uid);
+    await alice.app.composer.attach('file', ASSETS.pdf);
+    await alice.app.messages.bubbleOfType('file').waitUntilSent();
+    await alice.app.home.openTab('chats');
+    await alice.app.conversations.searchBox.click();
+    const search = new SearchPanel(alice.page);
+
+    await search.filter('documents').click();
+
+    await expect(search.messages.filter({ hasText: 'test-file.pdf' }).first()).toBeVisible();
   });
 });

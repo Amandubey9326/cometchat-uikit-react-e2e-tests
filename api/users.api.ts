@@ -41,6 +41,12 @@ export class UsersApi {
     return res.authToken;
   }
 
+  /** `uid` blocks `blockedUid` (REST, so a test can start from a blocked state). */
+  async block(uid: string, blockedUid: string): Promise<void> {
+    assertOwned(uid);
+    await this.rest.post(`/users/${encodeURIComponent(uid)}/blockedusers`, { body: { blockedUids: [blockedUid] } });
+  }
+
   /** Revokes one login session (auth token) of a framework-owned user. */
   async revokeAuthToken(uid: string, authToken: string): Promise<void> {
     assertOwned(uid);

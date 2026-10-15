@@ -1,3 +1,4 @@
+import { t } from '@i18n/t';
 import { uniqueMarker, uniqueText } from '@data/unique';
 import { expect, test } from '@fixtures/test.fixture';
 
@@ -75,5 +76,70 @@ test.describe('Moderation', { tag: ['@moderation', '@regression'] }, () => {
 
     await expect(alice.app.messages.message(ok).root).toBeVisible();
     await expect(alice.app.messages.message(text).blockedNotice).toBeVisible();
+  });
+
+  test('MOD-07 editing a message to add an e-mail address does not leak it to the receiver', async ({ alice, data, api, loginAs }) => {
+    const peer = await data.user('modpeer');
+    const receiver = await loginAs(peer);
+    await alice.app.openChatWith(peer);
+    await receiver.app.openChatWith(alice.user);
+    const original = uniqueText('clean before edit');
+    await alice.app.sendAndConfirm(original);
+    await expect(receiver.app.messages.message(original).root).toBeVisible();
+    await api.users.waitForConversation(alice.user.uid, peer.uid); // BUG-012: edits inside the new-chat window fail
+
+    await alice.app.messages.message(original).choose(t('message_list_option_edit'));
+    await expect(alice.app.composer.editPreview).toBeVisible();
+    await alice.app.composer.clear();
+    await alice.app.composer.type(blocked[1].text(uniqueMarker()));
+    await alice.app.composer.input.press('Enter');
+
+    const after = uniqueText('after the edit');
+    await alice.app.sendAndConfirm(after);
+    await expect(receiver.app.messages.message(after).root).toBeVisible(); // sync point: later messages arrive
+    await expect(receiver.app.messages.log).not.toContainText('@example.com');
+  });
+
+  test('MOD-08 a blocked thread reply reaches neither the thread nor the main chat of the receiver', async ({ alice, data, api, loginAs }) => {
+    const peer = await data.user('threadpeer');
+    const receiver = await loginAs(peer);
+    await alice.app.openChatWith(peer);
+    await receiver.app.openChatWith(alice.user);
+    const parent = uniqueText('thread parent');
+    await alice.app.sendAndConfirm(parent);
+    await api.users.waitForConversation(alice.user.uid, peer.uid); // BUG-012: thread replies inside the window fail
+    const text = blocked[0].text(uniqueMarker());
+    const after = uniqueText('allowed thread reply');
+
+    await alice.app.messages.message(parent).choose(t('message_list_option_reply_in_thread'));
+    await alice.app.thread.composer.sendWithEnter(text);
+    await expect(alice.app.thread.messages.message(text).blockedNotice).toBeVisible();
+    await alice.app.thread.composer.sendWithEnter(after);
+    await expect(alice.app.thread.messages.message(after).receipt('sending')).toHaveCount(0);
+
+    await receiver.app.messages.message(parent).threadRepliesButton.click();
+    await expect(receiver.app.thread.messages.message(after).root).toBeVisible();
+    await expect(receiver.app.thread.messages.message(text).root).toHaveCount(0);
+    await expect(receiver.app.messages.message(text).root).toHaveCount(0);
+  });
+
+  test('MOD-09 a blocked message never shows in the receiver\'s Chats preview or unread count', async ({ alice, data, loginAs }) => {
+    const peer = await data.user('listpeer');
+    const receiver = await loginAs(peer);
+    await alice.app.openChatWith(peer);
+    const first = uniqueText('first allowed');
+    await alice.app.sendAndConfirm(first);
+    const item = receiver.app.conversations.item(alice.user.name);
+    await expect(item).toContainText(first);
+
+    const text = blocked[1].text(uniqueMarker());
+    await alice.app.composer.sendWithEnter(text);
+    await expect(alice.app.messages.message(text).blockedNotice).toBeVisible();
+    const after = uniqueText('second allowed');
+    await alice.app.sendAndConfirm(after);
+
+    await expect(item).toContainText(after); // sync point
+    await expect(item).not.toContainText('@example.com');
+    await expect(item).toHaveAccessibleName(receiver.app.conversations.unreadLabel(2));
   });
 });

@@ -12,6 +12,8 @@
     "test:calls": "playwright test --project=calls",
     "test:responsive": "playwright test --project=tablet --project=mobile",
     "test:ui": "playwright test --ui",
+    "test:live": "LIVE_DASHBOARD=1 playwright test",
+    "dashboard": "open reports/live/index.html",
     "report": "playwright show-report",
     "cleanup": "PW_CLEANUP=1 playwright test --project=cleanup",
     "discover": "playwright test --config discovery/playwright.discovery.config.ts",

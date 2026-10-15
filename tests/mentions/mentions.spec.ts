@@ -117,4 +117,21 @@ test.describe('Mentions', { tag: ['@mentions', '@regression'] }, () => {
 
     await expect(alice.app.messages.message(text).text.locator('.cometchat-mentions')).toContainText(bob.user.name);
   });
+
+  test('MEN-10 names with spaces and special characters are suggested and mentioned in full', async ({ alice, data }) => {
+    const special = await data.user('special', { name: "Zoë O'Brien-Núñez" }); // only group members are suggested
+    const group = await data.group({ owner: alice.user, participants: [special] });
+    await alice.app.openGroup(group.name);
+    const { composer } = alice.app;
+    const text = uniqueText('special mention');
+
+    await composer.type(`${text} @Zoë O'B`);
+    const option = composer.mentionSuggestions.getByRole('option', { name: startsWithWord(special.name) });
+    await expect(option).toBeVisible();
+    await option.click();
+    await composer.input.press('Enter');
+
+    await alice.app.messages.message(text).waitUntilSent();
+    await expect(alice.app.messages.message(text).text.locator('.cometchat-mentions')).toContainText(special.name);
+  });
 });

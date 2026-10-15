@@ -112,4 +112,17 @@ test.describe('Session', { tag: '@auth' }, () => {
       await expect(new LoginPage(page).uidInput.or(new HomePage(page).chatsRegion)).toBeVisible();
     }
   );
+
+  test('AUTH-19 two users signed in at the same time keep separate sessions', async ({ alice, bob }) => {
+    await expect(alice.app.home.chatsRegion).toBeVisible();
+    await expect(bob.app.home.chatsRegion).toBeVisible();
+
+    await alice.app.openChatWith(bob.user);
+    await bob.app.openChatWith(alice.user);
+    await bob.app.reload(); // one user's reload must not disturb the other's session
+
+    expect((await readSdkSession(alice.page))?.uid).toBe(alice.user.uid);
+    expect((await readSdkSession(bob.page))?.uid).toBe(bob.user.uid);
+    await expect(alice.app.header.titleFor(bob.user.name)).toBeVisible();
+  });
 });

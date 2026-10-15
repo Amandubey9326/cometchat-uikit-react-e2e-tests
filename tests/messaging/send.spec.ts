@@ -158,4 +158,18 @@ test.describe('Sending messages', { tag: ['@messaging', '@regression'] }, () => 
 
     await expect(alice.app.messages.message(text).root).toBeVisible();
   });
+
+  test('MSG-01 the Send button sends the message and clears the composer', { tag: ['@smoke', '@critical'] }, async ({ alice, data }) => {
+    const peer = await data.user('peer');
+    await alice.app.openChatWith(peer);
+    const text = uniqueText('send button');
+    await alice.app.composer.type(text);
+    await expect(alice.app.composer.sendButton).toBeEnabled();
+
+    await alice.app.composer.sendButton.click();
+
+    await alice.app.messages.message(text).waitUntilSent();
+    await expect(alice.app.composer.input).toHaveText('');
+    await expect(alice.app.composer.sendButton).toBeDisabled();
+  });
 });

@@ -50,6 +50,55 @@ test.describe('Extensions', { tag: ['@extensions', '@regression'] }, () => {
     await expect(alicesPoll.option('Thursday')).toHaveAccessibleName(PollBubble.votes('Thursday', 1));
   });
 
+  test('EXT-08 votes from three members are tallied live and the same for everyone', async ({ alice, bob, carol, data }) => {
+    const group = await data.group({ owner: alice.user, participants: [bob.user, carol.user] });
+    const members = [alice, bob, carol];
+    for (const m of members) await m.app.openGroup(group.name);
+    const question = `Which room for the ${uniqueMarker()} review?`;
+    await alice.app.composer.chooseAttachmentOption(t('message_composer_polls'));
+    await new CreatePollDialog(alice.page).create(question, ['North', 'South']);
+    const polls = members.map(m => new PollBubble(m.app.messages.log, question));
+    for (const poll of polls) await expect(poll.root).toBeVisible();
+
+    await polls[0].option('North').click();
+    await expect(polls[1].option('North')).toHaveAccessibleName(PollBubble.votes('North', 1)); // sync before the next vote
+    await polls[1].option('North').click();
+    await expect(polls[2].option('North')).toHaveAccessibleName(PollBubble.votes('North', 2));
+    await polls[2].option('South').click();
+
+    for (const poll of polls) {
+      await expect(poll.option('North')).toHaveAccessibleName(PollBubble.votes('North', 2));
+      await expect(poll.option('South')).toHaveAccessibleName(PollBubble.votes('South', 1));
+    }
+    await expect(polls[2].option('South')).toHaveAttribute('aria-checked', 'true');
+    await expect(polls[2].option('North')).toHaveAttribute('aria-checked', 'false');
+  });
+
+  test('EXT-09 changing a vote moves it for everyone and survives a reload', async ({ alice, bob, data }) => {
+    const group = await data.group({ owner: alice.user, participants: [bob.user] });
+    await alice.app.openGroup(group.name);
+    await bob.app.openGroup(group.name);
+    const question = `Which snack for the ${uniqueMarker()} meetup?`;
+    await alice.app.composer.chooseAttachmentOption(t('message_composer_polls'));
+    await new CreatePollDialog(alice.page).create(question, ['Fruit', 'Cookies']);
+    const bobsPoll = new PollBubble(bob.app.messages.log, question);
+    const alicesPoll = new PollBubble(alice.app.messages.log, question);
+    await bobsPoll.option('Fruit').click();
+    await expect(alicesPoll.option('Fruit')).toHaveAccessibleName(PollBubble.votes('Fruit', 1));
+
+    await bobsPoll.option('Cookies').click();
+
+    await expect(bobsPoll.option('Cookies')).toHaveAttribute('aria-checked', 'true');
+    await expect(bobsPoll.option('Fruit')).toHaveAttribute('aria-checked', 'false');
+    await expect(alicesPoll.option('Cookies')).toHaveAccessibleName(PollBubble.votes('Cookies', 1));
+    await expect(alicesPoll.option('Fruit')).toHaveAccessibleName(PollBubble.votes('Fruit', 0));
+    await bob.app.reload();
+    await bob.app.openGroup(group.name);
+    await expect(bobsPoll.option('Cookies')).toHaveAccessibleName(PollBubble.votes('Cookies', 1));
+    await expect(bobsPoll.option('Fruit')).toHaveAccessibleName(PollBubble.votes('Fruit', 0));
+    await expect(bobsPoll.option('Cookies')).toHaveAttribute('aria-checked', 'true');
+  });
+
   test('EXT-03 Create stays disabled until the question and two answers are filled', async ({ alice, data }) => {
     const peer = await data.user('peer');
     await alice.app.openChatWith(peer);

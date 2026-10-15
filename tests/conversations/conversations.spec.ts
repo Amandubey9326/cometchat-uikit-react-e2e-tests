@@ -3,6 +3,9 @@ import { uniqueSentences, uniqueText } from '@data/unique';
 import { expect, test } from '@fixtures/test.fixture';
 import { ConfirmDialog } from '@pages/components/Dialogs';
 import { NewChatView } from '@pages/conversations/NewChatView';
+import { CreatePollDialog } from '@pages/extensions/Polls';
+import { ASSETS } from '@pages/messages/MessageComposer';
+import { delayResponse } from '@utils/network';
 import { nextServerSecond } from '@utils/time';
 import { escapeRegExp, startsWithWord } from '@utils/text';
 
@@ -55,7 +58,7 @@ test.describe('Conversations list', { tag: ['@conversations', '@regression'] }, 
     await expect(item.getByRole('img', { name: 'Private group' })).toBeVisible();
   });
 
-  test('CONV-07 an incoming message moves its conversation to the top', { tag: '@critical' }, async ({ data, api, loginAs }) => {
+  test('CONV-07/15 an incoming message moves its conversation to the top (also after reload)', { tag: '@critical' }, async ({ data, api, loginAs }) => {
     const me = await data.user('ranker');
     const first = await data.user('first');
     const second = await data.user('second');
@@ -320,5 +323,54 @@ test.describe('Conversations list', { tag: ['@conversations', '@regression'] }, 
     await api.messages.sendText(peer.uid, { uid: me.uid }, text);
 
     await expect(app.conversations.item(peer.name)).toContainText(text);
+  });
+
+  test('CONV-05 the last-message line names media, stickers and polls', async ({ alice, bob, api }) => {
+    await alice.app.openChatWith(bob.user);
+    await alice.app.sendAndConfirm(uniqueText('hello first'));
+    await api.users.waitForConversation(bob.user.uid, alice.user.uid); // BUG-012
+    const item = bob.app.conversations.item(alice.user.name);
+    await expect(item).toBeVisible();
+
+    await alice.app.composer.attach('image', ASSETS.image);
+    await expect(item).toContainText(t('conversation_subtitle_image'));
+
+    await alice.app.composer.stickerButton.click();
+    await alice.page.getByRole('dialog', { name: t('accessibility_sticker_keyboard') }).getByRole('grid').getByRole('gridcell').first().click();
+    await expect(item).toContainText(t('conversation_subtitle_sticker'));
+
+    await alice.app.composer.chooseAttachmentOption(t('message_composer_polls'));
+    await new CreatePollDialog(alice.page).create(`Which ${uniqueText('poll')}?`, ['Morning', 'Evening']);
+    await expect(item).toContainText(t('conversation_subtitle_poll'));
+  });
+
+  test('CONV-06 selecting a conversation opens it and marks it selected', { tag: '@smoke' }, async ({ data, api, loginAs }) => {
+    const me = await data.user('chooser');
+    const [a, b] = [await data.user('aaa'), await data.user('bbb')];
+    await api.messages.sendText(a.uid, { uid: me.uid }, uniqueText('one'));
+    await api.messages.sendText(b.uid, { uid: me.uid }, uniqueText('two'));
+    const { app } = await loginAs(me);
+
+    await app.conversations.item(a.name).click();
+
+    await expect(app.header.titleFor(a.name)).toBeVisible();
+    await expect(app.conversations.item(a.name)).toHaveAttribute('aria-selected', 'true');
+    await expect(app.conversations.item(b.name)).not.toHaveAttribute('aria-selected', 'true');
+  });
+
+  test('CONV-18 opening a conversation while the list is still refreshing works without errors', async ({ data, api, loginAs }) => {
+    const me = await data.user('busy');
+    const peer = await data.user('peer');
+    const text = uniqueText('while loading');
+    await api.messages.sendText(peer.uid, { uid: me.uid }, text);
+    await api.users.waitForConversation(me.uid, peer.uid);
+    const { app, page } = await loginAs(me);
+    // After a reload the list is fetched several times (OBS-006): hold back the second fetch.
+    await delayResponse(page, /\/conversations\?/, { nth: 2, ms: 4_000 });
+
+    await app.reload();
+    await app.conversations.item(peer.name).click(); // NetWatch fails the test on any page error
+
+    await expect(app.messages.message(text).root).toBeVisible();
   });
 });

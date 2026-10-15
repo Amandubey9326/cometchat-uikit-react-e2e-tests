@@ -64,4 +64,28 @@ test.describe('Performance signals', { tag: ['@perf', '@regression'] }, () => {
     await expect(alice.app.messages.ofType('image')).toHaveCount(1);
     await report('image-upload', [elapsed]);
   });
+
+  test('PERF-05/06 a 40-message history: open → first page, scroll up → oldest message', async ({ alice, data, api }) => {
+    test.setTimeout(150_000);
+    const peer = await data.user('longhistory');
+    const history = uniqueSentences(40, 'perf history');
+    for (const text of history.texts) await api.messages.sendText(peer.uid, { uid: alice.user.uid }, text);
+    await api.users.waitForConversation(alice.user.uid, peer.uid);
+    const shown = await api.messages.waitForModeration(alice.user.uid, peer.uid, history.marker); // ENV-003
+    await expect(alice.app.conversations.item(peer.name)).toBeVisible();
+    const { messages } = alice.app;
+
+    let started = Date.now();
+    await alice.app.conversations.item(peer.name).click();
+    await expect(messages.messages.filter({ hasText: history.marker }).first()).toBeVisible();
+    await report('open-long-chat-first-page', [Date.now() - started]);
+
+    const scroller = messages.region.locator('.cometchat-message-list__scroll-container');
+    started = Date.now();
+    await expect(async () => {
+      await scroller.evaluate(el => el.scrollTo({ top: 0 }));
+      await expect(messages.message(shown[0]).root).toBeVisible({ timeout: 2_000 });
+    }).toPass({ timeout: 45_000 });
+    await report('scroll-to-oldest-message', [Date.now() - started]);
+  });
 });

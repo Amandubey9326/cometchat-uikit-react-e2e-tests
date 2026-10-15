@@ -27,6 +27,8 @@ export default defineConfig({
     ['junit', { outputFile: 'reports/junit.xml' }],
     // Read by scripts/coverage_matrix.py (npm run coverage:matrix).
     ['json', { outputFile: 'reports/results.json' }],
+    // Live dashboard on http://localhost:9400 (npm run test:live).
+    ...(process.env.LIVE_DASHBOARD === '1' ? [['./dashboard/live-reporter.ts'] as [string]] : []),
   ],
   globalSetup: './setup/global-setup.ts',
   globalTeardown: './setup/global-teardown.ts',

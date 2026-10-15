@@ -3,6 +3,7 @@ import { uniqueText } from '@data/unique';
 import { expect, test } from '@fixtures/test.fixture';
 import { MessageBubble } from '@pages/messages/MessageBubble';
 import { ConfirmDialog } from '@pages/components/Dialogs';
+import { ASSETS } from '@pages/messages/MessageComposer';
 
 const THREAD = t('message_list_option_reply_in_thread');
 
@@ -137,4 +138,19 @@ test.describe('Threads', { tag: ['@threads', '@regression'] }, () => {
       await expect(alice.app.messages.message(reply).root).toHaveCount(0);
     }
   );
+
+  test('THR-07 a file can be sent inside a 1:1 thread', async ({ alice, data, api }) => {
+    const peer = await data.user('peer');
+    await alice.app.openChatWith(peer);
+    const parent = uniqueText('needs the file');
+    await alice.app.sendAndConfirm(parent);
+    await api.users.waitForConversation(alice.user.uid, peer.uid); // BUG-012
+    await alice.app.messages.message(parent).choose(THREAD);
+
+    await alice.app.thread.composer.attach('file', ASSETS.pdf);
+
+    await expect(alice.app.thread.messages.last().root).toHaveAccessibleName(/, file message$/);
+    await expect(alice.app.thread.messages.last().root).toContainText('test-file.pdf');
+    await expect(alice.app.messages.message(parent).threadRepliesButton).toHaveAccessibleName(MessageBubble.threadRepliesLabel(1));
+  });
 });
