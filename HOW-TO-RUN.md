@@ -1,9 +1,9 @@
 # How to run the E2E tests
 
-Quick, copy-paste guide. Every command runs from the project folder:
+Quick, copy-paste guide. Every command runs from the project folder (first time? see the step-by-step setup in [README.md](README.md)):
 
 ```bash
-cd "/Users/aman/Desktop/Uikit-v7 Automation_test"
+cd cometchat-uikit-react-e2e-tests   # or wherever you cloned it
 ```
 
 ---

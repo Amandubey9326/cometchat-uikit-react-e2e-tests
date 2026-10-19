@@ -1,0 +1,4832 @@
+{
+ "CL_001": {
+  "tab": "1 Conversation List",
+  "title": "Verify conversation list displays users and groups",
+  "status": "Covered",
+  "test": "CONV-01",
+  "note": ""
+ },
+ "CL_002": {
+  "tab": "1 Conversation List",
+  "title": "Verify user conversation displays name and avatar",
+  "status": "Covered",
+  "test": "CONV-03",
+  "note": ""
+ },
+ "CL_003": {
+  "tab": "1 Conversation List",
+  "title": "Verify group conversation displays name and avatar",
+  "status": "Partly",
+  "test": "CONV-04",
+  "note": "group avatar not asserted"
+ },
+ "CL_004": {
+  "tab": "1 Conversation List",
+  "title": "Verify online status indicator",
+  "status": "Covered",
+  "test": "CONV-12",
+  "note": ""
+ },
+ "CL_005": {
+  "tab": "1 Conversation List",
+  "title": "Verify conversations sorted by recent activity",
+  "status": "Covered",
+  "test": "CONV-07/15",
+  "note": ""
+ },
+ "CL_006": {
+  "tab": "1 Conversation List",
+  "title": "Verify clicking conversation opens chat",
+  "status": "Covered",
+  "test": "CONV-06",
+  "note": ""
+ },
+ "CL_007": {
+  "tab": "1 Conversation List",
+  "title": "Verify empty conversation list state",
+  "status": "Covered",
+  "test": "CONV-02",
+  "note": ""
+ },
+ "CL_008": {
+  "tab": "1 Conversation List",
+  "title": "Verify delete icon appears on swipe/hover",
+  "status": "Covered",
+  "test": "CONV-13",
+  "note": ""
+ },
+ "CL_009": {
+  "tab": "1 Conversation List",
+  "title": "Verify delete confirmation dialog",
+  "status": "Covered",
+  "test": "CONV-13",
+  "note": ""
+ },
+ "CL_010": {
+  "tab": "1 Conversation List",
+  "title": "Verify conversation deleted on confirm",
+  "status": "Covered",
+  "test": "CONV-13",
+  "note": ""
+ },
+ "CL_011": {
+  "tab": "1 Conversation List",
+  "title": "Verify cancel delete keeps conversation",
+  "status": "Covered",
+  "test": "CONV-14",
+  "note": ""
+ },
+ "CL_012": {
+  "tab": "1 Conversation List",
+  "title": "Verify delete fails without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CL_013": {
+  "tab": "1 Conversation List",
+  "title": "Verify today's conversation shows time",
+  "status": "Partly",
+  "test": "CONV-03",
+  "note": "time shown, format not checked"
+ },
+ "CL_014": {
+  "tab": "1 Conversation List",
+  "title": "Verify yesterday's conversation shows 'Yesterday'",
+  "status": "Not covered",
+  "test": "",
+  "note": "needs clock control"
+ },
+ "CL_015": {
+  "tab": "1 Conversation List",
+  "title": "Verify older conversation shows date",
+  "status": "Not covered",
+  "test": "",
+  "note": "needs clock control"
+ },
+ "CL_016": {
+  "tab": "1 Conversation List",
+  "title": "Verify date updates after midnight",
+  "status": "Not covered",
+  "test": "",
+  "note": "needs clock control"
+ },
+ "CL_017": {
+  "tab": "1 Conversation List",
+  "title": "Verify last message preview displays",
+  "status": "Covered",
+  "test": "CONV-03",
+  "note": ""
+ },
+ "CL_018": {
+  "tab": "1 Conversation List",
+  "title": "Verify 'You:' prefix for sent messages",
+  "status": "Not covered",
+  "test": "",
+  "note": "\"You:\" prefix"
+ },
+ "CL_019": {
+  "tab": "1 Conversation List",
+  "title": "Verify message status checkmark",
+  "status": "Covered",
+  "test": "CONV-03",
+  "note": ""
+ },
+ "CL_020": {
+  "tab": "1 Conversation List",
+  "title": "Verify long message truncation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CL_021": {
+  "tab": "1 Conversation List",
+  "title": "Verify image/attachment preview",
+  "status": "Covered",
+  "test": "CONV-05",
+  "note": ""
+ },
+ "CL_022": {
+  "tab": "1 Conversation List",
+  "title": "Verify preview updates on new message",
+  "status": "Covered",
+  "test": "CONV-07/08",
+  "note": ""
+ },
+ "CL_023": {
+  "tab": "1 Conversation List",
+  "title": "Verify empty preview for new conversation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CL_024": {
+  "tab": "1 Conversation List",
+  "title": "Verify conversation list on desktop and mobile",
+  "status": "Covered",
+  "test": "RESP-01/02",
+  "note": ""
+ },
+ "CL_025": {
+  "tab": "1 Conversation List",
+  "title": "Verify Pin conversation option appears on long press",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_026": {
+  "tab": "1 Conversation List",
+  "title": "Verify pinning a one-on-one conversation",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_027": {
+  "tab": "1 Conversation List",
+  "title": "Verify pinning a group conversation",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_028": {
+  "tab": "1 Conversation List",
+  "title": "Verify Unpin conversation option appears for pinned chats",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_029": {
+  "tab": "1 Conversation List",
+  "title": "Verify unpinning a conversation",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_030": {
+  "tab": "1 Conversation List",
+  "title": "Verify pinned conversations stay on top when a new message arrives",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_031": {
+  "tab": "1 Conversation List",
+  "title": "Verify pin persists after logging out and back in",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_032": {
+  "tab": "1 Conversation List",
+  "title": "Verify pinning without network",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "CL_033": {
+  "tab": "1 Conversation List",
+  "title": "Verify pinned conversation can still be deleted",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pin conversation is not in UIKit 7.0.3"
+ },
+ "MSGLIST_001": {
+  "tab": "2 Message List",
+  "title": "Verify message list loads on opening a conversation",
+  "status": "Covered",
+  "test": "MSG-11",
+  "note": ""
+ },
+ "MSGLIST_002": {
+  "tab": "2 Message List",
+  "title": "Verify sender and receiver message alignment",
+  "status": "Not covered",
+  "test": "",
+  "note": "bubble alignment"
+ },
+ "MSGLIST_003": {
+  "tab": "2 Message List",
+  "title": "Verify user name display in message header",
+  "status": "Covered",
+  "test": "UDET-01/02",
+  "note": ""
+ },
+ "MSGLIST_004": {
+  "tab": "2 Message List",
+  "title": "Verify sender name on received messages in a group",
+  "status": "Partly",
+  "test": "MSG-12",
+  "note": "sender name not asserted"
+ },
+ "MSGLIST_005": {
+  "tab": "2 Message List",
+  "title": "Verify date and time of each message",
+  "status": "Covered",
+  "test": "MSG-16",
+  "note": ""
+ },
+ "MSGLIST_006": {
+  "tab": "2 Message List",
+  "title": "Verify date separators between days",
+  "status": "Partly",
+  "test": "MSG-16",
+  "note": "only \"Today\""
+ },
+ "MSGLIST_007": {
+  "tab": "2 Message List",
+  "title": "Verify new message appears in real time",
+  "status": "Covered",
+  "test": "MSG-11",
+  "note": ""
+ },
+ "MSGLIST_008": {
+  "tab": "2 Message List",
+  "title": "Verify message list scrolling and older message loading",
+  "status": "Covered",
+  "test": "MSG-18/19",
+  "note": ""
+ },
+ "MSGLIST_009": {
+  "tab": "2 Message List",
+  "title": "Verify scroll-to-bottom behaviour",
+  "status": "Partly",
+  "test": "MSG-18/19",
+  "note": "jump to newest = MSG-20 (blocked by async moderation)"
+ },
+ "MSGLIST_010": {
+  "tab": "2 Message List",
+  "title": "Verify read and delivery receipts",
+  "status": "Covered",
+  "test": "MSG-14/14b",
+  "note": ""
+ },
+ "MSGLIST_011": {
+  "tab": "2 Message List",
+  "title": "Verify empty conversation state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_012": {
+  "tab": "2 Message List",
+  "title": "Verify message list on network loss",
+  "status": "Covered",
+  "test": "NET-01/02",
+  "note": ""
+ },
+ "MSGLIST_013": {
+  "tab": "2 Message List",
+  "title": "Verify very long message rendering",
+  "status": "Covered",
+  "test": "MSG-06",
+  "note": ""
+ },
+ "MSGLIST_014": {
+  "tab": "2 Message List",
+  "title": "Verify adding a reaction to a message",
+  "status": "Covered",
+  "test": "REA-01",
+  "note": ""
+ },
+ "MSGLIST_015": {
+  "tab": "2 Message List",
+  "title": "Verify reaction count increments when another user reacts with the same emoji",
+  "status": "Covered",
+  "test": "REA-04",
+  "note": ""
+ },
+ "MSGLIST_016": {
+  "tab": "2 Message List",
+  "title": "Verify multiple different reactions on one message",
+  "status": "Covered",
+  "test": "REA-03",
+  "note": ""
+ },
+ "MSGLIST_017": {
+  "tab": "2 Message List",
+  "title": "Verify removing own reaction",
+  "status": "Covered",
+  "test": "REA-02",
+  "note": ""
+ },
+ "MSGLIST_018": {
+  "tab": "2 Message List",
+  "title": "Verify viewing who reacted",
+  "status": "Covered",
+  "test": "REA-05",
+  "note": ""
+ },
+ "MSGLIST_019": {
+  "tab": "2 Message List",
+  "title": "Verify reaction syncs in real time",
+  "status": "Covered",
+  "test": "REA-04",
+  "note": ""
+ },
+ "MSGLIST_020": {
+  "tab": "2 Message List",
+  "title": "Verify reaction while offline",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_021": {
+  "tab": "2 Message List",
+  "title": "Verify message menu opens with all options",
+  "status": "Covered",
+  "test": "ACT-01",
+  "note": ""
+ },
+ "MSGLIST_022": {
+  "tab": "2 Message List",
+  "title": "Verify Reply in Thread",
+  "status": "Covered",
+  "test": "THR-01",
+  "note": ""
+ },
+ "MSGLIST_023": {
+  "tab": "2 Message List",
+  "title": "Verify Copy message",
+  "status": "Covered",
+  "test": "ACT-09",
+  "note": ""
+ },
+ "MSGLIST_024": {
+  "tab": "2 Message List",
+  "title": "Verify Edit own message",
+  "status": "Covered",
+  "test": "ACT-03",
+  "note": ""
+ },
+ "MSGLIST_025": {
+  "tab": "2 Message List",
+  "title": "Verify Message Info (Info)",
+  "status": "Covered",
+  "test": "ACT-10",
+  "note": ""
+ },
+ "MSGLIST_026": {
+  "tab": "2 Message List",
+  "title": "Verify Delete own message",
+  "status": "Covered",
+  "test": "ACT-05",
+  "note": ""
+ },
+ "MSGLIST_027": {
+  "tab": "2 Message List",
+  "title": "Verify Edit option not shown on received messages",
+  "status": "Covered",
+  "test": "ACT-02",
+  "note": ""
+ },
+ "MSGLIST_028": {
+  "tab": "2 Message List",
+  "title": "Verify Edit with empty text",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_029": {
+  "tab": "2 Message List",
+  "title": "Verify Copy not offered for media messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_030": {
+  "tab": "2 Message List",
+  "title": "Verify cancelling Delete confirmation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_031": {
+  "tab": "2 Message List",
+  "title": "Verify call notification message (initiated/ended)",
+  "status": "Covered",
+  "test": "CALL-01/08",
+  "note": ""
+ },
+ "MSGLIST_032": {
+  "tab": "2 Message List",
+  "title": "Verify missed / declined call notification",
+  "status": "Covered",
+  "test": "CALL-02/06",
+  "note": ""
+ },
+ "MSGLIST_033": {
+  "tab": "2 Message List",
+  "title": "Verify group action notification (member added)",
+  "status": "Partly",
+  "test": "MEM-03",
+  "note": "notice not asserted"
+ },
+ "MSGLIST_034": {
+  "tab": "2 Message List",
+  "title": "Verify group action notification (member left/kicked/banned)",
+  "status": "Partly",
+  "test": "MEM-04/13",
+  "note": "kick only"
+ },
+ "MSGLIST_035": {
+  "tab": "2 Message List",
+  "title": "Verify group action notification (scope changed)",
+  "status": "Partly",
+  "test": "MEM-07/08",
+  "note": "notice not asserted"
+ },
+ "MSGLIST_036": {
+  "tab": "2 Message List",
+  "title": "Verify translating a message",
+  "status": "Covered",
+  "test": "ACT-12",
+  "note": ""
+ },
+ "MSGLIST_037": {
+  "tab": "2 Message List",
+  "title": "Verify the original text can be restored",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_038": {
+  "tab": "2 Message List",
+  "title": "Verify Translate is not available for non-text messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_039": {
+  "tab": "2 Message List",
+  "title": "Verify translation without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_040": {
+  "tab": "2 Message List",
+  "title": "Verify sharing a message",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Share is mobile-only"
+ },
+ "MSGLIST_041": {
+  "tab": "2 Message List",
+  "title": "Verify sharing a media message",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Share is mobile-only"
+ },
+ "MSGLIST_042": {
+  "tab": "2 Message List",
+  "title": "Verify the Conversation Summary panel opens",
+  "status": "Blocked",
+  "test": "",
+  "note": "Conversation Summary needs AI (off on the app)"
+ },
+ "MSGLIST_043": {
+  "tab": "2 Message List",
+  "title": "Verify the summary loads",
+  "status": "Blocked",
+  "test": "",
+  "note": "Conversation Summary needs AI (off on the app)"
+ },
+ "MSGLIST_044": {
+  "tab": "2 Message List",
+  "title": "Verify error state of the summary",
+  "status": "Blocked",
+  "test": "",
+  "note": "Conversation Summary needs AI (off on the app)"
+ },
+ "MSGLIST_045": {
+  "tab": "2 Message List",
+  "title": "Verify summary with no messages",
+  "status": "Blocked",
+  "test": "",
+  "note": "Conversation Summary needs AI (off on the app)"
+ },
+ "MSGLIST_046": {
+  "tab": "2 Message List",
+  "title": "Verify closing the summary",
+  "status": "Blocked",
+  "test": "",
+  "note": "Conversation Summary needs AI (off on the app)"
+ },
+ "MSGLIST_047": {
+  "tab": "2 Message List",
+  "title": "Verify Reply option appears in the message menu",
+  "status": "Covered",
+  "test": "ACT-07",
+  "note": ""
+ },
+ "MSGLIST_048": {
+  "tab": "2 Message List",
+  "title": "Verify replying to a text message",
+  "status": "Covered",
+  "test": "ACT-07",
+  "note": ""
+ },
+ "MSGLIST_049": {
+  "tab": "2 Message List",
+  "title": "Verify reply preview bar can be cancelled",
+  "status": "Covered",
+  "test": "ACT-08",
+  "note": ""
+ },
+ "MSGLIST_050": {
+  "tab": "2 Message List",
+  "title": "Verify replying to a media message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_051": {
+  "tab": "2 Message List",
+  "title": "Verify tapping the quoted message jumps to the original",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_052": {
+  "tab": "2 Message List",
+  "title": "Verify receiver sees the quoted reply",
+  "status": "Covered",
+  "test": "ACT-07",
+  "note": ""
+ },
+ "MSGLIST_053": {
+  "tab": "2 Message List",
+  "title": "Verify reply to a deleted message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_054": {
+  "tab": "2 Message List",
+  "title": "Verify replying to a message in a group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_055": {
+  "tab": "2 Message List",
+  "title": "Verify reactions in a group chat",
+  "status": "Covered",
+  "test": "REA-07",
+  "note": ""
+ },
+ "MSGLIST_056": {
+  "tab": "2 Message List",
+  "title": "Verify message menu options in a group chat",
+  "status": "Covered",
+  "test": "ACT-06/13",
+  "note": ""
+ },
+ "MSGLIST_057": {
+  "tab": "2 Message List",
+  "title": "Verify admin can delete other members' messages",
+  "status": "Covered",
+  "test": "ACT-06",
+  "note": "v7: only the sender may delete"
+ },
+ "MSGLIST_058": {
+  "tab": "2 Message List",
+  "title": "Verify edited label and deleted-message placeholder",
+  "status": "Covered",
+  "test": "ACT-03/05",
+  "note": ""
+ },
+ "MSGLIST_059": {
+  "tab": "2 Message List",
+  "title": "Verify sent status after sending",
+  "status": "Covered",
+  "test": "MSG-14",
+  "note": ""
+ },
+ "MSGLIST_060": {
+  "tab": "2 Message List",
+  "title": "Verify delivered status",
+  "status": "Covered",
+  "test": "MSG-14",
+  "note": ""
+ },
+ "MSGLIST_061": {
+  "tab": "2 Message List",
+  "title": "Verify read status",
+  "status": "Covered",
+  "test": "MSG-14b",
+  "note": "known bug BUG-010"
+ },
+ "MSGLIST_062": {
+  "tab": "2 Message List",
+  "title": "Verify status updates in real time",
+  "status": "Covered",
+  "test": "MSG-14",
+  "note": ""
+ },
+ "MSGLIST_063": {
+  "tab": "2 Message List",
+  "title": "Verify receipts for several messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_064": {
+  "tab": "2 Message List",
+  "title": "Verify last message status in the conversation item",
+  "status": "Covered",
+  "test": "CONV-03",
+  "note": ""
+ },
+ "MSGLIST_065": {
+  "tab": "2 Message List",
+  "title": "Verify Info shows delivered and read times in a one-to-one chat",
+  "status": "Partly",
+  "test": "ACT-10",
+  "note": "times not asserted"
+ },
+ "MSGLIST_066": {
+  "tab": "2 Message List",
+  "title": "Verify Info lists each member's status in a group",
+  "status": "Covered",
+  "test": "MSG-15",
+  "note": ""
+ },
+ "MSGLIST_067": {
+  "tab": "2 Message List",
+  "title": "Verify group message shows read only after all members read",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_068": {
+  "tab": "2 Message List",
+  "title": "Verify receipt on messages received while offline",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_069": {
+  "tab": "2 Message List",
+  "title": "Verify receipts are not shown on received messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_070": {
+  "tab": "2 Message List",
+  "title": "Verify media message receipts",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_071": {
+  "tab": "2 Message List",
+  "title": "Verify a message sent offline shows waiting state, not a tick",
+  "status": "Covered",
+  "test": "NET-04 / MSG-23",
+  "note": ""
+ },
+ "MSGLIST_072": {
+  "tab": "2 Message List",
+  "title": "Verify read receipts after the blocker blocks the sender",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_073": {
+  "tab": "2 Message List",
+  "title": "Verify typing indicator in the message header",
+  "status": "Covered",
+  "test": "CMP-13",
+  "note": ""
+ },
+ "MSGLIST_074": {
+  "tab": "2 Message List",
+  "title": "Verify typing indicator in the conversation item",
+  "status": "Covered",
+  "test": "CONV-11",
+  "note": ""
+ },
+ "MSGLIST_075": {
+  "tab": "2 Message List",
+  "title": "Verify typing indicator stops after the user stops typing",
+  "status": "Covered",
+  "test": "CMP-13",
+  "note": ""
+ },
+ "MSGLIST_076": {
+  "tab": "2 Message List",
+  "title": "Verify typing indicator clears after sending",
+  "status": "Covered",
+  "test": "CMP-13",
+  "note": ""
+ },
+ "MSGLIST_077": {
+  "tab": "2 Message List",
+  "title": "Verify typing indicator in a group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_078": {
+  "tab": "2 Message List",
+  "title": "Verify several members typing in a group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_079": {
+  "tab": "2 Message List",
+  "title": "Verify online dot in the Users list",
+  "status": "Partly",
+  "test": "USR-07",
+  "note": "header, not list dot"
+ },
+ "MSGLIST_080": {
+  "tab": "2 Message List",
+  "title": "Verify online status in the message header",
+  "status": "Covered",
+  "test": "USR-07",
+  "note": ""
+ },
+ "MSGLIST_081": {
+  "tab": "2 Message List",
+  "title": "Verify online dot in the Conversation list",
+  "status": "Covered",
+  "test": "CONV-12",
+  "note": ""
+ },
+ "MSGLIST_082": {
+  "tab": "2 Message List",
+  "title": "Verify online status in the group member list",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_083": {
+  "tab": "2 Message List",
+  "title": "Verify status changes to offline when the user logs out or closes the app",
+  "status": "Covered",
+  "test": "USR-07 / CONV-12",
+  "note": ""
+ },
+ "MSGLIST_084": {
+  "tab": "2 Message List",
+  "title": "Verify status changes to online when the user returns",
+  "status": "Covered",
+  "test": "CONV-12",
+  "note": ""
+ },
+ "MSGLIST_085": {
+  "tab": "2 Message List",
+  "title": "Verify last seen text for an offline user",
+  "status": "Not covered",
+  "test": "",
+  "note": "\"last seen\" exists in 7.0.3"
+ },
+ "MSGLIST_086": {
+  "tab": "2 Message List",
+  "title": "Verify presence after the network drops and returns",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_087": {
+  "tab": "2 Message List",
+  "title": "Verify typing indicator is hidden when blocked",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_088": {
+  "tab": "2 Message List",
+  "title": "Verify typing indicator text does not stay stuck",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_089": {
+  "tab": "2 Message List",
+  "title": "Verify Mark as unread appears in the message menu",
+  "status": "Covered",
+  "test": "CONV-10",
+  "note": ""
+ },
+ "MSGLIST_090": {
+  "tab": "2 Message List",
+  "title": "Verify marking a message as unread",
+  "status": "Covered",
+  "test": "CONV-10",
+  "note": "known bug BUG-013"
+ },
+ "MSGLIST_091": {
+  "tab": "2 Message List",
+  "title": "Verify the conversation shows an unread badge",
+  "status": "Covered",
+  "test": "CONV-10",
+  "note": ""
+ },
+ "MSGLIST_092": {
+  "tab": "2 Message List",
+  "title": "Verify the badge clears after reading again",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_093": {
+  "tab": "2 Message List",
+  "title": "Verify the conversation appears in the Unread filter",
+  "status": "Partly",
+  "test": "SRCH-07",
+  "note": ""
+ },
+ "MSGLIST_094": {
+  "tab": "2 Message List",
+  "title": "Verify marking a message as unread in a group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_095": {
+  "tab": "2 Message List",
+  "title": "Verify unread state persists after logout and login",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_096": {
+  "tab": "2 Message List",
+  "title": "Verify the chat opens at the first unread message",
+  "status": "Not covered",
+  "test": "",
+  "note": "startFromUnreadMessages is on"
+ },
+ "MSGLIST_097": {
+  "tab": "2 Message List",
+  "title": "Verify the chat opens at the latest message when nothing is unread",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_098": {
+  "tab": "2 Message List",
+  "title": "Verify the chat opens at the message marked as unread",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_099": {
+  "tab": "2 Message List",
+  "title": "Verify Mark as unread is not offered on own messages",
+  "status": "Partly",
+  "test": "ACT-01",
+  "note": ""
+ },
+ "MSGLIST_100": {
+  "tab": "2 Message List",
+  "title": "Verify Mark as unread without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSGLIST_101": {
+  "tab": "2 Message List",
+  "title": "Verify Save option appears in the message menu",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_102": {
+  "tab": "2 Message List",
+  "title": "Verify saving a received message",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_103": {
+  "tab": "2 Message List",
+  "title": "Verify saving your own message",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_104": {
+  "tab": "2 Message List",
+  "title": "Verify saving a media message",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_105": {
+  "tab": "2 Message List",
+  "title": "Verify saving a message in a group",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_106": {
+  "tab": "2 Message List",
+  "title": "Verify saved messages are private",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_107": {
+  "tab": "2 Message List",
+  "title": "Verify Unsave option appears on a saved message",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_108": {
+  "tab": "2 Message List",
+  "title": "Verify Unsave asks for confirmation",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_109": {
+  "tab": "2 Message List",
+  "title": "Verify confirming Unsave",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_110": {
+  "tab": "2 Message List",
+  "title": "Verify cancelling Unsave keeps the message saved",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_111": {
+  "tab": "2 Message List",
+  "title": "Verify the Saved Messages screen opens",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_112": {
+  "tab": "2 Message List",
+  "title": "Verify each item shows the message, sender and time",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_113": {
+  "tab": "2 Message List",
+  "title": "Verify the list includes messages from different chats",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_114": {
+  "tab": "2 Message List",
+  "title": "Verify tapping a saved message opens it in its chat",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_115": {
+  "tab": "2 Message List",
+  "title": "Verify unsaving from the Saved Messages list",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_116": {
+  "tab": "2 Message List",
+  "title": "Verify the empty state",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_117": {
+  "tab": "2 Message List",
+  "title": "Verify saved messages persist after logout and login",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_118": {
+  "tab": "2 Message List",
+  "title": "Verify a saved message that is later deleted",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_119": {
+  "tab": "2 Message List",
+  "title": "Verify Save without network",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "MSGLIST_120": {
+  "tab": "2 Message List",
+  "title": "Verify opening Saved Messages without network",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Save / Saved Messages is not in UIKit 7.0.3"
+ },
+ "ADVSEARCH_001": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Audio filter returns matching results",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_002": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Audio results open the source message",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_003": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Audio filter with no matching items",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_004": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Documents filter returns matching results",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_005": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Documents results open the source message",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_006": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Documents filter with no matching items",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_007": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Photos filter returns matching results",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_008": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Photos results open the source message",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_009": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Photos filter with no matching items",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_010": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Videos filter returns matching results",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_011": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Videos results open the source message",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_012": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Videos filter with no matching items",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_013": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Links filter returns matching results",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_014": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Links results open the source message",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_015": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Links filter with no matching items",
+  "status": "Not covered",
+  "test": "",
+  "note": "in-chat media filter"
+ },
+ "ADVSEARCH_016": {
+  "tab": "3 Advanced Search",
+  "title": "Verify text search returns matching messages",
+  "status": "Covered",
+  "test": "SRCH-10/11",
+  "note": ""
+ },
+ "ADVSEARCH_017": {
+  "tab": "3 Advanced Search",
+  "title": "Verify search is case-insensitive",
+  "status": "Covered",
+  "test": "SRCH-04",
+  "note": ""
+ },
+ "ADVSEARCH_018": {
+  "tab": "3 Advanced Search",
+  "title": "Verify partial keyword matching",
+  "status": "Covered",
+  "test": "SRCH-04",
+  "note": ""
+ },
+ "ADVSEARCH_019": {
+  "tab": "3 Advanced Search",
+  "title": "Verify tapping a text result navigates to the message",
+  "status": "Covered",
+  "test": "SRCH-03",
+  "note": ""
+ },
+ "ADVSEARCH_020": {
+  "tab": "3 Advanced Search",
+  "title": "Verify clearing the search",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_021": {
+  "tab": "3 Advanced Search",
+  "title": "Verify search with no matching text",
+  "status": "Covered",
+  "test": "SRCH-05",
+  "note": ""
+ },
+ "ADVSEARCH_022": {
+  "tab": "3 Advanced Search",
+  "title": "Verify search with special characters",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_023": {
+  "tab": "3 Advanced Search",
+  "title": "Verify search with only spaces",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_024": {
+  "tab": "3 Advanced Search",
+  "title": "Verify search with very long text",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_025": {
+  "tab": "3 Advanced Search",
+  "title": "Verify switching between filters",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_026": {
+  "tab": "3 Advanced Search",
+  "title": "Verify search scoped to the current conversation",
+  "status": "Covered",
+  "test": "SRCH-10/11",
+  "note": ""
+ },
+ "ADVSEARCH_027": {
+  "tab": "3 Advanced Search",
+  "title": "Verify deleted messages are excluded from search",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_028": {
+  "tab": "3 Advanced Search",
+  "title": "Verify closing Advanced Search returns to the conversation",
+  "status": "Covered",
+  "test": "SRCH-08",
+  "note": ""
+ },
+ "ADVSEARCH_029": {
+  "tab": "3 Advanced Search",
+  "title": "Verify search behaviour offline",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_030": {
+  "tab": "3 Advanced Search",
+  "title": "Verify Photos, Videos, Documents, Audio and Links filters in a group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_031": {
+  "tab": "3 Advanced Search",
+  "title": "Verify text search in a group chat",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_032": {
+  "tab": "3 Advanced Search",
+  "title": "Verify a group search result opens the source message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "ADVSEARCH_033": {
+  "tab": "3 Advanced Search",
+  "title": "Verify all filters in a one-to-one chat",
+  "status": "Covered",
+  "test": "ADVSEARCH-001…015",
+  "note": "each filter test checks only this chat's items are listed"
+ },
+ "CONVSEARCH_001": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Audio' filter returns matching conversations/messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_002": {
+  "tab": "4 Conversation Search",
+  "title": "Verify tapping a 'Audio' result opens the conversation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_003": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Audio' filter with no results",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_004": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Documents' filter returns matching conversations/messages",
+  "status": "Covered",
+  "test": "ATT-13",
+  "note": ""
+ },
+ "CONVSEARCH_005": {
+  "tab": "4 Conversation Search",
+  "title": "Verify tapping a 'Documents' result opens the conversation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_006": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Documents' filter with no results",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_007": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Photos' filter returns matching conversations/messages",
+  "status": "Covered",
+  "test": "SRCH-06",
+  "note": ""
+ },
+ "CONVSEARCH_008": {
+  "tab": "4 Conversation Search",
+  "title": "Verify tapping a 'Photos' result opens the conversation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_009": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Photos' filter with no results",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_010": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Videos' filter returns matching conversations/messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_011": {
+  "tab": "4 Conversation Search",
+  "title": "Verify tapping a 'Videos' result opens the conversation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_012": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Videos' filter with no results",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_013": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Links' filter returns matching conversations/messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_014": {
+  "tab": "4 Conversation Search",
+  "title": "Verify tapping a 'Links' result opens the conversation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_015": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Links' filter with no results",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_016": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Groups' filter lists matching groups",
+  "status": "Partly",
+  "test": "SRCH-01",
+  "note": ""
+ },
+ "CONVSEARCH_017": {
+  "tab": "4 Conversation Search",
+  "title": "Verify tapping a group result opens the group chat",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_018": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Groups' filter does not show one-on-one users",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_019": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Groups' filter with no matching group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_020": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Unread' filter lists only unread conversations",
+  "status": "Covered",
+  "test": "SRCH-07",
+  "note": ""
+ },
+ "CONVSEARCH_021": {
+  "tab": "4 Conversation Search",
+  "title": "Verify conversation leaves Unread list once read",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_022": {
+  "tab": "4 Conversation Search",
+  "title": "Verify 'Unread' filter when all conversations are read",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_023": {
+  "tab": "4 Conversation Search",
+  "title": "Verify searching a keyword across conversations",
+  "status": "Covered",
+  "test": "SRCH-03",
+  "note": ""
+ },
+ "CONVSEARCH_024": {
+  "tab": "4 Conversation Search",
+  "title": "Verify searching by user name",
+  "status": "Covered",
+  "test": "SRCH-02",
+  "note": ""
+ },
+ "CONVSEARCH_025": {
+  "tab": "4 Conversation Search",
+  "title": "Verify search is case-insensitive",
+  "status": "Covered",
+  "test": "SRCH-04",
+  "note": ""
+ },
+ "CONVSEARCH_026": {
+  "tab": "4 Conversation Search",
+  "title": "Verify result opens at the matching message",
+  "status": "Covered",
+  "test": "SRCH-03",
+  "note": ""
+ },
+ "CONVSEARCH_027": {
+  "tab": "4 Conversation Search",
+  "title": "Verify search with no match",
+  "status": "Covered",
+  "test": "SRCH-05",
+  "note": ""
+ },
+ "CONVSEARCH_028": {
+  "tab": "4 Conversation Search",
+  "title": "Verify search with special characters",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_029": {
+  "tab": "4 Conversation Search",
+  "title": "Verify search with only spaces",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_030": {
+  "tab": "4 Conversation Search",
+  "title": "Verify switching between filters",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_031": {
+  "tab": "4 Conversation Search",
+  "title": "Verify clearing search restores the conversation list",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_032": {
+  "tab": "4 Conversation Search",
+  "title": "Verify deleted conversations are excluded",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CONVSEARCH_033": {
+  "tab": "4 Conversation Search",
+  "title": "Verify search offline",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "COMP_001": {
+  "tab": "5 Composer",
+  "title": "Verify send button sends text message",
+  "status": "Covered",
+  "test": "MSG-01",
+  "note": ""
+ },
+ "COMP_002": {
+  "tab": "5 Composer",
+  "title": "Verify Enter key sends message",
+  "status": "Covered",
+  "test": "MSG-02",
+  "note": ""
+ },
+ "COMP_003": {
+  "tab": "5 Composer",
+  "title": "Verify empty message not sent",
+  "status": "Covered",
+  "test": "MSG-04",
+  "note": ""
+ },
+ "COMP_004": {
+  "tab": "5 Composer",
+  "title": "Verify send fails without network",
+  "status": "Covered",
+  "test": "NET-04",
+  "note": ""
+ },
+ "COMP_005": {
+  "tab": "5 Composer",
+  "title": "Verify attach menu opens",
+  "status": "Covered",
+  "test": "ATT-01",
+  "note": ""
+ },
+ "COMP_006": {
+  "tab": "5 Composer",
+  "title": "Verify sending image attachment",
+  "status": "Covered",
+  "test": "ATT-02",
+  "note": ""
+ },
+ "COMP_007": {
+  "tab": "5 Composer",
+  "title": "Verify sending document attachment",
+  "status": "Covered",
+  "test": "ATT-06",
+  "note": ""
+ },
+ "COMP_008": {
+  "tab": "5 Composer",
+  "title": "Verify file size limit exceeded",
+  "status": "Covered",
+  "test": "ATT-09",
+  "note": ""
+ },
+ "COMP_009": {
+  "tab": "5 Composer",
+  "title": "Verify attachment upload failure",
+  "status": "Covered",
+  "test": "ATT-11",
+  "note": ""
+ },
+ "COMP_010": {
+  "tab": "5 Composer",
+  "title": "Verify voice recording and send",
+  "status": "Covered",
+  "test": "CMP-10",
+  "note": ""
+ },
+ "COMP_011": {
+  "tab": "5 Composer",
+  "title": "Verify cancel recording",
+  "status": "Covered",
+  "test": "CMP-11",
+  "note": ""
+ },
+ "COMP_012": {
+  "tab": "5 Composer",
+  "title": "Verify playing voice message",
+  "status": "Covered",
+  "test": "MSG-060",
+  "note": ""
+ },
+ "COMP_013": {
+  "tab": "5 Composer",
+  "title": "Verify recording without permission",
+  "status": "Covered",
+  "test": "CMP-12",
+  "note": ""
+ },
+ "COMP_014": {
+  "tab": "5 Composer",
+  "title": "Verify emoji picker opens and selection",
+  "status": "Covered",
+  "test": "CMP-07",
+  "note": ""
+ },
+ "COMP_015": {
+  "tab": "5 Composer",
+  "title": "Verify sending message with emoji",
+  "status": "Covered",
+  "test": "MSG-07",
+  "note": ""
+ },
+ "COMP_016": {
+  "tab": "5 Composer",
+  "title": "Verify sticker picker opens",
+  "status": "Covered",
+  "test": "CMP-09",
+  "note": ""
+ },
+ "COMP_017": {
+  "tab": "5 Composer",
+  "title": "Verify sending sticker",
+  "status": "Covered",
+  "test": "CMP-09",
+  "note": ""
+ },
+ "COMP_018": {
+  "tab": "5 Composer",
+  "title": "Verify @all mention in group",
+  "status": "Covered",
+  "test": "MSG-078/079/080/082",
+  "note": ""
+ },
+ "COMP_019": {
+  "tab": "5 Composer",
+  "title": "Verify @all not available in direct chat",
+  "status": "Covered",
+  "test": "MSG-083/093",
+  "note": ""
+ },
+ "COMP_020": {
+  "tab": "5 Composer",
+  "title": "Verify @ shows member suggestions",
+  "status": "Covered",
+  "test": "MEN-01/02/03",
+  "note": ""
+ },
+ "COMP_021": {
+  "tab": "5 Composer",
+  "title": "Verify filtering members by name",
+  "status": "Covered",
+  "test": "MEN-01/02/03",
+  "note": ""
+ },
+ "COMP_022": {
+  "tab": "5 Composer",
+  "title": "Verify sending @ mention message",
+  "status": "Covered",
+  "test": "MEN-05/06",
+  "note": ""
+ },
+ "COMP_023": {
+  "tab": "5 Composer",
+  "title": "Verify @ with no matching members",
+  "status": "Covered",
+  "test": "MSG-092",
+  "note": ""
+ },
+ "COMP_024": {
+  "tab": "5 Composer",
+  "title": "Verify all features work in direct chat",
+  "status": "Covered",
+  "test": "messaging suite",
+  "note": ""
+ },
+ "COMP_025": {
+  "tab": "5 Composer",
+  "title": "Verify all features work in group chat",
+  "status": "Covered",
+  "test": "MSG-12 / ATT-12",
+  "note": ""
+ },
+ "COMP_026": {
+  "tab": "5 Composer",
+  "title": "Verify composer on desktop and mobile",
+  "status": "Covered",
+  "test": "RESP-02/03",
+  "note": ""
+ },
+ "COMP_027": {
+  "tab": "5 Composer",
+  "title": "Verify formatting toolbar is visible",
+  "status": "Covered",
+  "test": "CMP-02",
+  "note": ""
+ },
+ "COMP_028": {
+  "tab": "5 Composer",
+  "title": "Verify Bold formatting",
+  "status": "Covered",
+  "test": "CMP-02/03",
+  "note": ""
+ },
+ "COMP_029": {
+  "tab": "5 Composer",
+  "title": "Verify Italic formatting",
+  "status": "Covered",
+  "test": "CMP-02/03",
+  "note": ""
+ },
+ "COMP_030": {
+  "tab": "5 Composer",
+  "title": "Verify Underline formatting",
+  "status": "Covered",
+  "test": "CMP-02/03",
+  "note": ""
+ },
+ "COMP_031": {
+  "tab": "5 Composer",
+  "title": "Verify Strikethrough formatting",
+  "status": "Covered",
+  "test": "CMP-02",
+  "note": ""
+ },
+ "COMP_032": {
+  "tab": "5 Composer",
+  "title": "Verify adding a link",
+  "status": "Covered",
+  "test": "CMP-04",
+  "note": ""
+ },
+ "COMP_033": {
+  "tab": "5 Composer",
+  "title": "Verify Ordered List formatting",
+  "status": "Covered",
+  "test": "CMP-05/06",
+  "note": ""
+ },
+ "COMP_034": {
+  "tab": "5 Composer",
+  "title": "Verify Bullet List formatting",
+  "status": "Covered",
+  "test": "CMP-05/06",
+  "note": ""
+ },
+ "COMP_035": {
+  "tab": "5 Composer",
+  "title": "Verify Blockquote formatting",
+  "status": "Covered",
+  "test": "CMP-05/06",
+  "note": ""
+ },
+ "COMP_036": {
+  "tab": "5 Composer",
+  "title": "Verify Code formatting",
+  "status": "Covered",
+  "test": "CMP-02 / CMP-05",
+  "note": ""
+ },
+ "COMP_037": {
+  "tab": "5 Composer",
+  "title": "Verify formatted message displays correctly for the receiver",
+  "status": "Covered",
+  "test": "CMP-02",
+  "note": ""
+ },
+ "COMP_038": {
+  "tab": "5 Composer",
+  "title": "Verify raw markup tags are not shown in messages",
+  "status": "Partly",
+  "test": "CMP-02",
+  "note": ""
+ },
+ "COMP_039": {
+  "tab": "5 Composer",
+  "title": "Verify formatting with empty text",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "COMP_040": {
+  "tab": "5 Composer",
+  "title": "Verify invalid link is rejected",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_001": {
+  "tab": "6 Calls",
+  "title": "Verify call logs list loads correctly",
+  "status": "Covered",
+  "test": "CALL-12",
+  "note": ""
+ },
+ "CALLS_002": {
+  "tab": "6 Calls",
+  "title": "Verify caller name display",
+  "status": "Covered",
+  "test": "CALL-12",
+  "note": ""
+ },
+ "CALLS_003": {
+  "tab": "6 Calls",
+  "title": "Verify caller profile picture display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_004": {
+  "tab": "6 Calls",
+  "title": "Verify call timestamp display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_005": {
+  "tab": "6 Calls",
+  "title": "Verify outgoing call indicator (green arrow)",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_006": {
+  "tab": "6 Calls",
+  "title": "Verify missed call indicator (red)",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_007": {
+  "tab": "6 Calls",
+  "title": "Verify call icon on right side",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_008": {
+  "tab": "6 Calls",
+  "title": "Verify multiple calls from same user display separately",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_009": {
+  "tab": "6 Calls",
+  "title": "Verify selected call log highlight",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_010": {
+  "tab": "6 Calls",
+  "title": "Verify empty call logs state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_011": {
+  "tab": "6 Calls",
+  "title": "Verify handling of very long caller names",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_012": {
+  "tab": "6 Calls",
+  "title": "Verify call logs scrolling functionality",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_013": {
+  "tab": "6 Calls",
+  "title": "Verify calls sorted by most recent first",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_014": {
+  "tab": "6 Calls",
+  "title": "Verify Call Details header display",
+  "status": "Covered",
+  "test": "CALL-13",
+  "note": ""
+ },
+ "CALLS_015": {
+  "tab": "6 Calls",
+  "title": "Verify caller info in Call Details",
+  "status": "Covered",
+  "test": "CALL-13",
+  "note": ""
+ },
+ "CALLS_016": {
+  "tab": "6 Calls",
+  "title": "Verify call type display (Missed Call)",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_017": {
+  "tab": "6 Calls",
+  "title": "Verify call duration display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_018": {
+  "tab": "6 Calls",
+  "title": "Verify voice call button in Call Details",
+  "status": "Covered",
+  "test": "CALL-14",
+  "note": ""
+ },
+ "CALLS_019": {
+  "tab": "6 Calls",
+  "title": "Verify video call button in Call Details",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_020": {
+  "tab": "6 Calls",
+  "title": "Verify Participants tab display",
+  "status": "Covered",
+  "test": "CALL-13",
+  "note": ""
+ },
+ "CALLS_021": {
+  "tab": "6 Calls",
+  "title": "Verify Recording tab display",
+  "status": "Covered",
+  "test": "CALL-13",
+  "note": ""
+ },
+ "CALLS_022": {
+  "tab": "6 Calls",
+  "title": "Verify History tab display",
+  "status": "Covered",
+  "test": "CALL-13",
+  "note": ""
+ },
+ "CALLS_023": {
+  "tab": "6 Calls",
+  "title": "Verify tab switching functionality",
+  "status": "Covered",
+  "test": "CALL-13",
+  "note": ""
+ },
+ "CALLS_024": {
+  "tab": "6 Calls",
+  "title": "Verify participants list display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_025": {
+  "tab": "6 Calls",
+  "title": "Verify participant profile picture",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_026": {
+  "tab": "6 Calls",
+  "title": "Verify participant name display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_027": {
+  "tab": "6 Calls",
+  "title": "Verify participant join timestamp",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_028": {
+  "tab": "6 Calls",
+  "title": "Verify participant call duration",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_029": {
+  "tab": "6 Calls",
+  "title": "Verify multiple participants display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_030": {
+  "tab": "6 Calls",
+  "title": "Verify single participant display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_031": {
+  "tab": "6 Calls",
+  "title": "Verify Recording tab content display",
+  "status": "Covered",
+  "test": "CALLS-030/032/034",
+  "note": ""
+ },
+ "CALLS_032": {
+  "tab": "6 Calls",
+  "title": "Verify empty Recording tab state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_033": {
+  "tab": "6 Calls",
+  "title": "Verify History tab content display",
+  "status": "Covered",
+  "test": "CALL-13",
+  "note": ""
+ },
+ "CALLS_034": {
+  "tab": "6 Calls",
+  "title": "Verify empty History tab state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_035": {
+  "tab": "6 Calls",
+  "title": "Verify voice call initiation from details",
+  "status": "Covered",
+  "test": "CALL-14",
+  "note": ""
+ },
+ "CALLS_036": {
+  "tab": "6 Calls",
+  "title": "Verify video call initiation from details",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_037": {
+  "tab": "6 Calls",
+  "title": "Verify Calls module on desktop browser",
+  "status": "Covered",
+  "test": "calls suite",
+  "note": ""
+ },
+ "CALLS_038": {
+  "tab": "6 Calls",
+  "title": "Verify Calls module on mobile device",
+  "status": "Partly",
+  "test": "RESP-07",
+  "note": ""
+ },
+ "CALLS_039": {
+  "tab": "6 Calls",
+  "title": "Verify Calls tab highlight in navigation",
+  "status": "Covered",
+  "test": "NAV-01",
+  "note": ""
+ },
+ "CALLS_040": {
+  "tab": "6 Calls",
+  "title": "Verify navigation between tabs",
+  "status": "Covered",
+  "test": "NAV-01",
+  "note": ""
+ },
+ "CALLS_041": {
+  "tab": "6 Calls",
+  "title": "Verify loading state during slow connection",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_042": {
+  "tab": "6 Calls",
+  "title": "Verify error handling on network failure",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_043": {
+  "tab": "6 Calls",
+  "title": "Verify Recordings tab lists recordings",
+  "status": "Blocked",
+  "test": "",
+  "note": "needs call recording to be enabled and a recorded call"
+ },
+ "CALLS_044": {
+  "tab": "6 Calls",
+  "title": "Verify playing a recording",
+  "status": "Blocked",
+  "test": "",
+  "note": "needs call recording to be enabled and a recorded call"
+ },
+ "CALLS_045": {
+  "tab": "6 Calls",
+  "title": "Verify empty Recordings state",
+  "status": "Blocked",
+  "test": "",
+  "note": "needs call recording to be enabled and a recorded call"
+ },
+ "CALLS_046": {
+  "tab": "6 Calls",
+  "title": "Verify tab selection on Recordings",
+  "status": "Blocked",
+  "test": "",
+  "note": "needs call recording to be enabled and a recorded call"
+ },
+ "CALLS_047": {
+  "tab": "6 Calls",
+  "title": "Verify starting a group call posts a call message",
+  "status": "Covered",
+  "test": "CALL-11",
+  "note": ""
+ },
+ "CALLS_048": {
+  "tab": "6 Calls",
+  "title": "Verify Join button joins the call",
+  "status": "Covered",
+  "test": "CALL-11",
+  "note": ""
+ },
+ "CALLS_049": {
+  "tab": "6 Calls",
+  "title": "Verify Join is unavailable after the call ends",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_050": {
+  "tab": "6 Calls",
+  "title": "Verify participants appear in Call Details",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_051": {
+  "tab": "6 Calls",
+  "title": "Verify call message shows start time and type",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_052": {
+  "tab": "6 Calls",
+  "title": "Verify joining without permissions",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_053": {
+  "tab": "6 Calls",
+  "title": "Verify starting a voice call from the chat header",
+  "status": "Covered",
+  "test": "CALL-01",
+  "note": ""
+ },
+ "CALLS_054": {
+  "tab": "6 Calls",
+  "title": "Verify starting a video call from the chat header",
+  "status": "Covered",
+  "test": "CALL-02",
+  "note": ""
+ },
+ "CALLS_055": {
+  "tab": "6 Calls",
+  "title": "Verify incoming call screen on the receiver",
+  "status": "Covered",
+  "test": "CALL-01",
+  "note": ""
+ },
+ "CALLS_056": {
+  "tab": "6 Calls",
+  "title": "Verify accepting a voice call",
+  "status": "Covered",
+  "test": "CALL-03/04",
+  "note": ""
+ },
+ "CALLS_057": {
+  "tab": "6 Calls",
+  "title": "Verify accepting a video call",
+  "status": "Covered",
+  "test": "CALL-10",
+  "note": ""
+ },
+ "CALLS_058": {
+  "tab": "6 Calls",
+  "title": "Verify call message after the call ends",
+  "status": "Covered",
+  "test": "CALL-08",
+  "note": ""
+ },
+ "CALLS_059": {
+  "tab": "6 Calls",
+  "title": "Verify declining an incoming call",
+  "status": "Covered",
+  "test": "CALL-02",
+  "note": ""
+ },
+ "CALLS_060": {
+  "tab": "6 Calls",
+  "title": "Verify declined call shows in the chat and Call Logs",
+  "status": "Partly",
+  "test": "CALL-02",
+  "note": ""
+ },
+ "CALLS_061": {
+  "tab": "6 Calls",
+  "title": "Verify caller can cancel before the receiver answers",
+  "status": "Covered",
+  "test": "CALL-01",
+  "note": ""
+ },
+ "CALLS_062": {
+  "tab": "6 Calls",
+  "title": "Verify unanswered call becomes a missed call",
+  "status": "Covered",
+  "test": "CALL-06",
+  "note": ""
+ },
+ "CALLS_063": {
+  "tab": "6 Calls",
+  "title": "Verify mute and unmute microphone",
+  "status": "Covered",
+  "test": "CALL-09",
+  "note": ""
+ },
+ "CALLS_064": {
+  "tab": "6 Calls",
+  "title": "Verify speaker toggle",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "speaker toggle is mobile-only"
+ },
+ "CALLS_065": {
+  "tab": "6 Calls",
+  "title": "Verify camera on and off, and switch camera",
+  "status": "Partly",
+  "test": "CALL-10",
+  "note": ""
+ },
+ "CALLS_066": {
+  "tab": "6 Calls",
+  "title": "Verify ending the call",
+  "status": "Covered",
+  "test": "CALL-08",
+  "note": ""
+ },
+ "CALLS_067": {
+  "tab": "6 Calls",
+  "title": "Verify call duration timer",
+  "status": "Covered",
+  "test": "CALL-03/04",
+  "note": ""
+ },
+ "CALLS_068": {
+  "tab": "6 Calls",
+  "title": "Verify starting a group voice call",
+  "status": "Covered",
+  "test": "CALL-11",
+  "note": ""
+ },
+ "CALLS_069": {
+  "tab": "6 Calls",
+  "title": "Verify starting a group video call",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_070": {
+  "tab": "6 Calls",
+  "title": "Verify calling a user who is offline",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_071": {
+  "tab": "6 Calls",
+  "title": "Verify calling without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_072": {
+  "tab": "6 Calls",
+  "title": "Verify call when the receiver is already on another call",
+  "status": "Covered",
+  "test": "CALL-07 (known bug BUG-019)",
+  "note": ""
+ },
+ "CALLS_073": {
+  "tab": "6 Calls",
+  "title": "Verify denying microphone or camera permission when starting a call",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "CALLS_074": {
+  "tab": "6 Calls",
+  "title": "Verify blocked user cannot call",
+  "status": "Covered",
+  "test": "USERS-032 / USERS-033",
+  "note": ""
+ },
+ "MSG_001": {
+  "tab": "7 Send Message",
+  "title": "Verify message input field is visible",
+  "status": "Covered",
+  "test": "MSG-02",
+  "note": ""
+ },
+ "MSG_002": {
+  "tab": "7 Send Message",
+  "title": "Verify message input field is clickable",
+  "status": "Covered",
+  "test": "MSG-02",
+  "note": ""
+ },
+ "MSG_003": {
+  "tab": "7 Send Message",
+  "title": "Verify typing in message input field",
+  "status": "Covered",
+  "test": "MSG-02",
+  "note": ""
+ },
+ "MSG_004": {
+  "tab": "7 Send Message",
+  "title": "Verify multi-line message input",
+  "status": "Covered",
+  "test": "MSG-03",
+  "note": ""
+ },
+ "MSG_005": {
+  "tab": "7 Send Message",
+  "title": "Verify empty message cannot be sent",
+  "status": "Covered",
+  "test": "MSG-04",
+  "note": ""
+ },
+ "MSG_006": {
+  "tab": "7 Send Message",
+  "title": "Verify message with only spaces",
+  "status": "Covered",
+  "test": "MSG-05",
+  "note": ""
+ },
+ "MSG_007": {
+  "tab": "7 Send Message",
+  "title": "Verify send button is visible",
+  "status": "Covered",
+  "test": "MSG-01",
+  "note": ""
+ },
+ "MSG_008": {
+  "tab": "7 Send Message",
+  "title": "Verify send button enabled when text entered",
+  "status": "Covered",
+  "test": "MSG-01",
+  "note": ""
+ },
+ "MSG_009": {
+  "tab": "7 Send Message",
+  "title": "Verify send button click sends message",
+  "status": "Covered",
+  "test": "MSG-01",
+  "note": ""
+ },
+ "MSG_010": {
+  "tab": "7 Send Message",
+  "title": "Verify send button visual feedback on click",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "visual press feedback"
+ },
+ "MSG_011": {
+  "tab": "7 Send Message",
+  "title": "Verify send button disabled when empty",
+  "status": "Covered",
+  "test": "MSG-04",
+  "note": ""
+ },
+ "MSG_012": {
+  "tab": "7 Send Message",
+  "title": "Verify sending simple text message",
+  "status": "Covered",
+  "test": "MSG-02",
+  "note": ""
+ },
+ "MSG_013": {
+  "tab": "7 Send Message",
+  "title": "Verify sending long text message",
+  "status": "Covered",
+  "test": "MSG-06",
+  "note": ""
+ },
+ "MSG_014": {
+  "tab": "7 Send Message",
+  "title": "Verify sending message with special characters",
+  "status": "Covered",
+  "test": "MSG-08",
+  "note": ""
+ },
+ "MSG_015": {
+  "tab": "7 Send Message",
+  "title": "Verify sending message with emojis",
+  "status": "Covered",
+  "test": "MSG-07",
+  "note": ""
+ },
+ "MSG_016": {
+  "tab": "7 Send Message",
+  "title": "Verify sending message with numbers",
+  "status": "Covered",
+  "test": "MOD-03",
+  "note": ""
+ },
+ "MSG_017": {
+  "tab": "7 Send Message",
+  "title": "Verify sending message with URL",
+  "status": "Covered",
+  "test": "MSG-10",
+  "note": ""
+ },
+ "MSG_018": {
+  "tab": "7 Send Message",
+  "title": "Verify message sending fails without network",
+  "status": "Covered",
+  "test": "NET-04",
+  "note": ""
+ },
+ "MSG_019": {
+  "tab": "7 Send Message",
+  "title": "Verify extremely long message handling",
+  "status": "Covered",
+  "test": "MSG-06",
+  "note": ""
+ },
+ "MSG_020": {
+  "tab": "7 Send Message",
+  "title": "Verify sent message alignment",
+  "status": "Covered",
+  "test": "MSGLIST-002",
+  "note": ""
+ },
+ "MSG_021": {
+  "tab": "7 Send Message",
+  "title": "Verify sent message bubble color",
+  "status": "Partly",
+  "test": "THM / VIS (colours)",
+  "note": ""
+ },
+ "MSG_022": {
+  "tab": "7 Send Message",
+  "title": "Verify sent message timestamp",
+  "status": "Covered",
+  "test": "MSG-16",
+  "note": ""
+ },
+ "MSG_023": {
+  "tab": "7 Send Message",
+  "title": "Verify sent message status indicator",
+  "status": "Covered",
+  "test": "MSG-14",
+  "note": ""
+ },
+ "MSG_024": {
+  "tab": "7 Send Message",
+  "title": "Verify received message alignment",
+  "status": "Covered",
+  "test": "MSGLIST-002",
+  "note": ""
+ },
+ "MSG_025": {
+  "tab": "7 Send Message",
+  "title": "Verify received message bubble color",
+  "status": "Partly",
+  "test": "THM / VIS (colours)",
+  "note": ""
+ },
+ "MSG_026": {
+  "tab": "7 Send Message",
+  "title": "Verify received message sender info",
+  "status": "Covered",
+  "test": "MSGLIST-004",
+  "note": ""
+ },
+ "MSG_027": {
+  "tab": "7 Send Message",
+  "title": "Verify received message timestamp",
+  "status": "Covered",
+  "test": "MSG-16",
+  "note": ""
+ },
+ "MSG_028": {
+  "tab": "7 Send Message",
+  "title": "Verify Enter key sends message",
+  "status": "Covered",
+  "test": "MSG-02",
+  "note": ""
+ },
+ "MSG_029": {
+  "tab": "7 Send Message",
+  "title": "Verify Shift+Enter creates new line",
+  "status": "Covered",
+  "test": "MSG-03",
+  "note": ""
+ },
+ "MSG_030": {
+  "tab": "7 Send Message",
+  "title": "Verify Enter key with empty input",
+  "status": "Covered",
+  "test": "MSG-04",
+  "note": ""
+ },
+ "MSG_031": {
+  "tab": "7 Send Message",
+  "title": "Verify input field clears after sending",
+  "status": "Covered",
+  "test": "MSG-01",
+  "note": ""
+ },
+ "MSG_032": {
+  "tab": "7 Send Message",
+  "title": "Verify message appears instantly for recipient",
+  "status": "Covered",
+  "test": "MSG-11",
+  "note": ""
+ },
+ "MSG_033": {
+  "tab": "7 Send Message",
+  "title": "Verify typing indicator",
+  "status": "Covered",
+  "test": "CMP-13",
+  "note": ""
+ },
+ "MSG_034": {
+  "tab": "7 Send Message",
+  "title": "Verify auto-scroll to new message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_035": {
+  "tab": "7 Send Message",
+  "title": "Verify scroll up to view history",
+  "status": "Covered",
+  "test": "MSG-18/19",
+  "note": ""
+ },
+ "MSG_036": {
+  "tab": "7 Send Message",
+  "title": "Verify new message notification when scrolled up",
+  "status": "Blocked",
+  "test": "MSG-20",
+  "note": "async moderation makes it unpredictable"
+ },
+ "MSG_037": {
+  "tab": "7 Send Message",
+  "title": "Verify attachment button is visible",
+  "status": "Covered",
+  "test": "ATT-01",
+  "note": ""
+ },
+ "MSG_038": {
+  "tab": "7 Send Message",
+  "title": "Verify attachment button click opens options",
+  "status": "Covered",
+  "test": "ATT-01",
+  "note": ""
+ },
+ "MSG_039": {
+  "tab": "7 Send Message",
+  "title": "Verify emoji button is visible",
+  "status": "Covered",
+  "test": "CMP-07",
+  "note": ""
+ },
+ "MSG_040": {
+  "tab": "7 Send Message",
+  "title": "Verify emoji button click opens picker",
+  "status": "Covered",
+  "test": "CMP-07",
+  "note": ""
+ },
+ "MSG_041": {
+  "tab": "7 Send Message",
+  "title": "Verify selecting emoji adds to input",
+  "status": "Covered",
+  "test": "CMP-07",
+  "note": ""
+ },
+ "MSG_042": {
+  "tab": "7 Send Message",
+  "title": "Verify message input on desktop",
+  "status": "Covered",
+  "test": "RESP",
+  "note": ""
+ },
+ "MSG_043": {
+  "tab": "7 Send Message",
+  "title": "Verify message input on mobile",
+  "status": "Covered",
+  "test": "RESP-02/03",
+  "note": ""
+ },
+ "MSG_044": {
+  "tab": "7 Send Message",
+  "title": "Verify message sending with slow network",
+  "status": "Covered",
+  "test": "NET-04",
+  "note": ""
+ },
+ "MSG_045": {
+  "tab": "7 Send Message",
+  "title": "Verify message retry on failure",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_046": {
+  "tab": "7 Send Message",
+  "title": "Verify attachment icon is visible",
+  "status": "Covered",
+  "test": "ATT-01",
+  "note": ""
+ },
+ "MSG_047": {
+  "tab": "7 Send Message",
+  "title": "Verify attachment options menu",
+  "status": "Covered",
+  "test": "ATT-01",
+  "note": ""
+ },
+ "MSG_048": {
+  "tab": "7 Send Message",
+  "title": "Verify sending image attachment",
+  "status": "Covered",
+  "test": "ATT-02",
+  "note": ""
+ },
+ "MSG_049": {
+  "tab": "7 Send Message",
+  "title": "Verify sending document attachment",
+  "status": "Covered",
+  "test": "ATT-06",
+  "note": ""
+ },
+ "MSG_050": {
+  "tab": "7 Send Message",
+  "title": "Verify sending video attachment",
+  "status": "Covered",
+  "test": "ATT-04",
+  "note": ""
+ },
+ "MSG_051": {
+  "tab": "7 Send Message",
+  "title": "Verify attachment upload progress",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_052": {
+  "tab": "7 Send Message",
+  "title": "Verify unsupported file type handling",
+  "status": "Covered",
+  "test": "ATT-08",
+  "note": ""
+ },
+ "MSG_053": {
+  "tab": "7 Send Message",
+  "title": "Verify file size limit handling",
+  "status": "Covered",
+  "test": "ATT-09",
+  "note": ""
+ },
+ "MSG_054": {
+  "tab": "7 Send Message",
+  "title": "Verify attachment upload failure handling",
+  "status": "Covered",
+  "test": "ATT-11",
+  "note": ""
+ },
+ "MSG_055": {
+  "tab": "7 Send Message",
+  "title": "Verify recording button is visible",
+  "status": "Covered",
+  "test": "CMP-10",
+  "note": ""
+ },
+ "MSG_056": {
+  "tab": "7 Send Message",
+  "title": "Verify recording starts on button press",
+  "status": "Covered",
+  "test": "CMP-10",
+  "note": ""
+ },
+ "MSG_057": {
+  "tab": "7 Send Message",
+  "title": "Verify recording timer display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_058": {
+  "tab": "7 Send Message",
+  "title": "Verify sending voice message",
+  "status": "Covered",
+  "test": "CMP-10",
+  "note": ""
+ },
+ "MSG_059": {
+  "tab": "7 Send Message",
+  "title": "Verify cancel recording",
+  "status": "Covered",
+  "test": "CMP-11",
+  "note": ""
+ },
+ "MSG_060": {
+  "tab": "7 Send Message",
+  "title": "Verify playing received voice message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_061": {
+  "tab": "7 Send Message",
+  "title": "Verify recording without microphone permission",
+  "status": "Covered",
+  "test": "CMP-12",
+  "note": ""
+ },
+ "MSG_062": {
+  "tab": "7 Send Message",
+  "title": "Verify very short recording handling",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_063": {
+  "tab": "7 Send Message",
+  "title": "Verify emoji button is visible",
+  "status": "Covered",
+  "test": "CMP-07",
+  "note": ""
+ },
+ "MSG_064": {
+  "tab": "7 Send Message",
+  "title": "Verify emoji picker opens",
+  "status": "Covered",
+  "test": "CMP-07",
+  "note": ""
+ },
+ "MSG_065": {
+  "tab": "7 Send Message",
+  "title": "Verify emoji categories navigation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_066": {
+  "tab": "7 Send Message",
+  "title": "Verify selecting emoji adds to input",
+  "status": "Covered",
+  "test": "CMP-07",
+  "note": ""
+ },
+ "MSG_067": {
+  "tab": "7 Send Message",
+  "title": "Verify multiple emoji selection",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_068": {
+  "tab": "7 Send Message",
+  "title": "Verify emoji search functionality",
+  "status": "Covered",
+  "test": "CMP-07b (BUG-014)",
+  "note": ""
+ },
+ "MSG_069": {
+  "tab": "7 Send Message",
+  "title": "Verify recent emojis section",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "No recent-emoji section in UIKit 7.0.3"
+ },
+ "MSG_070": {
+  "tab": "7 Send Message",
+  "title": "Verify closing emoji picker",
+  "status": "Covered",
+  "test": "CMP-08",
+  "note": ""
+ },
+ "MSG_071": {
+  "tab": "7 Send Message",
+  "title": "Verify sticker button/tab is visible",
+  "status": "Covered",
+  "test": "CMP-09",
+  "note": ""
+ },
+ "MSG_072": {
+  "tab": "7 Send Message",
+  "title": "Verify sticker picker opens",
+  "status": "Covered",
+  "test": "CMP-09",
+  "note": ""
+ },
+ "MSG_073": {
+  "tab": "7 Send Message",
+  "title": "Verify sticker packs display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_074": {
+  "tab": "7 Send Message",
+  "title": "Verify sending sticker",
+  "status": "Covered",
+  "test": "CMP-09",
+  "note": ""
+ },
+ "MSG_075": {
+  "tab": "7 Send Message",
+  "title": "Verify received sticker display",
+  "status": "Covered",
+  "test": "CMP-09",
+  "note": ""
+ },
+ "MSG_076": {
+  "tab": "7 Send Message",
+  "title": "Verify sticker pack switching",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_077": {
+  "tab": "7 Send Message",
+  "title": "Verify empty sticker state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_078": {
+  "tab": "7 Send Message",
+  "title": "Verify typing @all shows suggestion",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_079": {
+  "tab": "7 Send Message",
+  "title": "Verify selecting @all mention",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_080": {
+  "tab": "7 Send Message",
+  "title": "Verify sending message with @all",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_081": {
+  "tab": "7 Send Message",
+  "title": "Verify @all mention notification",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "push notifications are outside the web app"
+ },
+ "MSG_082": {
+  "tab": "7 Send Message",
+  "title": "Verify @all highlight in message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_083": {
+  "tab": "7 Send Message",
+  "title": "Verify @all not available in direct chat",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_084": {
+  "tab": "7 Send Message",
+  "title": "Verify typing @ shows member suggestions",
+  "status": "Covered",
+  "test": "MEN-01/02/03",
+  "note": ""
+ },
+ "MSG_085": {
+  "tab": "7 Send Message",
+  "title": "Verify filtering members by name",
+  "status": "Covered",
+  "test": "MEN-01/02/03",
+  "note": ""
+ },
+ "MSG_086": {
+  "tab": "7 Send Message",
+  "title": "Verify selecting member from suggestions",
+  "status": "Covered",
+  "test": "MEN-01/02/03",
+  "note": ""
+ },
+ "MSG_087": {
+  "tab": "7 Send Message",
+  "title": "Verify sending message with @ mention",
+  "status": "Covered",
+  "test": "MEN-05/06",
+  "note": ""
+ },
+ "MSG_088": {
+  "tab": "7 Send Message",
+  "title": "Verify @ mention notification",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "push notifications are outside the web app"
+ },
+ "MSG_089": {
+  "tab": "7 Send Message",
+  "title": "Verify @ mention highlight in message",
+  "status": "Covered",
+  "test": "MEN-05/06",
+  "note": ""
+ },
+ "MSG_090": {
+  "tab": "7 Send Message",
+  "title": "Verify multiple @ mentions in one message",
+  "status": "Covered",
+  "test": "MEN-05/06",
+  "note": ""
+ },
+ "MSG_091": {
+  "tab": "7 Send Message",
+  "title": "Verify @ mention with profile picture in suggestions",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_092": {
+  "tab": "7 Send Message",
+  "title": "Verify @ with no matching members",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_093": {
+  "tab": "7 Send Message",
+  "title": "Verify @ mention in direct chat",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_094": {
+  "tab": "7 Send Message",
+  "title": "Verify long message shows a Read more option",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_095": {
+  "tab": "7 Send Message",
+  "title": "Verify Read more shows the full message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_096": {
+  "tab": "7 Send Message",
+  "title": "Verify Poll option is visible in attach menu",
+  "status": "Covered",
+  "test": "ATT-01",
+  "note": ""
+ },
+ "MSG_097": {
+  "tab": "7 Send Message",
+  "title": "Verify creating a poll",
+  "status": "Covered",
+  "test": "EXT-01",
+  "note": ""
+ },
+ "MSG_098": {
+  "tab": "7 Send Message",
+  "title": "Verify poll cannot be created with an empty question",
+  "status": "Covered",
+  "test": "EXT-03",
+  "note": ""
+ },
+ "MSG_099": {
+  "tab": "7 Send Message",
+  "title": "Verify poll cannot be created with fewer than two options",
+  "status": "Covered",
+  "test": "EXT-03",
+  "note": ""
+ },
+ "MSG_100": {
+  "tab": "7 Send Message",
+  "title": "Verify adding more options",
+  "status": "Covered",
+  "test": "EXT-04",
+  "note": ""
+ },
+ "MSG_101": {
+  "tab": "7 Send Message",
+  "title": "Verify voting on a poll",
+  "status": "Covered",
+  "test": "EXT-02",
+  "note": ""
+ },
+ "MSG_102": {
+  "tab": "7 Send Message",
+  "title": "Verify changing a vote",
+  "status": "Covered",
+  "test": "EXT-09",
+  "note": ""
+ },
+ "MSG_103": {
+  "tab": "7 Send Message",
+  "title": "Verify poll results update for the other user",
+  "status": "Covered",
+  "test": "EXT-02",
+  "note": ""
+ },
+ "MSG_104": {
+  "tab": "7 Send Message",
+  "title": "Verify poll in a group chat",
+  "status": "Covered",
+  "test": "EXT-01",
+  "note": ""
+ },
+ "MSG_105": {
+  "tab": "7 Send Message",
+  "title": "Verify poll creation without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_106": {
+  "tab": "7 Send Message",
+  "title": "Verify Collaborative Document option is visible",
+  "status": "Covered",
+  "test": "EXT-05",
+  "note": ""
+ },
+ "MSG_107": {
+  "tab": "7 Send Message",
+  "title": "Verify creating a collaborative document",
+  "status": "Covered",
+  "test": "EXT-05",
+  "note": ""
+ },
+ "MSG_108": {
+  "tab": "7 Send Message",
+  "title": "Verify other user can open the document",
+  "status": "Covered",
+  "test": "EXT-05",
+  "note": ""
+ },
+ "MSG_109": {
+  "tab": "7 Send Message",
+  "title": "Verify edits sync between users",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "editing happens in the external doc/whiteboard app"
+ },
+ "MSG_110": {
+  "tab": "7 Send Message",
+  "title": "Verify document creation without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_111": {
+  "tab": "7 Send Message",
+  "title": "Verify Collaborative Whiteboard option is visible",
+  "status": "Covered",
+  "test": "EXT-05",
+  "note": ""
+ },
+ "MSG_112": {
+  "tab": "7 Send Message",
+  "title": "Verify creating a collaborative whiteboard",
+  "status": "Covered",
+  "test": "EXT-05",
+  "note": ""
+ },
+ "MSG_113": {
+  "tab": "7 Send Message",
+  "title": "Verify other user can open the whiteboard",
+  "status": "Covered",
+  "test": "EXT-05",
+  "note": ""
+ },
+ "MSG_114": {
+  "tab": "7 Send Message",
+  "title": "Verify drawing syncs between users",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "editing happens in the external doc/whiteboard app"
+ },
+ "MSG_115": {
+  "tab": "7 Send Message",
+  "title": "Verify whiteboard creation without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_116": {
+  "tab": "7 Send Message",
+  "title": "Verify custom message can be sent",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "custom messages need custom app code"
+ },
+ "MSG_117": {
+  "tab": "7 Send Message",
+  "title": "Verify custom message shows on the receiver side",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "custom messages need custom app code"
+ },
+ "MSG_118": {
+  "tab": "7 Send Message",
+  "title": "Verify custom message appears in the conversation preview",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "custom messages need custom app code"
+ },
+ "MSG_119": {
+  "tab": "7 Send Message",
+  "title": "Verify custom message with empty data is handled",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "custom messages need custom app code"
+ },
+ "MSG_120": {
+  "tab": "7 Send Message",
+  "title": "Verify custom message send fails without network",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "custom messages need custom app code"
+ },
+ "MSG_121": {
+  "tab": "7 Send Message",
+  "title": "Verify audio file option opens file picker",
+  "status": "Partly",
+  "test": "ATT-05",
+  "note": ""
+ },
+ "MSG_122": {
+  "tab": "7 Send Message",
+  "title": "Verify sending an audio file",
+  "status": "Partly",
+  "test": "ATT-05",
+  "note": ""
+ },
+ "MSG_123": {
+  "tab": "7 Send Message",
+  "title": "Verify playing a sent audio file",
+  "status": "Partly",
+  "test": "ATT-05",
+  "note": ""
+ },
+ "MSG_124": {
+  "tab": "7 Send Message",
+  "title": "Verify receiver can play the audio file",
+  "status": "Partly",
+  "test": "ATT-05",
+  "note": ""
+ },
+ "MSG_125": {
+  "tab": "7 Send Message",
+  "title": "Verify unsupported or corrupt audio file handling",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_126": {
+  "tab": "7 Send Message",
+  "title": "Verify sending a text message in a group",
+  "status": "Covered",
+  "test": "MSG-12",
+  "note": ""
+ },
+ "MSG_127": {
+  "tab": "7 Send Message",
+  "title": "Verify group members receive the message",
+  "status": "Covered",
+  "test": "MSG-12",
+  "note": ""
+ },
+ "MSG_128": {
+  "tab": "7 Send Message",
+  "title": "Verify sending media in a group",
+  "status": "Covered",
+  "test": "ATT-12",
+  "note": ""
+ },
+ "MSG_129": {
+  "tab": "7 Send Message",
+  "title": "Verify sending a sticker and voice message in a group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_130": {
+  "tab": "7 Send Message",
+  "title": "Verify sender name shown on received group messages",
+  "status": "Covered",
+  "test": "MSGLIST-004",
+  "note": ""
+ },
+ "MSG_131": {
+  "tab": "7 Send Message",
+  "title": "Verify user removed from group cannot send",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_132": {
+  "tab": "7 Send Message",
+  "title": "Verify banned user cannot send in the group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_154": {
+  "tab": "7 Send Message",
+  "title": "Verify selecting several images at once",
+  "status": "Covered",
+  "test": "ATT-07",
+  "note": "known bug BUG-020"
+ },
+ "MSG_155": {
+  "tab": "7 Send Message",
+  "title": "Verify selecting several videos at once",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "multi-select / caption / grouped bubble not in 7.0.3 (BUG-020)"
+ },
+ "MSG_156": {
+  "tab": "7 Send Message",
+  "title": "Verify selecting several audio files and documents",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "multi-select / caption / grouped bubble not in 7.0.3 (BUG-020)"
+ },
+ "MSG_157": {
+  "tab": "7 Send Message",
+  "title": "Verify adding a caption to media",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "multi-select / caption / grouped bubble not in 7.0.3 (BUG-020)"
+ },
+ "MSG_158": {
+  "tab": "7 Send Message",
+  "title": "Verify sending media without a caption",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "multi-select / caption / grouped bubble not in 7.0.3 (BUG-020)"
+ },
+ "MSG_159": {
+  "tab": "7 Send Message",
+  "title": "Verify removing one file from the selection",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "multi-select / caption / grouped bubble not in 7.0.3 (BUG-020)"
+ },
+ "MSG_160": {
+  "tab": "7 Send Message",
+  "title": "Verify several images show as a grouped bubble",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "multi-select / caption / grouped bubble not in 7.0.3 (BUG-020)"
+ },
+ "MSG_161": {
+  "tab": "7 Send Message",
+  "title": "Verify a single image bubble",
+  "status": "Covered",
+  "test": "ATT-02",
+  "note": ""
+ },
+ "MSG_162": {
+  "tab": "7 Send Message",
+  "title": "Verify upload progress",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_163": {
+  "tab": "7 Send Message",
+  "title": "Verify tapping an image opens a full-screen viewer",
+  "status": "Covered",
+  "test": "ATT-03",
+  "note": ""
+ },
+ "MSG_164": {
+  "tab": "7 Send Message",
+  "title": "Verify video playback",
+  "status": "Partly",
+  "test": "ATT-04",
+  "note": ""
+ },
+ "MSG_165": {
+  "tab": "7 Send Message",
+  "title": "Verify opening a document",
+  "status": "Partly",
+  "test": "ATT-06",
+  "note": ""
+ },
+ "MSG_166": {
+  "tab": "7 Send Message",
+  "title": "Verify receiver gets the media",
+  "status": "Covered",
+  "test": "ATT-02",
+  "note": ""
+ },
+ "MSG_167": {
+  "tab": "7 Send Message",
+  "title": "Verify unsupported file type",
+  "status": "Covered",
+  "test": "ATT-08",
+  "note": ""
+ },
+ "MSG_168": {
+  "tab": "7 Send Message",
+  "title": "Verify file over the size limit",
+  "status": "Covered",
+  "test": "ATT-09",
+  "note": ""
+ },
+ "MSG_169": {
+  "tab": "7 Send Message",
+  "title": "Verify sending media without network",
+  "status": "Covered",
+  "test": "ATT-11",
+  "note": ""
+ },
+ "MSG_170": {
+  "tab": "7 Send Message",
+  "title": "Verify denying storage or camera permission",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "OS permission (mobile)"
+ },
+ "MSG_171": {
+  "tab": "7 Send Message",
+  "title": "Verify sending media in a group",
+  "status": "Covered",
+  "test": "ATT-12",
+  "note": ""
+ },
+ "MSG_172": {
+  "tab": "7 Send Message",
+  "title": "Verify a link shows a preview card",
+  "status": "Covered",
+  "test": "EXT-06",
+  "note": ""
+ },
+ "MSG_173": {
+  "tab": "7 Send Message",
+  "title": "Verify the link is tappable",
+  "status": "Covered",
+  "test": "MSG-10",
+  "note": ""
+ },
+ "MSG_174": {
+  "tab": "7 Send Message",
+  "title": "Verify the preview shows for the receiver",
+  "status": "Covered",
+  "test": "EXT-06",
+  "note": ""
+ },
+ "MSG_175": {
+  "tab": "7 Send Message",
+  "title": "Verify a URL with text around it",
+  "status": "Covered",
+  "test": "EXT-06",
+  "note": ""
+ },
+ "MSG_176": {
+  "tab": "7 Send Message",
+  "title": "Verify several links in one message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_177": {
+  "tab": "7 Send Message",
+  "title": "Verify preview in the conversation list",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_178": {
+  "tab": "7 Send Message",
+  "title": "Verify preview in a group chat",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_179": {
+  "tab": "7 Send Message",
+  "title": "Verify an invalid or unreachable URL",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_180": {
+  "tab": "7 Send Message",
+  "title": "Verify a URL without a thumbnail",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_181": {
+  "tab": "7 Send Message",
+  "title": "Verify link preview without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_182": {
+  "tab": "7 Send Message",
+  "title": "Verify the Link Preview extension is off",
+  "status": "Blocked",
+  "test": "",
+  "note": "needs the dashboard extension toggle"
+ },
+ "MSG_133": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify Reply in Thread opens the thread screen",
+  "status": "Covered",
+  "test": "THR-01/04/05",
+  "note": ""
+ },
+ "MSG_134": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify thread header shows the parent message",
+  "status": "Covered",
+  "test": "THR-01/04/05",
+  "note": ""
+ },
+ "MSG_135": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify sending a text reply in a thread",
+  "status": "Covered",
+  "test": "THR-02/03",
+  "note": ""
+ },
+ "MSG_136": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify reply count updates on the parent message",
+  "status": "Covered",
+  "test": "THR-01/04/05",
+  "note": ""
+ },
+ "MSG_137": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify receiver sees the threaded reply",
+  "status": "Covered",
+  "test": "THR-02/03",
+  "note": ""
+ },
+ "MSG_138": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify thread reply does not appear in the main chat list",
+  "status": "Covered",
+  "test": "THR-06 / THR-11",
+  "note": ""
+ },
+ "MSG_139": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify sending an image in a thread",
+  "status": "Covered",
+  "test": "ATT-12",
+  "note": ""
+ },
+ "MSG_140": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify sending video, audio and document in a thread",
+  "status": "Partly",
+  "test": "THR-07",
+  "note": ""
+ },
+ "MSG_141": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify sending a voice message and sticker in a thread",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_142": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify sending a custom message in a thread",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "custom messages need custom app code"
+ },
+ "MSG_143": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify sending text and media in a group thread",
+  "status": "Covered",
+  "test": "THR-09",
+  "note": ""
+ },
+ "MSG_144": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify thread reply fails without network",
+  "status": "Covered",
+  "test": "THR-11",
+  "note": ""
+ },
+ "MSG_145": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify empty reply cannot be sent in a thread",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_146": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify thread of a deleted parent message",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "MSG_147": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify Subscribe to thread option",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Subscribe to thread is not in UIKit 7.0.3"
+ },
+ "MSG_148": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify subscribing to a thread",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Subscribe to thread is not in UIKit 7.0.3"
+ },
+ "MSG_149": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify notification on a new thread reply",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Subscribe to thread is not in UIKit 7.0.3"
+ },
+ "MSG_150": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify unsubscribing from a thread",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Subscribe to thread is not in UIKit 7.0.3"
+ },
+ "MSG_151": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify subscribing in a group chat",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Subscribe to thread is not in UIKit 7.0.3"
+ },
+ "MSG_152": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify subscribing without network",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Subscribe to thread is not in UIKit 7.0.3"
+ },
+ "MSG_153": {
+  "tab": "8 Send Threaded Message",
+  "title": "Verify the sender is subscribed automatically (if supported)",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Subscribe to thread is not in UIKit 7.0.3"
+ },
+ "GA_001": {
+  "tab": "9 Group Actions",
+  "title": "Verify Group Info panel opens",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_002": {
+  "tab": "9 Group Actions",
+  "title": "Verify group avatar display in info panel",
+  "status": "Partly",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_003": {
+  "tab": "9 Group Actions",
+  "title": "Verify group name display in info panel",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_004": {
+  "tab": "9 Group Actions",
+  "title": "Verify member count in info panel",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_005": {
+  "tab": "9 Group Actions",
+  "title": "Verify close button (X) functionality",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_006": {
+  "tab": "9 Group Actions",
+  "title": "Verify Add Members option is visible",
+  "status": "Covered",
+  "test": "MEM-03",
+  "note": ""
+ },
+ "GA_007": {
+  "tab": "9 Group Actions",
+  "title": "Verify Add Members click opens dialog",
+  "status": "Covered",
+  "test": "MEM-03",
+  "note": ""
+ },
+ "GA_008": {
+  "tab": "9 Group Actions",
+  "title": "Verify adding a new member to group",
+  "status": "Covered",
+  "test": "MEM-03",
+  "note": ""
+ },
+ "GA_009": {
+  "tab": "9 Group Actions",
+  "title": "Verify empty state when no users to add",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_010": {
+  "tab": "9 Group Actions",
+  "title": "Verify Add Members not available for non-admin",
+  "status": "Covered",
+  "test": "MEM-10",
+  "note": ""
+ },
+ "GA_011": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete Chat option is visible",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_012": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete Chat click shows confirmation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_013": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete Chat confirmation deletes messages",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_014": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete Chat disabled state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_015": {
+  "tab": "9 Group Actions",
+  "title": "Verify Leave option is visible",
+  "status": "Covered",
+  "test": "GRP-11",
+  "note": ""
+ },
+ "GA_016": {
+  "tab": "9 Group Actions",
+  "title": "Verify Leave click shows confirmation",
+  "status": "Covered",
+  "test": "GRP-11",
+  "note": ""
+ },
+ "GA_017": {
+  "tab": "9 Group Actions",
+  "title": "Verify Leave confirmation removes user from group",
+  "status": "Covered",
+  "test": "GRP-11",
+  "note": ""
+ },
+ "GA_018": {
+  "tab": "9 Group Actions",
+  "title": "Verify owner cannot leave without transferring ownership",
+  "status": "Covered",
+  "test": "GRP-12",
+  "note": ""
+ },
+ "GA_019": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete and Exit option is visible",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_020": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete and Exit click shows confirmation",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_021": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete and Exit deletes group completely",
+  "status": "Covered",
+  "test": "GRP-13",
+  "note": ""
+ },
+ "GA_022": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete and Exit not available for non-owner",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_023": {
+  "tab": "9 Group Actions",
+  "title": "Verify View Members tab is visible",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_024": {
+  "tab": "9 Group Actions",
+  "title": "Verify View Members tab shows member list",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_025": {
+  "tab": "9 Group Actions",
+  "title": "Verify member profile picture display",
+  "status": "Partly",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_026": {
+  "tab": "9 Group Actions",
+  "title": "Verify member name display",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_027": {
+  "tab": "9 Group Actions",
+  "title": "Verify owner badge display",
+  "status": "Covered",
+  "test": "MEM-01",
+  "note": ""
+ },
+ "GA_028": {
+  "tab": "9 Group Actions",
+  "title": "Verify online status indicator",
+  "status": "Covered",
+  "test": "MSGLIST-082",
+  "note": ""
+ },
+ "GA_029": {
+  "tab": "9 Group Actions",
+  "title": "Verify Banned Members tab is visible",
+  "status": "Covered",
+  "test": "MEM-05/06",
+  "note": ""
+ },
+ "GA_030": {
+  "tab": "9 Group Actions",
+  "title": "Verify Banned Members tab click",
+  "status": "Covered",
+  "test": "MEM-05/06",
+  "note": ""
+ },
+ "GA_031": {
+  "tab": "9 Group Actions",
+  "title": "Verify unban option for banned members",
+  "status": "Covered",
+  "test": "MEM-05/06",
+  "note": ""
+ },
+ "GA_032": {
+  "tab": "9 Group Actions",
+  "title": "Verify empty Banned Members state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_033": {
+  "tab": "9 Group Actions",
+  "title": "Verify search field is visible",
+  "status": "Covered",
+  "test": "MEM-02",
+  "note": ""
+ },
+ "GA_034": {
+  "tab": "9 Group Actions",
+  "title": "Verify search by member name",
+  "status": "Covered",
+  "test": "MEM-02",
+  "note": ""
+ },
+ "GA_035": {
+  "tab": "9 Group Actions",
+  "title": "Verify search clears correctly",
+  "status": "Covered",
+  "test": "MEM-02",
+  "note": ""
+ },
+ "GA_036": {
+  "tab": "9 Group Actions",
+  "title": "Verify search with no results",
+  "status": "Covered",
+  "test": "MEM-02",
+  "note": ""
+ },
+ "GA_037": {
+  "tab": "9 Group Actions",
+  "title": "Verify Kick option in member dropdown",
+  "status": "Covered",
+  "test": "MEM-04/13",
+  "note": ""
+ },
+ "GA_038": {
+  "tab": "9 Group Actions",
+  "title": "Verify Kick click shows confirmation",
+  "status": "Covered",
+  "test": "MEM-04/13",
+  "note": ""
+ },
+ "GA_039": {
+  "tab": "9 Group Actions",
+  "title": "Verify Kick removes member from group",
+  "status": "Covered",
+  "test": "MEM-04/13",
+  "note": ""
+ },
+ "GA_040": {
+  "tab": "9 Group Actions",
+  "title": "Verify Kick not available for non-admin",
+  "status": "Covered",
+  "test": "MEM-10",
+  "note": ""
+ },
+ "GA_041": {
+  "tab": "9 Group Actions",
+  "title": "Verify cannot kick group owner",
+  "status": "Covered",
+  "test": "MEM-11",
+  "note": ""
+ },
+ "GA_042": {
+  "tab": "9 Group Actions",
+  "title": "Verify Ban option in member dropdown",
+  "status": "Covered",
+  "test": "MEM-05/06",
+  "note": ""
+ },
+ "GA_043": {
+  "tab": "9 Group Actions",
+  "title": "Verify Ban click shows confirmation",
+  "status": "Covered",
+  "test": "MEM-05/06",
+  "note": ""
+ },
+ "GA_044": {
+  "tab": "9 Group Actions",
+  "title": "Verify Ban removes and blocks member",
+  "status": "Covered",
+  "test": "MEM-05/06",
+  "note": ""
+ },
+ "GA_045": {
+  "tab": "9 Group Actions",
+  "title": "Verify Ban not available for non-admin",
+  "status": "Covered",
+  "test": "MEM-10",
+  "note": ""
+ },
+ "GA_046": {
+  "tab": "9 Group Actions",
+  "title": "Verify cannot ban group owner",
+  "status": "Covered",
+  "test": "MEM-11",
+  "note": ""
+ },
+ "GA_047": {
+  "tab": "9 Group Actions",
+  "title": "Verify Change Scope option in member dropdown",
+  "status": "Covered",
+  "test": "MEM-07/08",
+  "note": ""
+ },
+ "GA_048": {
+  "tab": "9 Group Actions",
+  "title": "Verify Change Scope click opens options",
+  "status": "Covered",
+  "test": "MEM-07/08",
+  "note": ""
+ },
+ "GA_049": {
+  "tab": "9 Group Actions",
+  "title": "Verify promoting member to admin",
+  "status": "Covered",
+  "test": "MEM-07/08",
+  "note": ""
+ },
+ "GA_050": {
+  "tab": "9 Group Actions",
+  "title": "Verify demoting admin to member",
+  "status": "Covered",
+  "test": "MEM-07/08",
+  "note": ""
+ },
+ "GA_051": {
+  "tab": "9 Group Actions",
+  "title": "Verify Change Scope not available for non-admin",
+  "status": "Covered",
+  "test": "MEM-10",
+  "note": ""
+ },
+ "GA_052": {
+  "tab": "9 Group Actions",
+  "title": "Verify cannot change owner's scope",
+  "status": "Covered",
+  "test": "MEM-11",
+  "note": ""
+ },
+ "GA_053": {
+  "tab": "9 Group Actions",
+  "title": "Verify Group Info panel on desktop",
+  "status": "Covered",
+  "test": "groups suite",
+  "note": ""
+ },
+ "GA_054": {
+  "tab": "9 Group Actions",
+  "title": "Verify Group Info panel on mobile",
+  "status": "Covered",
+  "test": "RESP-04",
+  "note": ""
+ },
+ "GA_055": {
+  "tab": "9 Group Actions",
+  "title": "Verify Pinned Messages option opens the list",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pinned messages are not in UIKit 7.0.3"
+ },
+ "GA_056": {
+  "tab": "9 Group Actions",
+  "title": "Verify pinning a message appears in Pinned Messages",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pinned messages are not in UIKit 7.0.3"
+ },
+ "GA_057": {
+  "tab": "9 Group Actions",
+  "title": "Verify empty Pinned Messages state",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pinned messages are not in UIKit 7.0.3"
+ },
+ "GA_058": {
+  "tab": "9 Group Actions",
+  "title": "Verify unpinning a message",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pinned messages are not in UIKit 7.0.3"
+ },
+ "GA_059": {
+  "tab": "9 Group Actions",
+  "title": "Verify tapping a pinned message jumps to it",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "Pinned messages are not in UIKit 7.0.3"
+ },
+ "GA_060": {
+  "tab": "9 Group Actions",
+  "title": "Verify Transfer Ownership dialog appears when owner taps Leave",
+  "status": "Covered",
+  "test": "GRP-12 / MEM-09",
+  "note": ""
+ },
+ "GA_061": {
+  "tab": "9 Group Actions",
+  "title": "Verify selecting a new owner and continuing",
+  "status": "Covered",
+  "test": "MEM-09",
+  "note": ""
+ },
+ "GA_062": {
+  "tab": "9 Group Actions",
+  "title": "Verify Cancel keeps ownership",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_063": {
+  "tab": "9 Group Actions",
+  "title": "Verify former owner can leave after transfer",
+  "status": "Covered",
+  "test": "MEM-09",
+  "note": ""
+ },
+ "GA_064": {
+  "tab": "9 Group Actions",
+  "title": "Verify transfer with no other members",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_065": {
+  "tab": "9 Group Actions",
+  "title": "Verify Delete and Exit warns about permanent deletion",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GA_066": {
+  "tab": "9 Group Actions",
+  "title": "Verify notice when a member is added",
+  "status": "Covered",
+  "test": "MSGLIST-033",
+  "note": ""
+ },
+ "GA_067": {
+  "tab": "9 Group Actions",
+  "title": "Verify notice when a member is kicked",
+  "status": "Covered",
+  "test": "MEM-04/13",
+  "note": ""
+ },
+ "GA_068": {
+  "tab": "9 Group Actions",
+  "title": "Verify notices when a member is banned and unbanned",
+  "status": "Partly",
+  "test": "MEM-05/06",
+  "note": ""
+ },
+ "GA_069": {
+  "tab": "9 Group Actions",
+  "title": "Verify notices when a member's scope changes",
+  "status": "Covered",
+  "test": "MEM-07/08",
+  "note": ""
+ },
+ "GA_070": {
+  "tab": "9 Group Actions",
+  "title": "Verify notices show the correct names and order",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_001": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify users list loads correctly",
+  "status": "Covered",
+  "test": "USR-01",
+  "note": ""
+ },
+ "USERS_002": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify alphabetical grouping of users",
+  "status": "Covered",
+  "test": "USR-01",
+  "note": ""
+ },
+ "USERS_003": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify user profile picture display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_004": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify user name display format",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_005": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify empty users list state",
+  "status": "Covered",
+  "test": "USR-04",
+  "note": ""
+ },
+ "USERS_006": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify users list scrolling functionality",
+  "status": "Covered",
+  "test": "USR-08",
+  "note": ""
+ },
+ "USERS_007": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify clicking on a user opens conversation",
+  "status": "Covered",
+  "test": "USR-06",
+  "note": ""
+ },
+ "USERS_008": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify selected user visual feedback",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_009": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search field is visible and accessible",
+  "status": "Covered",
+  "test": "USR-02/03",
+  "note": ""
+ },
+ "USERS_010": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search by full name",
+  "status": "Covered",
+  "test": "USR-02/03",
+  "note": ""
+ },
+ "USERS_011": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search by partial first name",
+  "status": "Covered",
+  "test": "USR-02/03",
+  "note": ""
+ },
+ "USERS_012": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search by partial last name",
+  "status": "Partly",
+  "test": "USR-02/03",
+  "note": ""
+ },
+ "USERS_013": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify case-insensitive search",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_014": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search with no matching results",
+  "status": "Covered",
+  "test": "USR-04",
+  "note": ""
+ },
+ "USERS_015": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search with special characters",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_016": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search with only spaces",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_017": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify clearing search field",
+  "status": "Covered",
+  "test": "USR-05",
+  "note": ""
+ },
+ "USERS_018": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify real-time search filtering",
+  "status": "Covered",
+  "test": "USR-02/03",
+  "note": ""
+ },
+ "USERS_019": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search with minimum characters",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_020": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Users module on desktop browser",
+  "status": "Covered",
+  "test": "users suite",
+  "note": ""
+ },
+ "USERS_021": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Users module on mobile device",
+  "status": "Covered",
+  "test": "RESP-02/03",
+  "note": ""
+ },
+ "USERS_022": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Users tab highlight in navigation",
+  "status": "Covered",
+  "test": "NAV-01",
+  "note": ""
+ },
+ "USERS_023": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify navigation between tabs",
+  "status": "Covered",
+  "test": "NAV-01",
+  "note": ""
+ },
+ "USERS_024": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify loading state during slow connection",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_025": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify error handling on network failure",
+  "status": "Covered",
+  "test": "USR-10",
+  "note": ""
+ },
+ "USERS_026": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Block option is available",
+  "status": "Covered",
+  "test": "UDET-03/06",
+  "note": ""
+ },
+ "USERS_027": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Block shows a confirmation",
+  "status": "Covered",
+  "test": "UDET-03/06",
+  "note": ""
+ },
+ "USERS_028": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify cancelling Block keeps the chat unchanged",
+  "status": "Covered",
+  "test": "UDET-04",
+  "note": ""
+ },
+ "USERS_029": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify blocking a user",
+  "status": "Covered",
+  "test": "UDET-03/06",
+  "note": ""
+ },
+ "USERS_030": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify composer is hidden and an unblock prompt shows",
+  "status": "Covered",
+  "test": "UDET-03/06",
+  "note": ""
+ },
+ "USERS_031": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify blocked user's message does not reach the blocker",
+  "status": "Covered",
+  "test": "UDET-05",
+  "note": ""
+ },
+ "USERS_032": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify blocked user cannot call the blocker",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_033": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the blocker cannot start a call to the blocked user",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_034": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Unblock option and confirmation",
+  "status": "Covered",
+  "test": "UDET-03/06",
+  "note": ""
+ },
+ "USERS_035": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify messaging works after unblocking",
+  "status": "Covered",
+  "test": "UDET-03/06",
+  "note": ""
+ },
+ "USERS_036": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify earlier messages stay after block and unblock",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_037": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify blocked user in the Users list and Conversation list",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_038": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify blocking without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "USERS_039": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Block is not available in a group chat",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_001": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group list loads correctly",
+  "status": "Covered",
+  "test": "GRP-01",
+  "note": ""
+ },
+ "GROUPS_002": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group name display",
+  "status": "Covered",
+  "test": "GRP-01",
+  "note": ""
+ },
+ "GROUPS_003": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group avatar/icon display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_004": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify member count display",
+  "status": "Covered",
+  "test": "GRP-01",
+  "note": ""
+ },
+ "GROUPS_005": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify online status indicator",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "groups have no presence"
+ },
+ "GROUPS_006": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group initials avatar display",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_007": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify empty group list state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_008": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify handling of very long group names",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_009": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group list scrolling functionality",
+  "status": "Covered",
+  "test": "GRP-14",
+  "note": ""
+ },
+ "GROUPS_010": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search field is visible and accessible",
+  "status": "Covered",
+  "test": "GRP-02",
+  "note": ""
+ },
+ "GROUPS_011": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search by group name",
+  "status": "Covered",
+  "test": "GRP-02",
+  "note": ""
+ },
+ "GROUPS_012": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search by partial name",
+  "status": "Covered",
+  "test": "GRP-02",
+  "note": ""
+ },
+ "GROUPS_013": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify case-insensitive search",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_014": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify clearing search field",
+  "status": "Covered",
+  "test": "GRP-02",
+  "note": ""
+ },
+ "GROUPS_015": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify real-time search filtering",
+  "status": "Covered",
+  "test": "GRP-02",
+  "note": ""
+ },
+ "GROUPS_016": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search with no matching results",
+  "status": "Covered",
+  "test": "GRP-02",
+  "note": ""
+ },
+ "GROUPS_017": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify search with special characters",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_018": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify clicking on group opens conversation",
+  "status": "Covered",
+  "test": "MSG-12",
+  "note": ""
+ },
+ "GROUPS_019": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify selected group visual feedback",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_020": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Create Group button is visible",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_021": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Create Group button click",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_022": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Create Group button hover state",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_023": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify welcome message display",
+  "status": "Covered",
+  "test": "NAV-02",
+  "note": ""
+ },
+ "GROUPS_024": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify welcome message instruction text",
+  "status": "Covered",
+  "test": "NAV-02",
+  "note": ""
+ },
+ "GROUPS_025": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify welcome message icon",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_026": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Groups module on desktop browser",
+  "status": "Covered",
+  "test": "groups suite",
+  "note": ""
+ },
+ "GROUPS_027": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Groups module on mobile device",
+  "status": "Covered",
+  "test": "RESP-02/03",
+  "note": ""
+ },
+ "GROUPS_028": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Groups tab highlight in navigation",
+  "status": "Covered",
+  "test": "NAV-01",
+  "note": ""
+ },
+ "GROUPS_029": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify navigation between tabs",
+  "status": "Covered",
+  "test": "NAV-01",
+  "note": ""
+ },
+ "GROUPS_030": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify loading state during slow connection",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_031": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify error handling on network failure",
+  "status": "Covered",
+  "test": "GRP-15",
+  "note": ""
+ },
+ "GROUPS_032": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Create Group opens the creation form",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_033": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify form fields and labels",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_034": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group icon or avatar option",
+  "status": "Not in 7.0.3 / N/A",
+  "test": "",
+  "note": "The 7.0.3 New Group dialog has no avatar picker"
+ },
+ "GROUPS_035": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify creating a Public group",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_036": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify creating a Private group",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_037": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify creating a Password-protected group",
+  "status": "Covered",
+  "test": "GRP-05",
+  "note": ""
+ },
+ "GROUPS_038": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify creator becomes the group owner",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_039": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify new group opens or appears after creation",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_040": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group name with special characters and emoji",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_041": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify a very long group name",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_042": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group cannot be created with an empty name",
+  "status": "Covered",
+  "test": "GRP-06",
+  "note": ""
+ },
+ "GROUPS_043": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify group cannot be created with a name of only spaces",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_044": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify password group without a password",
+  "status": "Covered",
+  "test": "GRP-05",
+  "note": ""
+ },
+ "GROUPS_045": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify duplicate group name handling",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_046": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Create Group without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_047": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Cancel closes the form without creating",
+  "status": "Covered",
+  "test": "GRP-07",
+  "note": ""
+ },
+ "GROUPS_048": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify Back button closes the form",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_049": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the new group appears in Groups list and search",
+  "status": "Covered",
+  "test": "GRP-03/04",
+  "note": ""
+ },
+ "GROUPS_050": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the member count of a new group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_051": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the new group appears for added members",
+  "status": "Covered",
+  "test": "MEM-03",
+  "note": ""
+ },
+ "GROUPS_052": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the group shows a Join option",
+  "status": "Covered",
+  "test": "GRP-08",
+  "note": ""
+ },
+ "GROUPS_053": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify joining a public group",
+  "status": "Covered",
+  "test": "GRP-08",
+  "note": ""
+ },
+ "GROUPS_054": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the joined group appears in the Groups and Chats lists",
+  "status": "Covered",
+  "test": "GRP-08",
+  "note": ""
+ },
+ "GROUPS_055": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify a join notice shows in the group chat",
+  "status": "Covered",
+  "test": "GRP-08",
+  "note": ""
+ },
+ "GROUPS_056": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify a password prompt shows",
+  "status": "Covered",
+  "test": "GRP-09",
+  "note": ""
+ },
+ "GROUPS_057": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify joining with the correct password",
+  "status": "Covered",
+  "test": "GRP-09",
+  "note": ""
+ },
+ "GROUPS_058": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the password field masks input",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_059": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify joining with a wrong password",
+  "status": "Covered",
+  "test": "GRP-09",
+  "note": ""
+ },
+ "GROUPS_060": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify joining with an empty password",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_061": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify a private group cannot be joined without an invite",
+  "status": "Covered",
+  "test": "GRP-10",
+  "note": ""
+ },
+ "GROUPS_062": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify a banned user cannot join",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_063": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify joining without network",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ },
+ "GROUPS_064": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the joined user can send and receive messages",
+  "status": "Covered",
+  "test": "SMK-02",
+  "note": ""
+ },
+ "GROUPS_065": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify the member count increases",
+  "status": "Covered",
+  "test": "GRP-08",
+  "note": ""
+ },
+ "GROUPS_066": {
+  "tab": "10 Modules (Users+Groups)",
+  "title": "Verify leaving and rejoining a public group",
+  "status": "Not covered",
+  "test": "",
+  "note": ""
+ }
+}

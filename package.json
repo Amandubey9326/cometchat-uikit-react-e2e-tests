@@ -19,6 +19,7 @@
     "discover": "playwright test --config discovery/playwright.discovery.config.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "coverage:sheet": "python3 scripts/sheet_coverage.py",
     "coverage:matrix": "python3 scripts/coverage_matrix.py docs/coverage-matrix.md reports/results.json",
     "test:cross-browser": "playwright test --project=chromium --project=firefox --project=webkit --grep \"@smoke|@critical\"",
     "test:localization": "playwright test --grep @localization --project=chromium",

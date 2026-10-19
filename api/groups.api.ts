@@ -54,6 +54,18 @@ export class GroupsApi {
     await this.rest.post(`/groups/${encodeURIComponent(guid)}/members`, { body: members });
   }
 
+  /** Removes (kicks) `uid` from a framework-owned group (REST). */
+  async kick(guid: string, uid: string): Promise<void> {
+    assertOwned(guid);
+    await this.rest.delete(`/groups/${encodeURIComponent(guid)}/members/${encodeURIComponent(uid)}`);
+  }
+
+  /** Bans `uid` from a framework-owned group (REST). */
+  async ban(guid: string, uid: string): Promise<void> {
+    assertOwned(guid);
+    await this.rest.post(`/groups/${encodeURIComponent(guid)}/bannedusers/${encodeURIComponent(uid)}`, { body: {} });
+  }
+
   async search(searchKey: string): Promise<ApiGroup[]> {
     const out: ApiGroup[] = [];
     for (let page = 1; ; page++) {
